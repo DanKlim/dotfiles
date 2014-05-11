@@ -1,0 +1,33 @@
+{
+  "node": true,
+  "browser": true,
+  "jquery": true,
+
+  "eqeqeq": true,
+  "forin": false,
+  "freeze": true,
+  "latedef": "nofunc",
+  "newcap": false,
+  "noarg": true,
+  "noempty": true,
+  "quotmark": true,
+  "undef": true,
+  "unused": true,
+  "strict": false,
+  "trailing": true,
+  "maxlen": 80,
+
+  "boss": true,
+  "eqnull": true,
+  "loopfunc": true,
+
+  "globals": {
+    "describe": false,
+    "it": false,
+    "before": false,
+    "after": false,
+    "d3": false,
+    "angular": false,
+    "Parse": false
+  }
+}
