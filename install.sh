@@ -11,15 +11,15 @@ ln -s "$dir"/bash/mongo.js ~
 # I love vim
 ln -s "$dir"/vim/.vimrc ~
 ln -s "$dir"/vim/.gvimrc ~
-ln -s "$dir"/vim/shared.vim ~/.vim/
-ln -s "$dir"/vim/mybundle.vim ~/.vim/
+ln -s "$dir"/vim/shared.vim ~/.vim
+ln -s "$dir"/vim/mybundle.vim ~/.vim
 
 # jshint
 ln -s "$dir"/.jshintrc ~
 
 # keyboard mappings
 # https://pqrs.org/macosx/keyremap4macbook/
-ln -s "$dir"/keyboard/private.xml ~
+ln -s "$dir"/private.xml ~
 ln -s "$dir"/keyboard ~
 ln -s "$dir"/keyboard/.slate.js ~
 ln -s "$dir"/keyboard/.phoenix ~
