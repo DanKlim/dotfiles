@@ -17,9 +17,11 @@ ln -sf "$dir"/vim/mybundle.vim ~/.vim
 # jshint
 ln -sf "$dir"/.jshintrc ~
 
-# keyboard mappings
-# https://pqrs.org/macosx/keyremap4macbook/
+# keyboard shortcuts
 ln -sf "$dir"/private.xml ~
+ln -sf "$dir"/scripts ~/Library/Scripts
+
+# window management
 ln -sf "$dir"/keyboard ~
 ln -sf "$dir"/keyboard/.slate.js ~
 ln -sf "$dir"/keyboard/.phoenix ~
