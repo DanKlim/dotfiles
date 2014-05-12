@@ -225,7 +225,7 @@ S.on('windowOpened', function(e, win) {
       win.doop(tboltBotFarLeft);
     } else if (title === 'Untitled' || twitchVideoRegexp.test(title)) {
       win.doop(tboltTwitchVideo);
-    } else if (title === 'Untitled' || twitchChatRegexp.test(title)) {
+    } else if (twitchChatRegexp.test(title)) {
       win.doop(tboltTwitchChat);
     } else if (title === 'My subscriptions - YouTube') {
       win.doop(tboltYoutubeVideo);
@@ -237,11 +237,9 @@ S.on('windowOpened', function(e, win) {
 // When a MacVim window closes, focus on the app that's behind.
 // This is usually the wanted behavior.
 S.on('windowClosed', function(e, app) {
-  switch (app().name()) {
+  switch (app.name()) {
     case 'MacVim':
       focusApp('Terminal')();
-      break;
-    case 'Google Chrome':
       break;
   }
 });

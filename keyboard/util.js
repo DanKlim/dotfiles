@@ -34,7 +34,7 @@ function each() {
 var focusAppOps = {};
 
 function focusApp(appName) {
-  var op = focusApp[appName];
+  var op = focusAppOps[appName];
   if (!op) {
     op = focusAppOps[appName] = S.op('focus', { app: appName });
   }
