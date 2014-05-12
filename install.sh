@@ -18,7 +18,7 @@ ln -sf "$dir"/vim/mybundle.vim ~/.vim
 ln -sf "$dir"/.jshintrc ~
 
 # keyboard shortcuts
-ln -sf "$dir"/private.xml ~
+ln -sf "$dir"/private.xml "$HOME/Library/Application Support/KeyRemap4MacBook"
 ln -sf "$dir"/scripts ~/Library/Scripts
 
 # window management
