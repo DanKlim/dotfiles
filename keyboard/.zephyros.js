@@ -71,8 +71,8 @@ App.byTitle = function(title) {
 };
 
 // Position a window.
-function pos(key, x, y, w, h) {
-  bind(key, hyper, Window.func('toGrid', x, y, w, h));
+function pos(key, x, y, w, h, otherScreen) {
+  bind(key, hyper, Window.func('toGrid', x, y, w, h, otherScreen));
 }
 
 pos('q', 0.0, 0.0, 0.5, 0.5);
@@ -82,6 +82,9 @@ pos('s', 0.5, 0.5, 0.5, 0.5);
 pos('f', 0.0, 0.0, 1.0, 1.0);
 pos('z', 0.0, 0.0, 0.5, 1.0);
 pos('x', 0.5, 0.0, 0.5, 1.0);
+pos('c', 0.0, 0.0, 1.0, 1.0);
+pos('v', 0.25, 0.5, 0.5, 0.5, true);
+pos('b', 0.25, 0.0, 0.5, 0.5, true);
 
 // Switch to specific apps.
 function focusApp(key, appName) {
@@ -105,7 +108,7 @@ focusApp('s', 'Finder');
 focusApp('d', 'HipChat');
 focusApp('g', 'Clementine');
 focusApp('7', 'Skype');
-focusApp('8', 'Stream');
+focusApp('8', 'Steam');
 focusApp('9', 'Messages');
 
 // Focus windos with cdtrl + nm,.
