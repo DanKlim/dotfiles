@@ -60,8 +60,17 @@ inoremap <c-u> <esc>viwUe
 nnoremap <c-u> viwU
 
 " Add a closing bracket and new line when typing an opening bracket.
-inoremap {<cr> {<cr>}<esc>O
-inoremap [<cr> [<cr>]<esc>O
+inoremap {<cr> <esc>:call <SID>CloseBracket('{', '}')<cr>O
+inoremap [<cr> <esc>:call <SID>CloseBracket('[', ']')<cr>O
+
+function! s:CloseBracket(open, close)
+  if getline('.') =~# '\S = '
+    let sc = ';'
+  else
+    let sc = ''
+  endif
+  execute "normal! a" . a:open . "\<cr>" . a:close . sc
+endfunction
 
 " <up> to show the last command used.
 " Rather than pressing ; followed by <up>.
