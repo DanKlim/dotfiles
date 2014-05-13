@@ -1,4 +1,4 @@
-/*global bind, listen, api, log, Window, App */
+/*global bind, listen, api, log, Window, App, Screen */
 
 var hyper = ['cmd', 'alt', 'ctrl'];
 var ctrl = ['ctrl'];
@@ -27,15 +27,25 @@ Window.prototype.toGrid = function(x, y, w, h, otherScreen) {
   } else {
     screen = this.screen();
   }
-  screen = screen.frameWithoutDockOrMenu();
+  var frame = screen.frameWithoutDockOrMenu();
 
   this.setFrame({
-    x : Math.round(x * screen.w) + screen.x,
-    y : Math.round(y * screen.h) + screen.y,
-    w : Math.round(w * screen.w),
-    h : Math.round(h * screen.h),
+    x : Math.round(x * frame.w) + frame.x,
+    y : Math.round(y * frame.h) + frame.y,
+    w : Math.round(w * frame.w),
+    h : Math.round(h * frame.h),
   });
   return this;
+};
+
+Screen.laptop = { w: 1280, h: 800 };
+Screen.tbolt = { w: 2560, h: 1440 };
+
+Screen.prototype.isMain = function() {
+  var frame = this.frameIncludingDockAndMenu();
+  var main = Screen.laptop;
+  log('ohoh ' + frame.w + ', ' + frame.h + ', ' + main.w + ', ' + main.h);
+  return ~~frame.w === main.w && ~~frame.h === main.h;
 };
 
 // Returns function that calls method on a window.
@@ -123,10 +133,14 @@ listen('window_created', function(win) {
   log('window created: ' + appTitle);
   switch (appTitle) {
   case 'Terminal':
-    win.toGrid(0.0, 0.0, 0.5, 1.0);
+    if (win.screen().isMain()) {
+      win.toGrid(0.0, 0.0, 0.5, 1.0);
+    }
     break;
   case 'MacVim':
-    win.toGrid(0.5, 0.0, 0.5, 1.0);
+    if (win.screen().isMain()) {
+      win.toGrid(0.5, 0.0, 0.5, 1.0);
+    }
     break;
   case 'Google Chrome':
     var title = win.title();
