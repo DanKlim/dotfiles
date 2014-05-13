@@ -30,16 +30,6 @@ S.bind('r:cmd;shift', S.op('relaunch'));
 var laptop = '1280x800';
 var tbolt = '2560x1440';
 
-// Show a different grid depending on the monitor.
-// Temporarily disabled because it doesn't work with a 2nd monitor.
-// Using Divvy's grid for now.
-/*
-var grids = {};
-grids[laptop] = { width: 4, height: 2 };
-grids[tbolt] = { width: 8, height: 4 };
-S.bind('g:cmd', S.op('grid', { grids: grids }));
-*/
-
 // Throw app between monitors.
 var throwLaptop = S.op('throw', {
   screen : laptop,
