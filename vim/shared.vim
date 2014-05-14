@@ -60,11 +60,17 @@ inoremap <c-u> <esc>viwUe
 nnoremap <c-u> viwU
 
 " Add a closing bracket and new line when typing an opening bracket.
-inoremap {<cr> <esc>:call <SID>CloseBracket('{', '}')<cr>O
-inoremap [<cr> <esc>:call <SID>CloseBracket('[', ']')<cr>O
+augroup filetype_js
+  autocmd!
+  autocmd FileType javascript inoremap <buffer>
+   \ {<cr> <esc>:call <SID>CloseBracket('{', '}')<cr>O
+  autocmd FileType javascript inoremap <buffer>
+   \ [<cr> <esc>:call <SID>CloseBracket('[', ']')<cr>O
+augroup END
 
 function! s:CloseBracket(open, close)
-  if getline('.') =~# '\S = '
+  let cline = getline('.')
+  if cline =~# '\S = ' && cline !~# '^\s*for\s?('
     let sc = ';'
   else
     let sc = ''
@@ -134,7 +140,10 @@ autocmd BufReadPost *
 set tabstop=2
 set shiftwidth=2
 set expandtab
-autocmd FileType go setlocal noexpandtab
+augroup filetype_go
+  autocmd!
+  autocmd FileType go setlocal noexpandtab
+augroup END
 
 " Highlight cursor.
 highlight CursorLine ctermbg=8 cterm=NONE
