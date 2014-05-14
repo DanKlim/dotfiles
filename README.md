@@ -41,6 +41,8 @@
 * https://github.com/sdegutis/zephyros
   - fast window switcher.
   - doesn't have window closing event.
+  - crashes often.
+  - nice log window.
 * https://github.com/sdegutis/Phoenix
   - most efficient and maintained.
   - doesn't switch window focus as fast.
