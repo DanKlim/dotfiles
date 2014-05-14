@@ -70,7 +70,7 @@ augroup END
 
 function! s:CloseBracket(open, close)
   let cline = getline('.')
-  if cline =~# '\S = ' && cline !~# '^\s*for\s?('
+  if cline =~# '\S = ' && cline !~# '^\s*for\s\?('
     let sc = ';'
   else
     let sc = ''
