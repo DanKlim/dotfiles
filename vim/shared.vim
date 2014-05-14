@@ -90,8 +90,8 @@ nnoremap <leader>V :vs<cr>
 
 " Searching ------------------------- {{{
 " Search for word over cursor puts cursor at first keyword.
-nnoremap * *N
-vnoremap * *N
+nnoremap * :silent normal! *N<cr>
+vnoremap * :silent normal! *N<cr>
 
 " Clears the search. (c)
 nnoremap <leader><space> :nohlsearch<cr>
