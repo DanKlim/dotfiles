@@ -23,6 +23,8 @@ Window.prototype.toGrid = function(x, y, w, h, otherScreen) {
     var screens = api.allScreens();
     if (screens.length > 1) {
       screen = screens[1];
+    } else {
+      return;
     }
   } else {
     screen = this.screen();
@@ -58,13 +60,17 @@ Window.func = function(fn) {
 };
 
 // Get app by title.
+var appsMap = {};
 App.byTitle = function(title) {
+  var app = appsMap[title];
+  if (app) { return app; }
   var apps = api.runningApps();
   for (var i = 0, len = apps.length; i < len; i ++) {
-    var app = apps[i];
+    app = apps[i];
 
     // `App#title()` return an object not a string.
     if ('' + app.title() === title) {
+      appsMap[title] = app;
       return app;
     }
   }
