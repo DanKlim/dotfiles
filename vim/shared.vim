@@ -39,12 +39,12 @@ augroup END
 nnoremap Q <nop>
 nnoremap K <nop>
 
-" Move through buffers with Cmd + j/k.
-nnoremap <d-j> :bn<cr>
-nnoremap <d-k> :bp<cr>
+" Move through buffers.
+nnoremap <leader>d :bn<cr>
+nnoremap <leader>f :bp<cr>
 
 " Move to the last buffer with Cmd + i.
-nnoremap <d-i> <c-^>
+nnoremap <leader>m <c-^>
 
 " Redo to U.
 nnoremap U <c-r>
@@ -90,8 +90,8 @@ nnoremap <leader>V :vs<cr>
 
 " Searching ------------------------- {{{
 " Search for word over cursor puts cursor at first keyword.
-nnoremap * :silent normal! *N<cr>
-vnoremap * :silent normal! *N<cr>
+nnoremap * :silent! normal! *N<cr>
+vnoremap * :silent! normal! *N<cr>
 
 " Clears the search. (c)
 nnoremap <leader><space> :nohlsearch<cr>
