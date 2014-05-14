@@ -34,13 +34,17 @@
 * http://mizage.com/divvy/
   - has a really good grid sizer. otherwise the next apps are better.
 * https://github.com/jigish/slate
-  - fastest window switcher.
+  - fast window switcher.
   - has events for window opening/closing.
+  - has better direction focusing.
+  - doesn't unbind.
 * https://github.com/sdegutis/zephyros
+  - fast window switcher.
+  - doesn't have window closing event.
 * https://github.com/sdegutis/Phoenix
   - most efficient and maintained.
-  - doesn't have events.
   - doesn't switch window focus as fast.
+  - doesn't have events.
 
 # other
 * https://justgetflux.com/
