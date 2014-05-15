@@ -55,10 +55,6 @@ nnoremap J <c-w>j
 nnoremap K <c-w>k
 nnoremap L <c-w>l
 
-" Uppercase word.
-inoremap <c-u> <esc>viwUe
-nnoremap <c-u> viwU
-
 " Add a closing bracket and new line when typing an opening bracket.
 augroup filetype_js
   autocmd!

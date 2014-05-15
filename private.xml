@@ -435,5 +435,16 @@
       KeyCode::SEMICOLON
     </autogen>
   </item>
+  <item>
+    <name>Ctrl + U to Capslock</name>
+    <identifier>space_cadet.remap_ctrl_u_to_capslock</identifier>
+    <autogen>
+      --KeyToKey--
+      KeyCode::U,
+      ModifierFlag::CONTROL_L,
+      KeyCode::CAPSLOCK,
+      ModifierFlag::NONE
+    </autogen>
+  </item>
 </root>
 
