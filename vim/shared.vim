@@ -59,14 +59,14 @@ nnoremap L <c-w>l
 augroup filetype_js
   autocmd!
   autocmd FileType javascript inoremap <buffer>
-   \ {<cr> <esc>:call <SID>CloseBracket('{', '}')<cr>O
+    \ {<cr> <esc>:call <SID>CloseBracket('{', '}', 1)<cr>O
   autocmd FileType javascript inoremap <buffer>
-   \ [<cr> <esc>:call <SID>CloseBracket('[', ']')<cr>O
+    \ [<cr> <esc>:call <SID>CloseBracket('[', ']', 1)<cr>O
 augroup END
 
-function! s:CloseBracket(open, close)
+function! s:CloseBracket(open, close, findsc)
   let cline = getline('.')
-  if cline =~# '\S = ' && cline !~# '^\s*for\s\?('
+  if a:findsc && cline =~# '\S = ' && cline !~# '^\s*for\s\?('
     let sc = ';'
   else
     let sc = ''
@@ -136,9 +136,11 @@ autocmd BufReadPost *
 set tabstop=2
 set shiftwidth=2
 set expandtab
-augroup filetype_go
+augroup filetype_go_shared
   autocmd!
   autocmd FileType go setlocal noexpandtab
+  autocmd FileType go inoremap <buffer>
+    \ {<cr> <esc>:call <SID>CloseBracket('{', '}', 0)<cr>O
 augroup END
 
 " Highlight cursor.
