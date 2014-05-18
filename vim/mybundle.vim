@@ -37,11 +37,10 @@ Bundle 'fatih/vim-go'
 
 " Syntax Highlighting ------ {{{
 Bundle 'plasticboy/vim-markdown'
-Bundle 'jelera/vim-javascript-syntax'
 Bundle 'pangloss/vim-javascript'
+Bundle 'jelera/vim-javascript-syntax'
 Bundle 'elzr/vim-json'
 Bundle 'lukaszb/vim-web-indent'
-Bundle 'jnwhiteh/vim-golang'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/applescript.vim'
 Bundle 'vim-scripts/AnsiEsc.vim'
