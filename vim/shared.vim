@@ -157,9 +157,10 @@ set wildmode=longest,list
 set autoread
 
 " Folding ------------------ {{{
-set foldmethod=indent
+set foldmethod=syntax
 set foldnestmax=5
-set foldlevelstart=4
+set foldlevelstart=1
+let javaScript_fold=1
 
 " Use space to toggle folds.
 nnoremap <silent> <space> za
