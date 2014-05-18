@@ -35,51 +35,6 @@ Window.func = function(fn) {
   };
 };
 
-function f(fn) {
-  var args = Array.prototype.slice.call(arguments, 1);
-  return function() {
-    fn.apply(null, args);
-  };
-}
-
-api.mbind = function(key, mod, msg, map) {
-  var enabled = false;
-  var hotkeys = [];
-  for (var k in map) {
-    (function(key, fn) {
-      var hotkey = api.bind(key, null, function() {
-        fn();
-      });
-      hotkey.disable();
-      hotkeys.push(hotkey);
-    })(k, map[k]);
-  }
-
-  function disable() {
-    enabled = false;
-    hotkeys.forEach(function(hotkey) {
-      hotkey.disable();
-    });
-    api.alert('exit ' + msg);
-  }
-
-  var escape = api.bind('escape', null, disable);
-  escape.disable();
-  hotkeys.push(escape);
-
-  api.bind(key, mod, function() {
-    if (enabled) {
-      disable();
-    } else {
-      enabled = true;
-      hotkeys.forEach(function(hotkey) {
-        hotkey.enable();
-      });
-      api.alert(msg);
-    }
-  });
-};
-
 // Position a window.
 api.bind('q', hyper, Window.func('toGrid', 0.0, 0.0, 0.5, 0.5));
 api.bind('w', hyper, Window.func('toGrid', 0.5, 0.0, 0.5, 0.5));
@@ -89,66 +44,149 @@ api.bind('z', hyper, Window.func('toGrid', 0.0, 0.0, 0.5, 1.0));
 api.bind('x', hyper, Window.func('toGrid', 0.5, 0.0, 0.5, 1.0));
 api.bind('f', hyper, Window.func('toggleFullscreen'));
 
-// Focus windos with ctrl + nm,.
+// Focus windows in directions with ctrl + nm,.
 api.bind('n', ctrl, Window.func('focusWindowLeft'));
 api.bind('m', ctrl, Window.func('focusWindowDown'));
 api.bind(',', ctrl, Window.func('focusWindowUp'));
 api.bind('.', ctrl, Window.func('focusWindowRight'));
 
+function f(fn) {
+  var args = Array.prototype.slice.call(arguments, 1);
+  return function() {
+    fn.apply(null, args);
+  };
+}
+
+var modalModes = [];
+api.mbind = function(key, mod, msg, map) {
+  var enabled = false;
+  var hotkeys = [];
+  for (var k in map) {
+    (function(key, fn) {
+      var hotkey = api.bind(key, null, function() {
+        fn();
+        disable();
+      });
+      hotkey.disable();
+      hotkeys.push(hotkey);
+    })(k, map[k]);
+  }
+
+  function disable(exitMsg) {
+    if (!enabled) { return; }
+    enabled = false;
+    hotkeys.forEach(function(hotkey) {
+      hotkey.disable();
+    });
+    if (exitMsg) {
+      api.alert('exit ' + msg);
+    }
+  }
+
+  var disableWithMsg = disable.bind(null, true);
+  var escape = api.bind('escape', null, disableWithMsg);
+  escape.disable();
+  hotkeys.push(escape);
+
+  api.bind(key, mod, function() {
+    if (enabled) {
+      disable(true);
+    } else {
+      modalModes.forEach(function(disable) { disable(); });
+      enabled = true;
+      hotkeys.forEach(function(hotkey) {
+        hotkey.enable();
+      });
+      api.alert(msg);
+    }
+  });
+
+  // Add the `disable()` function defined here to an array so that
+  // when one modal mode is enabled, others are disabled.
+  modalModes.push(disable);
+};
+
 // Position modally
 var grid = { width: 4, height: 4 };
 function changeGrid(prop, increase) {
+  var inc = 0;
+  var symbol = '';
   if (increase) {
-    ++grid[prop];
+    inc = grid[prop];
+    symbol = ' + ';
+    grid[prop] *= 2;
   } else if (grid[prop] > 1) {
-    --grid[prop];
+    symbol = ' - ';
+    inc = grid[prop] / 2;
+    grid[prop] /= 2;
   }
-  api.alert('grid ' + prop + ': ' + grid[prop]);
+  api.alert('grid ' + prop + symbol + inc +
+    ': [' + grid.width + ',' + grid.height + ']');
 }
 
-function snap(frameProp, gridProp, increase, adjustPoint) {
+function snap(prop, pivot, increase, adjustPivot) {
   var win = Window.focusedWindow();
   var screenFrame = win.screen().frameWithoutDockOrMenu();
-  var block = screenFrame[frameProp] / grid[gridProp];
+  var block = screenFrame[prop] / grid[prop];
   var winFrame = win.frame();
-  var winBlocks = winFrame[frameProp] / block;
-  var val = winFrame[frameProp];
+  var winBlocks = winFrame[prop] / block;
+  var val = winFrame[prop];
   var newval;
 
-  // If close enough, consider window already snapped.
+  // Snap pivot to nearest block.
+  winFrame[pivot] = Math.round(winFrame[pivot] / block) * block;
+
   var closeness = winBlocks % 1;
-  if (closeness < 0.05 || closeness > 0.95) {
+  if (closeness < 0.05 || closeness > 0.91) {
+    // If close enough, consider window already snapped.
+    var blocks = Math.round(winBlocks) * block;
     if (increase) {
-      newval = Math.min(val + block, screenFrame[gridProp]);
+      var screenSize = screenFrame[prop];
+      if (!adjustPivot) {
+        screenSize -= winFrame[pivot];
+      }
+      newval = Math.min(blocks + block, screenSize);
     } else {
-      newval = Math.max(val - block, block);
+      newval = Math.max(blocks - block, block);
     }
   } else {
-    newval = Math[increase ? 'ceil' : 'floor'](winBlocks) * block;
+    // If not already snapped, snap to nearest block size and position.
+    var round = Math[increase ? 'ceil' : 'floor'];
+    newval = round(winBlocks) * block;
   }
-  winFrame[frameProp] = newval;
-  if (adjustPoint) {
+  winFrame[prop] = newval;
+
+  if (adjustPivot) {
+    // If `adjustPivot` is set, then the window's top left point
+    // will be adjusted so that the bottom/right side of the window
+    // stays in the same position.
     var adjustment = val - newval;
-    var adjusted = winFrame[adjustPoint] + adjustment;
+    var adjusted = winFrame[pivot] + adjustment;
     if (Math.abs(adjustment) > 5 &&
-        adjusted >= 0 && adjustment + newval <= screenFrame[gridProp]) {
-      winFrame[adjustPoint] = adjusted;
+        adjusted >= 0 && adjustment + newval <= screenFrame[prop]) {
+      winFrame[pivot] = adjusted;
     }
   }
   win.setFrame(winFrame);
 }
 
-api.mbind('s', cmd, 'size', {
-  'y': f(changeGrid, 'width', false),
-  'u': f(changeGrid, 'height', false),
-  'i': f(changeGrid, 'height', true),
-  'o': f(changeGrid, 'width', true),
-  'j': f(snap, 'height', 'height', true),
-  'k': f(snap, 'height', 'height', false),
-  'm': f(snap, 'height', 'height', false, 'y'),
-  ',': f(snap, 'height', 'height', true, 'y'),
-  'h': f(snap, 'width', 'width', false),
-  'l': f(snap, 'width', 'width', true),
-  'n': f(snap, 'width', 'width', true, 'x'),
-  '.': f(snap, 'width', 'width', false, 'x'),
+api.mbind('i', cmd, 'config', {
+  a: f(changeGrid, 'width', false),
+  s: f(changeGrid, 'height', false),
+  d: f(changeGrid, 'height', true),
+  f: f(changeGrid, 'width', true),
+});
+
+api.mbind('j', cmd, 'resize width', {
+  a: f(snap, 'width', 'x', true, false),
+  s: f(snap, 'width', 'x', false, false),
+  d: f(snap, 'width', 'x', false, true),
+  f: f(snap, 'width', 'x', true, true),
+});
+
+api.mbind('k', cmd, 'resize height', {
+  a: f(snap, 'height', 'y', false, false),
+  s: f(snap, 'height', 'y', true, false),
+  d: f(snap, 'height', 'y', true, true),
+  f: f(snap, 'height', 'y', false, true),
 });
