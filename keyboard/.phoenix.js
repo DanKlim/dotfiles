@@ -1,4 +1,4 @@
-/*global api, Window, App */
+/*global api, Window */
 var hyper = ['cmd', 'alt', 'ctrl'];
 var ctrl = ['ctrl'];
 var cmd = ['cmd'];
@@ -35,58 +35,12 @@ Window.func = function(fn) {
   };
 };
 
-// Calls an object method with given args.
-function func(obj, method) {
-  var args = Array.prototype.slice.call(arguments, 2);
-  if (obj) {
-    obj[method].apply(obj, args);
-  }
-}
-
-function bind(obj, method) {
-  var args = Array.prototype.slice.call(arguments, 2);
-  return function() {
-    if (obj) {
-      obj[method].apply(obj, args);
-    }
-  };
-}
-
 function f(fn) {
   var args = Array.prototype.slice.call(arguments, 1);
   return function() {
     fn.apply(null, args);
   };
 }
-
-// Get app by title.
-App.apps = {};
-App.byTitle = function(title) {
-  var app = App.apps[title];
-  if (app) {
-    return app;
-  }
-  var apps = App.runningApps();
-  for (var i = 0, len = apps.length; i < len; i ++) {
-    app = apps[i];
-    if (app.title() === title) {
-      App.apps[title] = app;
-      return app;
-    }
-  }
-};
-
-App.focusByTitle = function(title) {
-  func(App.byTitle(title), 'focus');
-};
-
-App.prototype.firstWindow = function() {
-  return this.visibleWindows()[0];
-};
-
-App.prototype.focus = function() {
-  func(this.firstWindow(), 'focusWindow');
-};
 
 api.mbind = function(key, mod, msg, map) {
   var enabled = false;
@@ -134,16 +88,6 @@ api.bind('s', hyper, Window.func('toGrid', 0.5, 0.5, 0.5, 0.5));
 api.bind('z', hyper, Window.func('toGrid', 0.0, 0.0, 0.5, 1.0));
 api.bind('x', hyper, Window.func('toGrid', 0.5, 0.0, 0.5, 1.0));
 api.bind('f', hyper, Window.func('toggleFullscreen'));
-
-// Switch to specific apps.
-api.bind('w', ctrl, bind(App.byTitle('Google Chrome'), 'focus'));
-api.bind('e', ctrl, bind(App.byTitle('Terminal'), 'focus'));
-api.bind('r', ctrl, bind(App.byTitle('MacVim'), 'focus'));
-api.bind('t', ctrl, bind(App.byTitle('µTorrent'), 'focus'));
-api.bind('s', ctrl, bind(App.byTitle('Finder'), 'focus'));
-api.bind('d', ctrl, bind(App.byTitle('Hipchat'), 'focus'));
-api.bind('tab', ctrl, bind(App.byTitle('Spotify'), 'focus'));
-api.bind('g', ctrl, bind(App.byTitle('Steam'), 'focus'));
 
 // Focus windos with ctrl + nm,.
 api.bind('n', ctrl, Window.func('focusWindowLeft'));

@@ -48,28 +48,12 @@ var throwTbolt = S.op('throw', {
 S.bind('n:ctrl;cmd;alt', chain(throwLaptop, throwTbolt));
 
 // Positional operations.
-var full = S.op('move', {
-  screen : laptop,
-  x      : 'screenOriginX',
-  y      : 'screenOriginY',
-  width  : 'screenSizeX',
-  height : 'screenSizeY',
-});
 var lapLeft = S.op('push', {
   screen    : laptop,
   direction : 'left',
   style     : 'bar-resize:screenSizeX/2',
 });
 var lapRight = lapLeft.dup({ direction: 'right' });
-var lapTopLeft = S.op('corner', {
-  screen    : laptop,
-  direction : 'top-left',
-  width     : 'screenSizeX/2',
-  height    : 'screenSizeY/2',
-});
-var lapTopRight = lapTopLeft.dup({ direction: 'top-right' });
-var lapBotLeft = lapTopLeft.dup({ direction: 'bottom-left' });
-var lapBotRight = lapTopLeft.dup({ direction: 'bottom-right' });
 
 // Thunderbolt 4x2 grid.
 var tboltTopFarLeft = S.op('move', {
@@ -125,42 +109,6 @@ var tboltYoutubeVideo = S.op('move', {
   width  : 'screenSizeX/4',
   height : 'screenSizeY/8*3',
 });
-
-// Thunderbolt 2x2 grid.
-var tboltTopLeft = S.op('move', {
-  screen : tbolt,
-  x      : 'screenOriginX',
-  y      : 'screenOriginY',
-  width  : 'screenSizeX/2',
-  height : 'screenSizeY/2',
-});
-var tboltTopRight = tboltTopLeft.dup({ x: 'screenOriginX+screenSizeX/2' });
-var tboltBotLeft  = tboltTopLeft.dup({ y: 'screenOriginY+screenSizeY/2' });
-var tboltBotRight = tboltTopLeft.dup({
-  x: 'screenOriginX+screenSizeX/2',
-  y: 'screenOriginY+screenSizeY/2',
-});
-var tboltBotFront = tboltTopLeft.dup({
-  x: 'screenOriginX+screenSizeX/4',
-  y: 'screenOriginY+screenSizeY/2',
-});
-var tboltTopFront = tboltBotFront.dup({
-  y: 'screenOriginY',
-});
-
-S.bind('c:ctrl;alt;cmd', full);
-S.bind('z:ctrl;alt;cmd', lapLeft);
-S.bind('x:ctrl;alt;cmd', lapRight);
-S.bind('q:ctrl;alt;cmd', lapTopLeft);
-S.bind('w:ctrl;alt;cmd', lapTopRight);
-S.bind('a:ctrl;alt;cmd', lapBotLeft);
-S.bind('s:ctrl;alt;cmd', lapBotRight);
-S.bind('d:ctrl;alt;cmd', tboltBotLeft);
-S.bind('f:ctrl;alt;cmd', tboltBotRight);
-S.bind('e:ctrl;alt;cmd', tboltTopLeft);
-S.bind('r:ctrl;alt;cmd', tboltTopRight);
-S.bind('v:ctrl;alt;cmd', tboltBotFront);
-S.bind('b:ctrl;alt;cmd', tboltTopFront);
 
 // Switch to specific apps.
 S.bind('w:ctrl', each(
@@ -233,9 +181,3 @@ S.on('windowClosed', function(e, app) {
       break;
   }
 });
-
-// Focus windows with ctrl + nm,..
-S.bind('n:ctrl', S.op('focus', { direction: 'left' }));
-S.bind('m:ctrl', S.op('focus', { direction: 'down' }));
-S.bind(',:ctrl', S.op('focus', { direction: 'up' }));
-S.bind('.:ctrl', S.op('focus', { direction: 'right' }));

@@ -43,10 +43,12 @@
   - doesn't have window closing event.
   - crashes often.
   - nice log window.
+  - can unbind.
 * https://github.com/sdegutis/Phoenix
   - most efficient and maintained.
   - doesn't switch window focus as fast.
   - doesn't have events.
+  - can unbind.
 
 # other
 * https://justgetflux.com/
