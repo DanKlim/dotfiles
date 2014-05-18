@@ -4,6 +4,14 @@ var ctrl = ['ctrl'];
 var cmd = ['cmd'];
 var previousSizes = {};
 
+/**
+ * Sets a window's frame to a grid with its properties as percentages.
+ *
+ * @param {Number} x
+ * @param {Number} y
+ * @param {Number} w
+ * @param {Number} h
+ */
 Window.prototype.toGrid = function(x, y, w, h) {
   var screen = this.screen().frameWithoutDockOrMenu();
   this.setFrame({
@@ -26,7 +34,12 @@ Window.prototype.toggleFullscreen = function() {
   }
 };
 
-// Returns function that calls method on the focused window.
+/**
+ * Returns function that calls method on the focused window.
+ *
+ * @param {Function} fn
+ * @return {Function}
+ */
 Window.func = function(fn) {
   var args = Array.prototype.slice.call(arguments, 1);
   return function() {
@@ -57,7 +70,23 @@ function f(fn) {
   };
 }
 
+// Keep track of modal mode bindings.
 var modalModes = [];
+
+/**
+ * Creates a "modal" mode by binding more keys to actions specified in
+ * `map` when `key` and `mod` are pressed.
+ * Will exit out of this mode when either the activation binding is pressed
+ * again, escape is pressed, any key in the map is pressed, or
+ * another modal mode is activated.
+ *
+ * Will display a `msg` when entering/exiting this mode.
+ *
+ * @param {String} key
+ * @param {Array.<String>} mod
+ * @param {String} msg
+ * @param {Object.<Function>} map
+ */
 api.mbind = function(key, mod, msg, map) {
   var enabled = false;
   var hotkeys = [];
@@ -106,8 +135,16 @@ api.mbind = function(key, mod, msg, map) {
   modalModes.push(disable);
 };
 
-// Position modally
+// Position modally.
 var grid = { width: 4, height: 4 };
+
+/**
+ * Changes the dimensions of the grid and shows an alert with the
+ * property changed and the updated grid.
+ *
+ * @param {String} prop
+ * @param {Boolean} increase
+ */
 function changeGrid(prop, increase) {
   var inc = 0;
   var symbol = '';
@@ -124,6 +161,25 @@ function changeGrid(prop, increase) {
     ': [' + grid.width + ',' + grid.height + ']');
 }
 
+/**
+ * Snaps the current window to the grid and changes its property
+ * size by a block. A `block` is equal to the screen property size
+ * divided by the grid property. For example, if the screen's with is
+ * 1200, and the grid width is 4, a block is 300.
+ * 
+ * If the window's size is within 10% of a multiple of a block,
+ * it will round the size the nearest block multiple, and it will
+ * add or remove a block. If not, then it will only "round".
+ * Round will mean `Math.ceil()` if `increase` is `true`,
+ * `Math.floor()` otherwise.
+ *
+ * The `pivot` will also be snapped to the nearest grid intersection.
+ *
+ * @param {String} prop
+ * @param {String} pivot
+ * @param {Boolean} increase
+ * @param {Boolean} adjustPivot
+ */
 function snap(prop, pivot, increase, adjustPivot) {
   var win = Window.focusedWindow();
   var screenFrame = win.screen().frameWithoutDockOrMenu();
@@ -137,7 +193,7 @@ function snap(prop, pivot, increase, adjustPivot) {
   winFrame[pivot] = Math.round(winFrame[pivot] / block) * block;
 
   var closeness = winBlocks % 1;
-  if (closeness < 0.05 || closeness > 0.91) {
+  if (closeness < 0.1 || closeness > 0.91) {
     // If close enough, consider window already snapped.
     var blocks = Math.round(winBlocks) * block;
     if (increase) {
@@ -170,6 +226,13 @@ function snap(prop, pivot, increase, adjustPivot) {
   win.setFrame(winFrame);
 }
 
+/**
+ * Pushes the current window to the edge of its screen.
+ *
+ * @param {String} prop
+ * @param {String} pivot
+ * @param {Boolean} increase
+ */
 function push(prop, pivot, increase) {
   var win = Window.focusedWindow();
   var screenFrame = win.screen().frameWithoutDockOrMenu();
