@@ -236,3 +236,18 @@ augroup BWCCreateDir
     \ execute "silent! !mkdir -p ".shellescape(expand('%:h'), 1) |
     \ redraw! | endif
 augroup END
+
+function! Fenc()
+  if &fenc !~ "^$\\|utf-8" || &bomb
+    return "[" . &fenc . (&bomb ? "-bom" : "") . "]"
+  else
+    return ""
+  endif
+endfunction
+
+" Custom status line
+set statusline=%<%f                 " filename
+set statusline+=%m                  " modified or readonly flag
+set statusline+=%{Fenc()}           " file encoding
+set statusline+=%=                  " align right
+set statusline+=%15.(%l,%c/%L\ %P%) " cursor position/total lines
