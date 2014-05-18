@@ -228,9 +228,6 @@ function! s:QuickfixToggle()
   endif
 endfunction
 
-" Split windows below by default.
-set splitbelow
-
 augroup BWCCreateDir
   autocmd!
   autocmd BufWritePre *
