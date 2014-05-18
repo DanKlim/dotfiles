@@ -166,7 +166,7 @@ function changeGrid(prop, increase) {
  * size by a block. A `block` is equal to the screen property size
  * divided by the grid property. For example, if the screen's with is
  * 1200, and the grid width is 4, a block is 300.
- * 
+ *
  * If the window's size is within 10% of a multiple of a block,
  * it will round the size the nearest block multiple, and it will
  * add or remove a block. If not, then it will only "round".
@@ -190,7 +190,8 @@ function snap(prop, pivot, increase, adjustPivot) {
   var newval;
 
   // Snap pivot to nearest block.
-  winFrame[pivot] = Math.round(winFrame[pivot] / block) * block;
+  winFrame[pivot] = screenFrame[pivot] +
+    Math.round(winFrame[pivot] / block) * block;
 
   var closeness = winBlocks % 1;
   if (closeness < 0.1 || closeness > 0.91) {
@@ -217,11 +218,7 @@ function snap(prop, pivot, increase, adjustPivot) {
     // will be adjusted so that the bottom/right side of the window
     // stays in the same position.
     var adjustment = val - newval;
-    var adjusted = winFrame[pivot] + adjustment;
-    if (Math.abs(adjustment) > 5 &&
-        adjusted >= 0 && adjustment + newval <= screenFrame[prop]) {
-      winFrame[pivot] = adjusted;
-    }
+    winFrame[pivot] = winFrame[pivot] + adjustment;
   }
   win.setFrame(winFrame);
 }
