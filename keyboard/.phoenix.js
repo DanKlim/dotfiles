@@ -170,6 +170,17 @@ function snap(prop, pivot, increase, adjustPivot) {
   win.setFrame(winFrame);
 }
 
+function push(prop, pivot, increase) {
+  var win = Window.focusedWindow();
+  var screenFrame = win.screen().frameWithoutDockOrMenu();
+  var winFrame = win.frame();
+  winFrame[pivot] = screenFrame[pivot];
+  if (increase) {
+    winFrame[pivot] += screenFrame[prop] - winFrame[prop];
+  }
+  win.setFrame(winFrame);
+}
+
 api.mbind('i', cmd, 'config', {
   a: f(changeGrid, 'width', false),
   s: f(changeGrid, 'height', false),
@@ -189,4 +200,11 @@ api.mbind('k', cmd, 'resize height', {
   s: f(snap, 'height', 'y', true, false),
   d: f(snap, 'height', 'y', true, true),
   f: f(snap, 'height', 'y', false, true),
+});
+
+api.mbind('u', cmd, 'push', {
+  a: f(push, 'width', 'x', false), // left
+  s: f(push, 'height', 'y', true), // down
+  d: f(push, 'height', 'y', false),  // up
+  f: f(push, 'width', 'x', true),  // right
 });
