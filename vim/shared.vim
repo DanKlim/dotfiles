@@ -172,6 +172,14 @@ augroup filetype_vim
   autocmd BufRead *.vim setlocal foldmethod=marker
 augroup END
 " }}}
+
+" CoffeeScript settings --------------------- {{{
+augroup coffee
+  autocmd!
+  autocmd FileType coffee setlocal foldmethod=indent nofoldenable
+augroup END
+" }}}
+
 " }}}
 
 " Faster communication with vim.
