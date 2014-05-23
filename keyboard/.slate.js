@@ -181,3 +181,9 @@ S.on('windowClosed', function(e, app) {
       break;
   }
 });
+
+// Focus windows with ctrl + nm,..
+S.bind('n:ctrl', S.op('focus', { direction: 'left' }));
+S.bind('m:ctrl', S.op('focus', { direction: 'down' }));
+S.bind(',:ctrl', S.op('focus', { direction: 'up' }));
+S.bind('.:ctrl', S.op('focus', { direction: 'right' }));

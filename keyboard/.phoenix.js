@@ -1,6 +1,5 @@
 /*global api, Window */
 var hyper = ['cmd', 'alt', 'ctrl'];
-var ctrl = ['ctrl'];
 var cmd = ['cmd'];
 var previousSizes = {};
 
@@ -56,12 +55,6 @@ api.bind('s', hyper, Window.func('toGrid', 0.5, 0.5, 0.5, 0.5));
 api.bind('z', hyper, Window.func('toGrid', 0.0, 0.0, 0.5, 1.0));
 api.bind('x', hyper, Window.func('toGrid', 0.5, 0.0, 0.5, 1.0));
 api.bind('f', hyper, Window.func('toggleFullscreen'));
-
-// Focus windows in directions with ctrl + nm,.
-api.bind('n', ctrl, Window.func('focusWindowLeft'));
-api.bind('m', ctrl, Window.func('focusWindowDown'));
-api.bind(',', ctrl, Window.func('focusWindowUp'));
-api.bind('.', ctrl, Window.func('focusWindowRight'));
 
 function f(fn) {
   var args = Array.prototype.slice.call(arguments, 1);
