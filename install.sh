@@ -19,7 +19,7 @@ ln -sf "$dir"/.jshintrc ~
 
 # keyboard shortcuts
 ln -sf "$dir"/private.xml "$HOME/Library/Application Support/KeyRemap4MacBook"
-ln -sf "$dir"/Scripts/* ~/Library/Scripts
+cp -R "$dir"/Scripts/* ~/Library/Scripts
 
 # window management
 ln -sf "$dir"/keyboard ~
