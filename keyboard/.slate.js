@@ -127,6 +127,7 @@ S.bind('g:ctrl', each(
   focusApp('Spotify'),
   focusApp('Clementine')
 ));
+S.bind('6:ctrl', focusApp('Mumble'));
 S.bind('7:ctrl', focusApp('Skype'));
 S.bind('8:ctrl', focusApp('Steam'));
 S.bind('9:ctrl', focusApp('Messages'));
