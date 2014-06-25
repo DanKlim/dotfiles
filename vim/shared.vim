@@ -169,18 +169,26 @@ vnoremap <space> zf
 " Don't screw up folds when inserting text that might affect them, until
 " leaving insert mode. Foldmethod is local to the window. Protect against
 " screwing up folding when switching between windows.
+function! s:InsertEnter()
+  for n in range(1, winnr('$'))
+    :call setwinvar(n, "last_fdm", getwinvar(n, "&foldmethod"))
+    :call setwinvar(n, "&foldmethod", "manual")
+  endfor
+endfunction
+
+function! s:InsertLeave()
+  if exists('w:last_fdm')
+    for n in range(1, winnr('$'))
+      :call setwinvar(n, "&foldmethod", getwinvar(n, "last_fdm"))
+    endfor
+    unlet w:last_fdm
+  endif
+endfunction
+
 augroup folding
   autocmd!
-  autocmd InsertEnter *
-    \ if !exists('w:last_fdm') |
-    \ let w:last_fdm=&foldmethod |
-    \ setlocal foldmethod=manual |
-    \ endif
-  autocmd InsertLeave,WinLeave *
-    \ if exists('w:last_fdm') |
-    \ let &l:foldmethod=w:last_fdm |
-    \ unlet w:last_fdm |
-    \ endif
+  autocmd InsertEnter * :call <SID>InsertEnter()
+  autocmd InsertLeave,WinLeave * :call <SID>InsertLeave()
 augroup END
 
 " Vimscript file settings ------------------- {{{
