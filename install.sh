@@ -26,4 +26,4 @@ ln -sf "$dir"/keyboard ~
 ln -sf "$dir"/keyboard/.slate.js ~
 ln -sf "$dir"/keyboard/.phoenix ~
 ln -sf "$dir"/keyboard/.zephyros.js ~
-ln -sf "$dir"/keyboard/hydra/* ~/.hydra
+ln -sf "$dir"/keyboard/.hydra ~
