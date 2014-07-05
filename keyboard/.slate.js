@@ -1,4 +1,4 @@
-/*global S, chain, focusApp */
+/*global S, chain, focusApp, oneScreen */
 S.source('~/keyboard/config.js');
 S.source('~/keyboard/util.js');
 
@@ -134,18 +134,20 @@ S.on('windowOpened', function(e, win) {
     }
     break;
   case 'Google Chrome':
-    var title = win.title();
-    // Keeping this here for now for logging purposes.
-    // Window titles are inconsistent.
-    S.log('title', title);
-    if (devToolsRegexp.test(title)) {
-      win.doop(tboltBotFarLeft);
-    } else if (title === 'Untitled' || twitchVideoRegexp.test(title)) {
-      win.doop(tboltTwitchVideo);
-    } else if (twitchChatRegexp.test(title)) {
-      win.doop(tboltTwitchChat);
-    } else if (title === 'My subscriptions - YouTube') {
-      win.doop(tboltYoutubeVideo);
+    if (!oneScreen()) {
+      var title = win.title();
+      // Keeping this here for now for logging purposes.
+      // Window titles are inconsistent.
+      S.log('title', title);
+      if (devToolsRegexp.test(title)) {
+        win.doop(tboltBotFarLeft);
+      } else if (title === 'Untitled' || twitchVideoRegexp.test(title)) {
+        win.doop(tboltTwitchVideo);
+      } else if (twitchChatRegexp.test(title)) {
+        win.doop(tboltTwitchChat);
+      } else if (title === 'My subscriptions - YouTube') {
+        win.doop(tboltYoutubeVideo);
+      }
     }
     break;
   }
