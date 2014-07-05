@@ -45,10 +45,16 @@
   - nice log window.
   - can unbind.
 * https://github.com/sdegutis/Phoenix
-  - most efficient and maintained.
+  - 2nd most efficient and maintained.
   - doesn't switch window focus as fast.
   - doesn't have events.
   - can unbind.
+* https://github.com/sdegutis/hydra
+  - newest, most efficient, most maintained.
+  - doesn't have events, but plants to.
+  - can unbind.
+  - nice log window.
+  - most customizable.
 
 # other
 * https://justgetflux.com/
