@@ -1,4 +1,4 @@
-/*global S, ifOneScreen, chain, each, push, focusApp */
+/*global S, chain, focusApp */
 S.source('~/keyboard/config.js');
 S.source('~/keyboard/util.js');
 
@@ -109,28 +109,6 @@ var tboltYoutubeVideo = S.op('move', {
   width  : 'screenSizeX/4',
   height : 'screenSizeY/8*3',
 });
-
-// Switch to specific apps.
-S.bind('w:ctrl', each(
-  focusApp('Google Chrome'),
-  ifOneScreen(push('HUDTube', 'bottom right'))
-));
-S.bind('e:ctrl', focusApp('Terminal'));
-S.bind('r:ctrl', each(
-  focusApp('MacVim'),
-  ifOneScreen(push('HUDTube', 'bottom left'))
-));
-S.bind('s:ctrl', focusApp('Finder'));
-S.bind('d:ctrl', focusApp('HipChat'));
-S.bind('t:ctrl', focusApp('µTorrent'));
-S.bind('g:ctrl', each(
-  focusApp('Spotify'),
-  focusApp('Clementine')
-));
-S.bind('6:ctrl', focusApp('Mumble'));
-S.bind('7:ctrl', focusApp('Skype'));
-S.bind('8:ctrl', focusApp('Steam'));
-S.bind('9:ctrl', focusApp('Messages'));
 
 var n = 0;
 var devToolsRegexp = /^(Developer Tools - |chrome-devtools:\/\/devtools\/)/;
