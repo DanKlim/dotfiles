@@ -18,7 +18,7 @@ end)
 
 function checkforupdates()
   updates.check()
-  settings.set('lastcheckedupdates', os.time())
+  settings.set("lastcheckedupdates", os.time())
 end
 
 -- check for updates every week
