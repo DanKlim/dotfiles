@@ -30,6 +30,19 @@ autolaunch.set(true)
 -- reload config automatically
 pathwatcher.new(os.getenv("HOME") .. "/.hydra/", hydra.reload):start()
 
+-- switch between app windows of the same screen
+hotkey.bind({"ctrl"}, "F", function()
+  local win = window.focusedwindow()
+  local winApp = win:application()
+
+  for _, otherwin in ipairs(win:otherwindows_samescreen()) do
+    if otherwin:application() == winApp then
+      otherwin:focus()
+      break
+    end
+  end
+end)
+
 -- specific app switching
 local appsTable = {}
 local function focusApp(name)
