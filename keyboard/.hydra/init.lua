@@ -60,6 +60,7 @@ local function focusApp(name)
     end
     if myapp then
       myapp:activate()
+      myapp:allwindows()[1]:focus()
     end
   end
 end
