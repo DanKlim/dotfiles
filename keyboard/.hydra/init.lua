@@ -76,17 +76,17 @@ local function each(funcs)
   end
 end
 
-hotkey.bind({"ctrl"}, "W", focusApp("Google Chrome"))
-hotkey.bind({"ctrl"}, "E", focusApp("Terminal"))
-hotkey.bind({"ctrl"}, "R", focusApp("MacVim"))
-hotkey.bind({"ctrl"}, "S", focusApp("Finder"))
-hotkey.bind({"ctrl"}, "D", focusApp("HipChat"))
-hotkey.bind({"ctrl"}, "T", focusApp("µTorrent"))
-hotkey.bind({"ctrl"}, "G", each({
+hotkey.bind({"alt"}, "W", focusApp("Google Chrome"))
+hotkey.bind({"alt"}, "E", focusApp("Terminal"))
+hotkey.bind({"alt"}, "R", focusApp("MacVim"))
+hotkey.bind({"alt"}, "S", focusApp("Finder"))
+hotkey.bind({"alt"}, "D", focusApp("HipChat"))
+hotkey.bind({"alt"}, "T", focusApp("µTorrent"))
+hotkey.bind({"alt"}, "G", each({
   focusApp("Clementine"),
   focusApp("Spotify"),
 }))
-hotkey.bind({"ctrl"}, "6", focusApp("Mumble"))
-hotkey.bind({"ctrl"}, "7", focusApp("Skype"))
-hotkey.bind({"ctrl"}, "8", focusApp("Steam"))
-hotkey.bind({"ctrl"}, "9", focusApp("Messages"))
+hotkey.bind({"alt"}, "6", focusApp("Mumble"))
+hotkey.bind({"alt"}, "7", focusApp("Skype"))
+hotkey.bind({"alt"}, "8", focusApp("Steam"))
+hotkey.bind({"alt"}, "9", focusApp("Messages"))
