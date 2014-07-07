@@ -141,6 +141,7 @@ augroup filetype_go_shared
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go inoremap <buffer>
     \ {<cr> <esc>:call <SID>CloseBracket('{', '}', 0)<cr>O
+  autocmd FileType go setlocal foldmethod=indent
 augroup END
 
 " Highlight cursor.
@@ -170,14 +171,16 @@ vnoremap <space> zf
 " leaving insert mode. Foldmethod is local to the window. Protect against
 " screwing up folding when switching between windows.
 function! s:InsertEnter()
-  for n in range(1, winnr('$'))
-    :call setwinvar(n, "last_fdm", getwinvar(n, "&foldmethod"))
-    :call setwinvar(n, "&foldmethod", "manual")
-  endfor
+  if &foldmethod == "syntax"
+    for n in range(1, winnr('$'))
+      :call setwinvar(n, "last_fdm", getwinvar(n, "&foldmethod"))
+      :call setwinvar(n, "&foldmethod", "manual")
+    endfor
+  endif
 endfunction
 
 function! s:InsertLeave()
-  if exists('w:last_fdm')
+  if exists('w:last_fdm') && &foldmethod != "syntax"
     for n in range(1, winnr('$'))
       :call setwinvar(n, "&foldmethod", getwinvar(n, "last_fdm"))
     endfor
