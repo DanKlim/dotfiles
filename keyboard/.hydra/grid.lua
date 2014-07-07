@@ -2,8 +2,8 @@
 
 ext.grid = {}
 
-ext.grid.MARGINX = 5
-ext.grid.MARGINY = 5
+ext.grid.MARGINX = 0
+ext.grid.MARGINY = 0
 ext.grid.GRIDHEIGHT = 3
 ext.grid.GRIDWIDTH = 3
 
@@ -53,13 +53,11 @@ end
 function ext.grid.adjustheight(by)
   ext.grid.GRIDHEIGHT = math.max(1, ext.grid.GRIDHEIGHT + by)
   hydra.alert("grid is now " .. tostring(ext.grid.GRIDHEIGHT) .. " tiles high", 1)
-  fnutils.map(window.visiblewindows(), ext.grid.snap)
 end
 
 function ext.grid.adjustwidth(by)
   ext.grid.GRIDWIDTH = math.max(1, ext.grid.GRIDWIDTH + by)
   hydra.alert("grid is now " .. tostring(ext.grid.GRIDWIDTH) .. " tiles wide", 1)
-  fnutils.map(window.visiblewindows(), ext.grid.snap)
 end
 
 function ext.grid.adjust_focused_window(fn)
