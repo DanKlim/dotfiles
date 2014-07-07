@@ -68,14 +68,24 @@ local function focusApp(name)
   end
 end
 
+local function each(funcs)
+  return function()
+    for _, fn in ipairs(funcs) do
+      fn()
+    end
+  end
+end
+
 hotkey.bind({"ctrl"}, "W", focusApp("Google Chrome"))
 hotkey.bind({"ctrl"}, "E", focusApp("Terminal"))
 hotkey.bind({"ctrl"}, "R", focusApp("MacVim"))
 hotkey.bind({"ctrl"}, "S", focusApp("Finder"))
 hotkey.bind({"ctrl"}, "D", focusApp("HipChat"))
 hotkey.bind({"ctrl"}, "T", focusApp("µTorrent"))
-hotkey.bind({"ctrl"}, "G", focusApp("Clementine"))
-hotkey.bind({"ctrl"}, "G", focusApp("Spotify"))
+hotkey.bind({"ctrl"}, "G", each({
+  focusApp("Clementine"),
+  focusApp("Spotify"),
+}))
 hotkey.bind({"ctrl"}, "6", focusApp("Mumble"))
 hotkey.bind({"ctrl"}, "7", focusApp("Skype"))
 hotkey.bind({"ctrl"}, "8", focusApp("Steam"))
