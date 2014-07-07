@@ -60,7 +60,10 @@ local function focusApp(name)
     end
     if myapp then
       myapp:activate()
-      myapp:allwindows()[1]:focus()
+      local lastwin = myapp:allwindows()[1]
+      if lastwin then
+        lastwin:focus()
+      end
     end
   end
 end
@@ -72,7 +75,8 @@ hotkey.bind({"ctrl"}, "S", focusApp("Finder"))
 hotkey.bind({"ctrl"}, "D", focusApp("HipChat"))
 hotkey.bind({"ctrl"}, "T", focusApp("µTorrent"))
 hotkey.bind({"ctrl"}, "G", focusApp("Clementine"))
+hotkey.bind({"ctrl"}, "G", focusApp("Spotify"))
 hotkey.bind({"ctrl"}, "6", focusApp("Mumble"))
 hotkey.bind({"ctrl"}, "7", focusApp("Skype"))
 hotkey.bind({"ctrl"}, "8", focusApp("Steam"))
-hotkey.bind({"ctrl"}, "E", focusApp("Messages"))
+hotkey.bind({"ctrl"}, "9", focusApp("Messages"))
