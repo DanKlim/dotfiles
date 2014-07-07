@@ -90,3 +90,25 @@ hotkey.bind({"alt"}, "6", focusApp("Mumble"))
 hotkey.bind({"alt"}, "7", focusApp("Skype"))
 hotkey.bind({"alt"}, "8", focusApp("Steam"))
 hotkey.bind({"alt"}, "9", focusApp("Messages"))
+
+-- change window size / position
+require "grid"
+
+hotkey.bind({"shift", "cmd"}, "Y", function() ext.grid.adjustwidth( -1) end)
+hotkey.bind({"shift", "cmd"}, "U", function() ext.grid.adjustheight(-1) end)
+hotkey.bind({"shift", "cmd"}, "I", function() ext.grid.adjustheight( 1) end)
+hotkey.bind({"shift", "cmd"}, "O", function() ext.grid.adjustwidth(  1) end)
+
+hotkey.bind({"shift", "cmd"}, "M", ext.grid.maximize_window)
+
+hotkey.bind({"shift", "cmd"}, "N", ext.grid.pushwindow_nextscreen)
+
+hotkey.bind({"shift", "cmd"}, "A", ext.grid.pushwindow_left)
+hotkey.bind({"shift", "cmd"}, "S", ext.grid.pushwindow_down)
+hotkey.bind({"shift", "cmd"}, "D", ext.grid.pushwindow_up)
+hotkey.bind({"shift", "cmd"}, "F", ext.grid.pushwindow_right)
+
+hotkey.bind({"shift", "cmd"}, "H", ext.grid.resizewindow_shorter)
+hotkey.bind({"shift", "cmd"}, "J", ext.grid.resizewindow_thinner)
+hotkey.bind({"shift", "cmd"}, "K", ext.grid.resizewindow_wider)
+hotkey.bind({"shift", "cmd"}, "L", ext.grid.resizewindow_taller)
