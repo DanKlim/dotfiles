@@ -322,6 +322,19 @@
     </autogen>
   </item>
   <item>
+    <name>Left Alt Alone to Tab</name>
+    <identifier>space_cadet.left_alt_to_tab</identifier>
+    <autogen>
+      --KeyOverlaidModifier--
+      KeyCode::OPTION_L,
+      ModifierFlag::OPTION_L | ModifierFlag::NONE,
+      KeyCode::OPTION_L,
+      ModifierFlag::OPTION_L | ModifierFlag::NONE,
+      KeyCode::TAB,
+      ModifierFlag::NONE
+    </autogen>
+  </item>
+  <item>
     <name>Remap Left Control to Hyper</name>
     <appendix>OS X doesn't have a Hyper. This maps Left Control to Control + Option + Command.</appendix>
     <appendix>You can use this key in your own custom keyboard shortcuts you create in apps.</appendix>
