@@ -33,6 +33,7 @@ alias mv="mv -i"
 
 # git
 alias gd="git diff"
+alias gdl="git diff ^HEAD ^HEAD~1"
 alias ga="git add"
 alias gbd="git branch -D"
 alias gst="git status"
