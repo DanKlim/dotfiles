@@ -299,8 +299,10 @@
     </autogen>
   </item>
   <item>
-    <name>Left Alt Alone to Tab</name>
+    <name>Fix Switching Tab to Left Alt</name>
     <identifier>space_cadet.left_alt_to_tab</identifier>
+
+    <!-- Key alone to Tab -->
     <autogen>
       --KeyOverlaidModifier--
       KeyCode::OPTION_L,
@@ -309,6 +311,24 @@
       ModifierFlag::OPTION_L | ModifierFlag::NONE,
       KeyCode::TAB,
       ModifierFlag::NONE
+    </autogen>
+
+    <!-- App switching with Tab + Cmd -->
+    <autogen>
+      --KeyToKey--
+      KeyCode::OPTION_L,
+      ModifierFlag::OPTION_L | ModifierFlag::COMMAND_L,
+      KeyCode::TAB,
+      ModifierFlag::COMMAND_L
+    </autogen>
+
+    <!-- Backwards focus with Tab + Shift -->
+    <autogen>
+      --KeyToKey--
+      KeyCode::OPTION_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L,
+      KeyCode::TAB,
+      ModifierFlag::SHIFT_L
     </autogen>
   </item>
   <item>
