@@ -163,6 +163,12 @@ set foldnestmax=5
 set foldlevelstart=1
 let javaScript_fold=1
 
+" Different folding for JSON files
+augroup filetype_json
+  autocmd!
+  autocmd FileType json setlocal foldlevel=5
+augroup END
+
 " Use space to toggle folds.
 nnoremap <silent> <space> za
 vnoremap <space> zf
