@@ -44,23 +44,18 @@ hotkey.bind({"ctrl"}, "F", function()
 end)
 
 -- specific app switching
+require "appfinder"
 local appsTable = {}
 local function focusApp(name)
   return function()
-    local myapp = appsTable[name]
-    if myapp == nil then
-      local apps = application.runningapplications()
-      for _, app in ipairs(apps) do
-        if app:title() == name then
-          appsTable[name] = app
-          myapp = app
-          break
-        end
-      end
+    local app = appsTable[name]
+    if app == nil or not app:activate() then
+      app = ext.appfinder.app_from_name(name)
+      appsTable[name] = app
+      app:activate()
     end
-    if myapp then
-      myapp:activate()
-      local lastwin = myapp:allwindows()[1]
+    if app then
+      local lastwin = app:allwindows()[1]
       if lastwin then
         lastwin:focus()
       end
