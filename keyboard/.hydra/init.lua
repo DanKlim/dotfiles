@@ -71,20 +71,21 @@ local function each(funcs)
   end
 end
 
-hotkey.bind({"ctrl"}, "W", focusApp("Google Chrome"))
-hotkey.bind({"ctrl"}, "E", focusApp("Terminal"))
-hotkey.bind({"ctrl"}, "R", focusApp("MacVim"))
-hotkey.bind({"ctrl"}, "S", focusApp("Finder"))
-hotkey.bind({"ctrl"}, "D", focusApp("HipChat"))
-hotkey.bind({"ctrl"}, "T", focusApp("µTorrent"))
-hotkey.bind({"ctrl"}, "G", each({
+local switchKey = {"alt"}
+hotkey.bind(switchKey, "W", focusApp("Google Chrome"))
+hotkey.bind(switchKey, "E", focusApp("Terminal"))
+hotkey.bind(switchKey, "R", focusApp("MacVim"))
+hotkey.bind(switchKey, "S", focusApp("Finder"))
+hotkey.bind(switchKey, "D", focusApp("HipChat"))
+hotkey.bind(switchKey, "T", focusApp("µTorrent"))
+hotkey.bind(switchKey, "G", each({
   focusApp("Clementine"),
   focusApp("Spotify"),
 }))
-hotkey.bind({"ctrl"}, "6", focusApp("Mumble"))
-hotkey.bind({"ctrl"}, "7", focusApp("Skype"))
-hotkey.bind({"ctrl"}, "8", focusApp("Steam"))
-hotkey.bind({"ctrl"}, "9", focusApp("Messages"))
+hotkey.bind(switchKey, "6", focusApp("Mumble"))
+hotkey.bind(switchKey, "7", focusApp("Skype"))
+hotkey.bind(switchKey, "8", focusApp("Steam"))
+hotkey.bind(switchKey, "9", focusApp("Messages"))
 
 -- change window size / position
 require "grid"
