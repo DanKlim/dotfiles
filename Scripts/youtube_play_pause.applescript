@@ -17,8 +17,7 @@ if (player) {
 "
 
 tell application "Google Chrome"
-  set t to active tab of front window
-  tell t
+  tell active tab of front window
     set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9]+\\/c\\/[0-9]+)/*good*(&)/\"" as string
     set result to do shell script cmd
     if result starts with "*good*" then
@@ -27,9 +26,8 @@ tell application "Google Chrome"
     end if
   end tell
 
-  repeat with w in windows
-    set t to active tab of w
-    tell t
+  repeat with win in windows
+    tell active tab of win
       set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9]+\\/c\\/[0-9]+)/*good*(&)/\"" as string
       set result to do shell script cmd
       if result starts with "*good*" then
