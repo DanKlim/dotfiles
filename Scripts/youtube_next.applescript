@@ -21,17 +21,33 @@ if (player) {
 tell application "Google Chrome"
   set t to active tab of front window
   tell t
-    if URL starts with "http://www.youtube.com/watch" or URL starts with "https://www.youtube.com/watch" or URL starts with "http://www.youtube.com/embed" or URL starts with "https://www.youtube.com/embed" then
+    set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.youtube\\.com\\/(watch|embed)/*good*(&)/\"" as string
+    set result to do shell script cmd
+    if result starts with "*good*" then
       execute javascript myjs
       return
     end if
   end tell
 
+  repeat with w in windows
+    set t to active tab of w
+    tell t
+      set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.youtube\\.com\\/(watch|embed)/*good*(&)/\"" as string
+      set result to do shell script cmd
+      if result starts with "*good*" then
+        execute javascript myjs
+        return
+      end if
+    end tell
+  end repeat
+
   repeat with t in tabs of windows
     tell t
-      if URL starts with "http://www.youtube.com/watch" or URL starts with "https://www.youtube.com/watch" or URL starts with "http://www.youtube.com/embed" or URL starts with "https://www.youtube.com/embed" then
+      set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.youtube\\.com\\/(watch|embed)/*good*(&)/\"" as string
+      set result to do shell script cmd
+      if result starts with "*good*" then
         execute javascript myjs
-        exit repeat
+        return
       end if
     end tell
   end repeat
