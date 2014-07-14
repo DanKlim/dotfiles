@@ -2,24 +2,6 @@
 S.source('~/keyboard/config.js');
 S.source('~/keyboard/util.js');
 
-// Enable better app switcher.
-// S.bind('f:ctrl', S.op('switch'));
-
-// Switch to same window app in same screen.
-S.bind('f:ctrl', function(win) {
-  if (!win) return;
-  var screenID = win.screen().id();
-  var app = win.app();
-  app.eachWindow(function(otherWin) {
-    if (otherWin.screen().id() === screenID && otherWin !== win) {
-      otherWin.focus();
-    }
-  });
-});
-
-// Show window hints.
-S.bind('e:cmd', S.op('hint', { characters: 'ASDFGQWERTCV' }));
-
 // Undo an op.
 S.bind('u:cmd;alt;ctrl', S.op('undo'));
 
