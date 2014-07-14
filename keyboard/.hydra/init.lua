@@ -31,7 +31,7 @@ autolaunch.set(true)
 pathwatcher.new(os.getenv("HOME") .. "/.hydra/", hydra.reload):start()
 
 -- switch between app windows of the same screen
-hotkey.bind({"ctrl"}, "F", function()
+hotkey.bind({"alt"}, "F", function()
   local win = window.focusedwindow()
   local winApp = win:application()
 
