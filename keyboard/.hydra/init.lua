@@ -91,22 +91,23 @@ hotkey.bind(switchKey, "9", focusApp("Messages"))
 
 -- change window size / position
 require "grid"
+local winKey = {"ctrl", "alt"}
 
-hotkey.bind({"shift", "cmd"}, "Y", function() ext.grid.adjustwidth( -1) end)
-hotkey.bind({"shift", "cmd"}, "U", function() ext.grid.adjustheight(-1) end)
-hotkey.bind({"shift", "cmd"}, "I", function() ext.grid.adjustheight( 1) end)
-hotkey.bind({"shift", "cmd"}, "O", function() ext.grid.adjustwidth(  1) end)
+hotkey.bind(winKey, "Y", function() ext.grid.adjustwidth( -1) end)
+hotkey.bind(winKey, "U", function() ext.grid.adjustheight(-1) end)
+hotkey.bind(winKey, "I", function() ext.grid.adjustheight( 1) end)
+hotkey.bind(winKey, "O", function() ext.grid.adjustwidth(  1) end)
 
-hotkey.bind({"shift", "cmd"}, "M", ext.grid.maximize_window)
+hotkey.bind(winKey, "P", ext.grid.maximize_window)
 
-hotkey.bind({"shift", "cmd"}, "N", ext.grid.pushwindow_nextscreen)
+hotkey.bind(winKey, "B", ext.grid.pushwindow_nextscreen)
 
-hotkey.bind({"shift", "cmd"}, "A", ext.grid.pushwindow_left)
-hotkey.bind({"shift", "cmd"}, "S", ext.grid.pushwindow_down)
-hotkey.bind({"shift", "cmd"}, "D", ext.grid.pushwindow_up)
-hotkey.bind({"shift", "cmd"}, "F", ext.grid.pushwindow_right)
+hotkey.bind(winKey, "N", ext.grid.pushwindow_left)
+hotkey.bind(winKey, "M", ext.grid.pushwindow_down)
+hotkey.bind(winKey, ",", ext.grid.pushwindow_up)
+hotkey.bind(winKey, ".", ext.grid.pushwindow_right)
 
-hotkey.bind({"shift", "cmd"}, "H", ext.grid.resizewindow_thinner)
-hotkey.bind({"shift", "cmd"}, "J", ext.grid.resizewindow_shorter)
-hotkey.bind({"shift", "cmd"}, "K", ext.grid.resizewindow_taller)
-hotkey.bind({"shift", "cmd"}, "L", ext.grid.resizewindow_wider)
+hotkey.bind(winKey, "H", ext.grid.resizewindow_thinner)
+hotkey.bind(winKey, "J", ext.grid.resizewindow_shorter)
+hotkey.bind(winKey, "K", ext.grid.resizewindow_taller)
+hotkey.bind(winKey, "L", ext.grid.resizewindow_wider)
