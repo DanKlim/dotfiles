@@ -160,11 +160,11 @@ set autoread
 " Folding ------------------ {{{
 set foldmethod=syntax
 set foldnestmax=5
-set foldlevelstart=1
+set foldlevelstart=2
 let javaScript_fold=1
 
-" Different folding for JSON files
-augroup filetype_json
+" Different folding for some files
+augroup no_fold
   autocmd!
   autocmd FileType json setlocal foldlevel=5
 augroup END
