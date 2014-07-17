@@ -112,3 +112,5 @@ augroup snippets
     \ nnoremap <buffer> <localleader>es
     \ :split ~/.vim/bundle/vim-snippets/snippets/go.snippets<cr>
 augroup END
+
+let g:vim_markdown_initial_foldlevel=5
