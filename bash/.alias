@@ -62,6 +62,7 @@ alias ge="git effort"
 alias gs="git stash"
 alias gsl="git stash list"
 alias gsp="git stash pop"
+alias gcom="git checkout master"
 
 # copy url to clipboard
 alias url="grep -ioE 'https?://[^[:space:]]+' | tail -1 | pbcopy"
