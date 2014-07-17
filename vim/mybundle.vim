@@ -45,6 +45,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'vim-scripts/applescript.vim'
 Bundle 'vim-scripts/AnsiEsc.vim'
 Bundle 'othree/xml.vim'
+Bundle 'leafgarland/typescript-vim'
 " }}}
 
 " Color schemes ------------ {{{
