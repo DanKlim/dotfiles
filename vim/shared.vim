@@ -194,23 +194,13 @@ function! s:InsertLeave()
   endif
 endfunction
 
+" Folding ------------------- {{{
 augroup folding
   autocmd!
   autocmd InsertEnter * :call <SID>InsertEnter()
   autocmd InsertLeave,WinLeave * :call <SID>InsertLeave()
-augroup END
-
-" Vimscript file settings ------------------- {{{
-augroup filetype_vim
-  autocmd!
   autocmd BufRead *.vim setlocal foldmethod=marker
-augroup END
-" }}}
-
-" CoffeeScript settings --------------------- {{{
-augroup coffee
-  autocmd!
-  autocmd FileType coffee setlocal foldmethod=indent nofoldenable
+  autocmd FileType coffee,typescript setlocal foldmethod=indent nofoldenable
 augroup END
 " }}}
 
