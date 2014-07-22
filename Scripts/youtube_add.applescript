@@ -5,7 +5,7 @@ var player =
   document.getElementById('movie_player') ||
   document.getElementsByTagName('embed')[0] ||
   document.getElementById('player1');
-var buttons = document.getElementsByClassName('action-panel-trigger');
+var buttons = document.getElementsByClassName('yt-uix-button');
 for (var i = 0, len = buttons.length; i < len; i++) {
   var button = buttons[i];
   if (button.getAttribute('data-trigger-for') === 'action-panel-addto') {
@@ -55,19 +55,33 @@ if (player) {
 "
 
 tell application "Google Chrome"
-  set t to active tab of front window
-  tell t
-    if URL starts with "http://www.youtube.com/watch" or URL starts with "https://www.youtube.com/watch" or URL starts with "http://www.youtube.com/embed" or URL starts with "https://www.youtube.com/embed" then
+  tell active tab of front window
+    set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.youtube\\.com\\/(watch|embed)/*good*(&)/\"" as string
+    set result to do shell script cmd
+    if result starts with "*good*" then
       execute javascript myjs
       return
     end if
   end tell
 
+  repeat with w in windows
+    tell active tab of w
+      set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.youtube\\.com\\/(watch|embed)/*good*(&)/\"" as string
+      set result to do shell script cmd
+      if result starts with "*good*" then
+        execute javascript myjs
+        return
+      end if
+    end tell
+  end repeat
+
   repeat with t in tabs of windows
     tell t
-      if URL starts with "http://www.youtube.com/watch" or URL starts with "https://www.youtube.com/watch" or URL starts with "http://www.youtube.com/embed/videoseries" then
+      set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.youtube\\.com\\/(watch|embed)/*good*(&)/\"" as string
+      set result to do shell script cmd
+      if result starts with "*good*" then
         execute javascript myjs
-        exit repeat
+        return
       end if
     end tell
   end repeat
