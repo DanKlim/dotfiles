@@ -84,10 +84,10 @@ hotkey.bind(switchKey, "G", each({
   focusApp("Clementine"),
   focusApp("Spotify"),
 }))
-hotkey.bind(switchKey, "6", focusApp("Mumble"))
-hotkey.bind(switchKey, "7", focusApp("Skype"))
-hotkey.bind(switchKey, "8", focusApp("Steam"))
-hotkey.bind(switchKey, "9", focusApp("Messages"))
+hotkey.bind(switchKey, "2", focusApp("Skype"))
+hotkey.bind(switchKey, "3", focusApp("Steam"))
+hotkey.bind(switchKey, "4", focusApp("Messages"))
+hotkey.bind(switchKey, "5", focusApp("Mumble"))
 
 -- change window size / position
 require "grid"
