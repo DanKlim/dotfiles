@@ -1,10 +1,10 @@
 hydra.alert("Hello this is hydra", 1.5)
 
 -- show the menu
-menu.show(function()
+hydra.menu.show(function()
   local updatetitles = {[true] = "Install Update", [false] = "Check for Update..."}
-  local updatefns = {[true] = updates.install, [false] = checkforupdates}
-  local hasupdate = (updates.newversion ~= nil)
+  local updatefns = {[true] = hydra.updates.install, [false] = checkforupdates}
+  local hasupdate = (hydra.updates.newversion ~= nil)
 
   return {
     {title = "Reload Config", fn = hydra.reload},
@@ -17,7 +17,7 @@ menu.show(function()
 end)
 
 function checkforupdates()
-  updates.check()
+  hydra.updates.check()
   settings.set("lastcheckedupdates", os.time())
 end
 
@@ -25,7 +25,7 @@ end
 timer.new(timer.weeks(1), checkforupdates):start()
 
 -- launch Hydra at login
-autolaunch.set(true)
+hydra.autolaunch.set(true)
 
 -- reload config automatically
 pathwatcher.new(os.getenv("HOME") .. "/.hydra/", hydra.reload):start()
