@@ -120,8 +120,9 @@ hotkey.bind(winKey, "K", ext.grid.resizewindow_taller)
 hotkey.bind(winKey, "L", ext.grid.resizewindow_wider)
 
 -- store and restore all window positions
-local windowPositions = {}
+local windowPositions
 hotkey.bind({"ctrl", "cmd"}, "E", function()
+  windowPositions = {}
   fnutils.each(window.allwindows(), function(win)
     if win:isstandard() and not win:isminimized() then
       table.insert(windowPositions, {
