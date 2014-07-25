@@ -24,6 +24,9 @@ end
 -- check for updates every week
 timer.new(timer.weeks(1), checkforupdates):start()
 
+-- hide hydra's dock icon
+hydra.dockicon.hide()
+
 -- launch Hydra at login
 hydra.autolaunch.set(true)
 
