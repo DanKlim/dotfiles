@@ -102,6 +102,10 @@ hotkey.bind(winKey, "P", ext.grid.maximize_window)
 
 hotkey.bind(winKey, "B", ext.grid.pushwindow_nextscreen)
 
+hotkey.bind(winKey, "RETURN", function()
+  ext.grid.snap(window.focusedwindow())
+end)
+
 hotkey.bind(winKey, "N", ext.grid.pushwindow_left)
 hotkey.bind(winKey, "M", ext.grid.pushwindow_down)
 hotkey.bind(winKey, ",", ext.grid.pushwindow_up)
