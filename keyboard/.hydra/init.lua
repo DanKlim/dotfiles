@@ -59,12 +59,6 @@ local function focusApp(name)
         app:activate()
       end
     end
-    if app then
-      local lastwin = app:allwindows()[1]
-      if lastwin then
-        lastwin:focus()
-      end
-    end
   end
 end
 
