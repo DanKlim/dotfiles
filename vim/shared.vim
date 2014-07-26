@@ -80,7 +80,7 @@ nnoremap <up> :<up>
 
 " Split Windows.
 nnoremap <leader>v <c-w>s<C-w>j
-nnoremap <leader>V :vs<cr>
+nnoremap <leader>b :vs<cr>
 
 " }}}
 
