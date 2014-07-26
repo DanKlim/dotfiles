@@ -52,17 +52,14 @@ local appsTable = {}
 local function focusApp(name)
   return function()
     local app = appsTable[name]
-    if app == nil or not app:activate() then
+    if app == nil or not app:unhide() or not app:activate() then
       app = ext.appfinder.app_from_name(name)
       if app then
         appsTable[name] = app
+        if app:ishidden() then
+          app:unhide()
+        end
         app:activate()
-      end
-    end
-    if app then
-      local lastwin = app:allwindows()[1]
-      if lastwin then
-        lastwin:focus()
       end
     end
   end
