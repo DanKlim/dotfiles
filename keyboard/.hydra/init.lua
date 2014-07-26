@@ -117,8 +117,8 @@ hotkey.bind(winKey, "K", ext.grid.resizewindow_taller)
 hotkey.bind(winKey, "L", ext.grid.resizewindow_wider)
 
 -- store and restore all window positions
-local windowPositions
-hotkey.bind({"ctrl", "cmd"}, "E", function()
+local windowPositions = {}
+hotkey.bind({"ctrl", "cmd"}, "S", function()
   windowPositions = {}
   fnutils.each(window.allwindows(), function(win)
     if win:isstandard() and not win:isminimized() then
@@ -131,7 +131,7 @@ hotkey.bind({"ctrl", "cmd"}, "E", function()
   hydra.alert("all window positions saved")
 end)
 
-hotkey.bind({"ctrl", "cmd"}, "R", function()
+hotkey.bind({"ctrl", "cmd"}, "D", function()
   for i = 1, #windowPositions do
     local hash = windowPositions[i]
     local win = hash.win
