@@ -1,5 +1,5 @@
 # setup path
-export PATH="./node_modules/.bin:~/local/bin:/usr/local/bin:/usr/bin:/usr/sbin:/bin:/sbin:/opt/X11/bin:/usr/X11/bin"
+export PATH="./node_modules/.bin:~/local/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/opt/X11/bin:/usr/X11/bin"
 
 # go path
 export GOROOT=/usr/local/go
