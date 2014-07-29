@@ -58,9 +58,9 @@ nnoremap L <c-w>l
 " Add a closing bracket and new line when typing an opening bracket.
 augroup filetype_js
   autocmd!
-  autocmd FileType javascript inoremap <buffer>
+  autocmd FileType javascript,typescript inoremap <buffer>
     \ {<cr> <esc>:call <SID>CloseBracket('{', '}', 1)<cr>O
-  autocmd FileType javascript inoremap <buffer>
+  autocmd FileType javascript,typescript inoremap <buffer>
     \ [<cr> <esc>:call <SID>CloseBracket('[', ']', 1)<cr>O
 augroup END
 
