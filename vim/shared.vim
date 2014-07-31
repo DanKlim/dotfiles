@@ -82,6 +82,12 @@ nnoremap J <c-w>j
 nnoremap K <c-w>k
 nnoremap L <c-w>l
 
+" Resize windows with Cmd + yuio
+nnoremap <d-y> <c-w><
+nnoremap <d-u> <c-w>-
+nnoremap <d-i> <c-w>+
+nnoremap <d-o> <c-w>>
+
 " }}}
 
 " Searching ------------------------- {{{
