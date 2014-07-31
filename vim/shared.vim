@@ -49,12 +49,6 @@ nnoremap <leader>m <c-^>
 " Redo to U.
 nnoremap U <c-r>
 
-" Navigate windows with Shift + hjkl.
-nnoremap H <c-w>h
-nnoremap J <c-w>j
-nnoremap K <c-w>k
-nnoremap L <c-w>l
-
 " Add a closing bracket and new line when typing an opening bracket.
 augroup filetype_js
   autocmd!
@@ -81,6 +75,12 @@ nnoremap <up> :<up>
 " Split Windows.
 nnoremap <leader>v <c-w>s<C-w>j
 nnoremap <leader>b :vs<cr>
+
+" Navigate windows with Shift + hjkl.
+nnoremap H <c-w>h
+nnoremap J <c-w>j
+nnoremap K <c-w>k
+nnoremap L <c-w>l
 
 " }}}
 
