@@ -49,8 +49,8 @@
   - doesn't switch window focus as fast.
   - doesn't have events.
   - can unbind.
-* https://github.com/sdegutis/hydra
-  - newest, most efficient, most maintained.
+* https://github.com/mjolnir-io/mjolnir
+  - newest, most efficient, most maintained by a longshot.
   - doesn't have events, but plants to.
   - can unbind.
   - nice log window.
