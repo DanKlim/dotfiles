@@ -26,8 +26,8 @@
   - best/fastest scripts manager.
   - maps scripts to keyboard shortcuts, global or per app.
   - scripts can be found under `scripts`.
-* https://pqrs.org/macosx/keyremap4macbook/pckeyboardhack.html.en
-* https://pqrs.org/macosx/keyremap4macbook/
+* https://pqrs.org/osx/karabiner/seil.html.en
+* https://pqrs.org/osx/karabiner/
   - `private.xml` file included.
 
 # window managers
