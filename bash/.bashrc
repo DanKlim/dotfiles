@@ -7,10 +7,6 @@ export PATH=$PATH:$GOROOT/bin
 export GOPATH=$HOME/code/go
 export PATH=$PATH:$GOPATH/bin
 
-# go shortcuts
-alias gofmtit="find . -name \"*.go\" | xargs gofmt -l -w"
-alias golint="golint . | grep -v 'should have comment or be unexported'"
-
 # package config
 export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig
 
