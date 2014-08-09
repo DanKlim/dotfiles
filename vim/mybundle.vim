@@ -1,68 +1,69 @@
 " Let Vundle manage Vundle.
 filetype off
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+call vundle#begin()
+Plugin 'gmarik/vundle'
 
 " Usage -------------------- {{{
-Bundle 'scrooloose/syntastic'
-Bundle 'danro/rename.vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-"Bundle 'twe4ked/vim-peepopen'
-"Bundle 'airblade/vim-rooter'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'tpope/vim-fugitive'
+Plugin 'scrooloose/syntastic'
+Plugin 'danro/rename.vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+"Plugin 'twe4ked/vim-peepopen'
+"Plugin 'airblade/vim-rooter'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'tpope/vim-fugitive'
 " }}}
 
 " Mappings ----------------- {{{
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'godlygeek/tabular'
-Bundle 'tomtom/tlib_vim'
-"Bundle 'garbas/vim-snipmate'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'dahu/vim-fanfingtastic'
-"Bundle 'Valloric/YouCompleteMe'
-"Bundle 'marijnh/tern_for_vim'
-"Bundle 'vim-scripts/YankRing.vim'
-"Bundle 'Raimondi/delimitMate'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-endwise'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'godlygeek/tabular'
+Plugin 'tomtom/tlib_vim'
+"Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'dahu/vim-fanfingtastic'
+"Plugin 'Valloric/YouCompleteMe'
+"Plugin 'marijnh/tern_for_vim'
+"Plugin 'vim-scripts/YankRing.vim'
+"Plugin 'Raimondi/delimitMate'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-endwise'
 " }}}
 
 " Environemnts ------------- {{{
-Bundle 'moll/vim-node'
-Bundle 'fatih/vim-go'
+Plugin 'moll/vim-node'
+Plugin 'fatih/vim-go'
 " }}}
 
 " Syntax Highlighting ------ {{{
-Bundle 'plasticboy/vim-markdown'
-Bundle 'pangloss/vim-javascript'
-Bundle 'jelera/vim-javascript-syntax'
-Bundle 'elzr/vim-json'
-Bundle 'lukaszb/vim-web-indent'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'vim-scripts/applescript.vim'
-Bundle 'vim-scripts/AnsiEsc.vim'
-Bundle 'othree/xml.vim'
-Bundle 'leafgarland/typescript-vim'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'pangloss/vim-javascript'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'elzr/vim-json'
+Plugin 'lukaszb/vim-web-indent'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'vim-scripts/applescript.vim'
+Plugin 'vim-scripts/AnsiEsc.vim'
+Plugin 'othree/xml.vim'
+Plugin 'leafgarland/typescript-vim'
 " }}}
 
 " Color schemes ------------ {{{
-Bundle 'goatslacker/mango.vim'
-Bundle 'croaker/mustang-vim'
-Bundle 'tomasr/molokai'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'jonathanfilip/vim-lucius'
-Bundle 'fent/vim-frozen'
+Plugin 'goatslacker/mango.vim'
+Plugin 'croaker/mustang-vim'
+Plugin 'tomasr/molokai'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jonathanfilip/vim-lucius'
+Plugin 'fent/vim-frozen'
 " }}}
 
 " Dev ---------------------- {{{
-Bundle 'blueyed/colorhighlight.vim'
+Plugin 'blueyed/colorhighlight.vim'
 " }}}
 
 " This had to be disabled for vundle.
+call vundle#end()
 filetype plugin indent on
 
 " Syntastic.
