@@ -8,8 +8,6 @@ Plugin 'gmarik/vundle'
 Plugin 'scrooloose/syntastic'
 Plugin 'danro/rename.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
-"Plugin 'twe4ked/vim-peepopen'
-"Plugin 'airblade/vim-rooter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
 " }}}
@@ -19,14 +17,9 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'godlygeek/tabular'
 Plugin 'tomtom/tlib_vim'
-"Plugin 'garbas/vim-snipmate'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'dahu/vim-fanfingtastic'
-"Plugin 'Valloric/YouCompleteMe'
-"Plugin 'marijnh/tern_for_vim'
-"Plugin 'vim-scripts/YankRing.vim'
-"Plugin 'Raimondi/delimitMate'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 " }}}
@@ -91,11 +84,6 @@ let g:indent_guides_start_level=2
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-d>"
-
-" YCM
-"let g:ycm_add_preview_to_completeopt=0
-"let g:ycm_confirm_extra_conf=0
-"set completeopt-=preview
 
 " Make f, F, t, T case-insensitive
 let g:fanfingtastic_ignorecase = 1
