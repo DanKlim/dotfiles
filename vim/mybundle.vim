@@ -22,6 +22,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'dahu/vim-fanfingtastic'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
+Plugin 'Valloric/YouCompleteMe'
 " }}}
 
 " Environemnts ------------- {{{
@@ -84,6 +85,9 @@ let g:indent_guides_start_level=2
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-d>"
+
+" YCM
+set completeopt-=preview
 
 " Make f, F, t, T case-insensitive
 let g:fanfingtastic_ignorecase = 1
