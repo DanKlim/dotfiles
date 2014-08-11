@@ -392,7 +392,7 @@
       --KeyToKey--
       KeyCode::SPACE,
       ModifierFlag::CONTROL_L,
-      KeyCode::ENTER
+      KeyCode::RETURN
     </autogen>
   </item>
   <item>
