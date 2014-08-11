@@ -82,9 +82,9 @@ let g:indent_guides_auto_colors=1
 let g:indent_guides_start_level=2
 
 " Snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-d>"
+let g:UltiSnipsExpandTrigger="<c-f>"
+let g:UltiSnipsJumpForwardTrigger="<c-d>"
+let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 " YCM
 set completeopt-=preview
