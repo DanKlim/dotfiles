@@ -153,6 +153,15 @@ augroup END
 " Highlight cursor.
 highlight CursorLine ctermbg=8 cterm=NONE
 
+augroup highligh
+  autocmd!
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter * set cursorline
+augroup END
+
+" Only highlight up to a certain point.
+set synmaxcol=128
+
 " Set cwd to opened file so that opening other files is easier.
 set autochdir
 
