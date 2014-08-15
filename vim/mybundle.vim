@@ -114,3 +114,6 @@ augroup snippets
 augroup END
 
 let g:vim_markdown_initial_foldlevel=5
+
+" vim-go
+let g:go_doc_keywordprg_enabled = 0
