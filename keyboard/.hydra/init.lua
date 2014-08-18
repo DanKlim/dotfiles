@@ -96,6 +96,7 @@ hotkey.bind(switchKey, "2", focusApp("Skype"))
 hotkey.bind(switchKey, "3", focusApp("Steam"))
 hotkey.bind(switchKey, "4", focusApp("Messages"))
 hotkey.bind(switchKey, "5", focusApp("Mumble"))
+hotkey.bind(switchKey, "6", focusApp("Adium"))
 
 -- change window size / position
 require "grid"
