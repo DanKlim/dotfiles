@@ -90,6 +90,12 @@ nnoremap <d-o> <c-w>>
 
 " }}}
 
+" Resize split windows when the vim window is resized
+augroup vim_resized
+  autocmd!
+  autocmd VimResized * wincmd =
+augroup END
+
 " Searching ------------------------- {{{
 " Search for word over cursor puts cursor at first keyword.
 nnoremap * :silent! normal! *N<cr>
