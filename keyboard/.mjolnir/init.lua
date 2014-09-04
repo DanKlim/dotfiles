@@ -1,37 +1,11 @@
-hydra.alert("Hello this is hydra", 1.5)
+local alert = require "mjolnir.alert"
+local hotkey = require "mjolnir.hotkey"
+local window = require "mjolnir.window"
+local appfinder = require "mjolnir.cmsj.appfinder"
+local fnutils = require "mjolnir.fnutils"
+local grid = require "grid"
 
--- show the menu
-hydra.menu.show(function()
-  local updatetitles = {[true] = "Install Update", [false] = "Check for Update..."}
-  local updatefns = {[true] = hydra.updates.install, [false] = checkforupdates}
-  local hasupdate = (hydra.updates.newversion ~= nil)
-
-  return {
-    {title = "Reload Config", fn = hydra.reload},
-    {title = "Show Logs", fn = logger.show},
-    {title = "-"},
-    {title = "About", fn = hydra.showabout},
-    {title = updatetitles[hasupdate], fn = updatefns[hasupdate]},
-    {title = "Quit Hydra", fn = os.exit},
-  }
-end)
-
-function checkforupdates()
-  hydra.updates.check()
-  settings.set("lastcheckedupdates", os.time())
-end
-
--- check for updates every week
-timer.new(timer.weeks(1), checkforupdates):start()
-
--- hide hydra's dock icon
-hydra.dockicon.hide()
-
--- launch Hydra at login
-hydra.autolaunch.set(true)
-
--- reload config automatically
-pathwatcher.new(os.getenv("HOME") .. "/.hydra/", hydra.reload):start()
+alert.show("Hello this is hydra", 1.5)
 
 -- switch between app windows of the same screen
 hotkey.bind({"alt"}, "F", function()
@@ -49,13 +23,12 @@ hotkey.bind({"alt"}, "F", function()
 end)
 
 -- specific app switching
-require "appfinder"
 local appsTable = {}
 local function focusApp(name)
   return function()
     local app = appsTable[name]
     if app == nil or not app:unhide() or not app:activate() then
-      app = ext.appfinder.app_from_name(name)
+      app = appfinder.app_from_name(name)
       if app then
         appsTable[name] = app
         if app:ishidden() then
@@ -100,31 +73,30 @@ hotkey.bind(switchKey, "6", focusApp("Adium"))
 hotkey.bind(switchKey, "7", focusApp("Microsoft Outlook"))
 
 -- change window size / position
-require "grid"
 local winKey = {"ctrl", "alt"}
 
-hotkey.bind(winKey, "Y", function() ext.grid.adjustwidth( -1) end)
-hotkey.bind(winKey, "U", function() ext.grid.adjustheight(-1) end)
-hotkey.bind(winKey, "I", function() ext.grid.adjustheight( 1) end)
-hotkey.bind(winKey, "O", function() ext.grid.adjustwidth(  1) end)
+hotkey.bind(winKey, "Y", function() grid.adjustwidth( -1) end)
+hotkey.bind(winKey, "U", function() grid.adjustheight(-1) end)
+hotkey.bind(winKey, "I", function() grid.adjustheight( 1) end)
+hotkey.bind(winKey, "O", function() grid.adjustwidth(  1) end)
 
-hotkey.bind(winKey, "P", ext.grid.maximize_window)
+hotkey.bind(winKey, "P", grid.maximize_window)
 
-hotkey.bind(winKey, "B", ext.grid.pushwindow_nextscreen)
+hotkey.bind(winKey, "B", grid.pushwindow_nextscreen)
 
 hotkey.bind(winKey, "RETURN", function()
-  ext.grid.snap(window.focusedwindow())
+  grid.snap(window.focusedwindow())
 end)
 
-hotkey.bind(winKey, "N", ext.grid.pushwindow_left)
-hotkey.bind(winKey, "M", ext.grid.pushwindow_down)
-hotkey.bind(winKey, ",", ext.grid.pushwindow_up)
-hotkey.bind(winKey, ".", ext.grid.pushwindow_right)
+hotkey.bind(winKey, "N", grid.pushwindow_left)
+hotkey.bind(winKey, "M", grid.pushwindow_down)
+hotkey.bind(winKey, ",", grid.pushwindow_up)
+hotkey.bind(winKey, ".", grid.pushwindow_right)
 
-hotkey.bind(winKey, "H", ext.grid.resizewindow_thinner)
-hotkey.bind(winKey, "J", ext.grid.resizewindow_shorter)
-hotkey.bind(winKey, "K", ext.grid.resizewindow_taller)
-hotkey.bind(winKey, "L", ext.grid.resizewindow_wider)
+hotkey.bind(winKey, "H", grid.resizewindow_thinner)
+hotkey.bind(winKey, "J", grid.resizewindow_shorter)
+hotkey.bind(winKey, "K", grid.resizewindow_taller)
+hotkey.bind(winKey, "L", grid.resizewindow_wider)
 
 -- store and restore all window positions
 local windowPositions = {}
@@ -138,7 +110,7 @@ hotkey.bind({"ctrl", "cmd"}, "S", function()
       })
     end
   end)
-  hydra.alert("all window positions saved")
+  alert.show("all window positions saved")
 end)
 
 hotkey.bind({"ctrl", "cmd"}, "D", function()
@@ -149,5 +121,5 @@ hotkey.bind({"ctrl", "cmd"}, "D", function()
       win:setframe(hash.frame)
     end
   end
-  hydra.alert("all window positions restored")
+  alert.show("all window positions restored")
 end)
