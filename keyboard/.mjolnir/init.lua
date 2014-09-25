@@ -4,9 +4,12 @@ local window = require "mjolnir.window"
 local fnutils = require "mjolnir.fnutils"
 local screen = require "mjolnir.screen"
 local appfinder = require "mjolnir.cmsj.appfinder"
+local pathwatcher = require "mjolnir._asm.pathwatcher"
 local grid = require "grid"
 
 alert.show("Hello this is mjolnir", 1.5)
+
+pathwatcher.new(os.getenv("HOME") .. "/.mjolnir/", mjolnir.reload):start()
 
 -- switch between app windows of the same screen
 hotkey.bind({"alt"}, "F", function()
