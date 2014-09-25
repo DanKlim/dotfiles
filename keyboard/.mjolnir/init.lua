@@ -6,7 +6,7 @@ local screen = require "mjolnir.screen"
 local appfinder = require "mjolnir.cmsj.appfinder"
 local grid = require "grid"
 
-alert.show("Hello this is hydra", 1.5)
+alert.show("Hello this is mjolnir", 1.5)
 
 -- switch between app windows of the same screen
 hotkey.bind({"alt"}, "F", function()
