@@ -1,8 +1,9 @@
 local alert = require "mjolnir.alert"
 local hotkey = require "mjolnir.hotkey"
 local window = require "mjolnir.window"
-local appfinder = require "mjolnir.cmsj.appfinder"
 local fnutils = require "mjolnir.fnutils"
+local screen = require "mjolnir.screen"
+local appfinder = require "mjolnir.cmsj.appfinder"
 local grid = require "grid"
 
 alert.show("Hello this is hydra", 1.5)
@@ -100,11 +101,21 @@ hotkey.bind(winKey, "L", grid.resizewindow_wider)
 
 -- store and restore all window positions
 local windowPositions = {}
+local function getScreensKey()
+  local key = ""
+  fnutils.each(screen.allscreens(), function(screen)
+    local frame = screen:frame();
+    key = key .. "-" .. frame.w .. "x" .. frame.h
+  end)
+  return key
+end
+
 hotkey.bind({"ctrl", "cmd"}, "S", function()
-  windowPositions = {}
+  local positions = {}
+  windowPositions[getScreensKey()] = positions
   fnutils.each(window.allwindows(), function(win)
     if win:isstandard() and not win:isminimized() then
-      table.insert(windowPositions, {
+      table.insert(positions, {
         win = win,
         frame = win:frame(),
       })
@@ -114,8 +125,10 @@ hotkey.bind({"ctrl", "cmd"}, "S", function()
 end)
 
 hotkey.bind({"ctrl", "cmd"}, "D", function()
-  for i = 1, #windowPositions do
-    local hash = windowPositions[i]
+  local positions = windowPositions[getScreensKey()]
+  if not positions then return end
+  for i = 1, #positions do
+    local hash = positions[i]
     local win = hash.win
     if win:isstandard() then
       win:setframe(hash.frame)
