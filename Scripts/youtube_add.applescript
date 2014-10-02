@@ -16,8 +16,8 @@ for (var i = 0, len = buttons.length; i < len; i++) {
 
 function getPlaylists() {
   // Only look through playlists that don't already have the video.
-  var selector = '.playlist-items li:not(.contains-selected-videos) ' +
-    '.playlist-title';
+  var selector = '.playlists li:not(.contains-selected-videos) ' +
+    '.playlist-name';
   return document.querySelectorAll(selector);
 }
 
