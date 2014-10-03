@@ -127,7 +127,7 @@ hotkey.bind({"ctrl", "cmd"}, "S", function()
   alert.show("all window positions saved")
 end)
 
-hotkey.bind({"ctrl", "cmd"}, "D", function()
+hotkey.bind({"ctrl", "cmd"}, "R", function()
   local positions = windowPositions[getScreensKey()]
   if not positions then return end
   for i = 1, #positions do
