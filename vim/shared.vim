@@ -148,12 +148,19 @@ autocmd BufReadPost *
 set tabstop=2
 set shiftwidth=2
 set expandtab
+
 augroup filetype_go_shared
   autocmd!
   autocmd FileType go setlocal noexpandtab
   autocmd FileType go inoremap <buffer>
     \ {<cr> <esc>:call <SID>CloseBracket('{', '}', 0)<cr>O
   autocmd FileType go setlocal foldmethod=indent
+augroup END
+
+augroup filetype_typescript_shared
+  autocmd!
+  autocmd FileType typescript setlocal tabstop=4
+  autocmd FileType typescript setlocal shiftwidth=4
 augroup END
 
 " Highlight cursor.
