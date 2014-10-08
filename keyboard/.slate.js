@@ -123,7 +123,7 @@ S.on('windowOpened', function(e, win) {
       S.log('title', title);
       if (devToolsRegexp.test(title)) {
         win.doop(tboltBotFarLeft);
-      } else if (title === 'Untitled' || twitchVideoRegexp.test(title)) {
+      } else if (twitchVideoRegexp.test(title)) {
         win.doop(tboltTwitchVideo);
       } else if (twitchChatRegexp.test(title)) {
         win.doop(tboltTwitchChat);
