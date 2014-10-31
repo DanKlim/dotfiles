@@ -4,7 +4,7 @@ var player =
   document.getElementById('movie_player') ||
   document.getElementsByTagName('embed')[0] ||
   document.getElementById('player1') ||
-  document.getElementById('archive_site_player_flash');
+  document.getElementsByTagName('object')[0];
 if (player) {
   player.playVideo();
 }
