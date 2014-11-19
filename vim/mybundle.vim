@@ -40,6 +40,8 @@ Plugin 'vim-scripts/applescript.vim'
 Plugin 'vim-scripts/AnsiEsc.vim'
 Plugin 'othree/xml.vim'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'groenewege/vim-less'
+Plugin 'mustache/vim-mustache-handlebars'
 " }}}
 
 " Color schemes ------------ {{{
