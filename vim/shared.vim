@@ -88,7 +88,7 @@ nnoremap <d-u> <c-w>-
 nnoremap <d-i> <c-w>+
 nnoremap <d-o> <c-w>>
 
-" Move lins
+" Move lines
 nnoremap <d-j> :m .+1<cr>==
 nnoremap <d-k> :m .-2<cr>==
 inoremap <d-j> <esc>:m .+1<cr>==gi
@@ -98,6 +98,16 @@ vnoremap <d-k> :m '<-2<cr>gv=gv
 
 " Save faster
 nnoremap <leader>w :w<cr>
+
+" Copy file to clipboard
+nnoremap <leader>ac :call <SID>CopyFile()<cr>
+
+function! s:CopyFile()
+  let l:cursor = getpos(".")
+  :normal ggVG"+y<cr>
+  call setpos(".", cursor)
+endfunction
+
 " }}}
 
 " Resize split windows when the vim window is resized
