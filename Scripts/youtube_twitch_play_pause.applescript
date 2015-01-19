@@ -18,7 +18,7 @@ if (player) {
 
 tell application "Google Chrome"
   tell active tab of front window
-    set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/c\\/[0-9]+)/*good*(&)/\"" as string
+    set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+)/*good*(&)/\"" as string
     set result to do shell script cmd
     if result starts with "*good*" then
       execute javascript myjs
@@ -28,7 +28,7 @@ tell application "Google Chrome"
 
   repeat with win in windows
     tell active tab of win
-      set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/c\\/[0-9]+)/*good*(&)/\"" as string
+      set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+)/*good*(&)/\"" as string
       set result to do shell script cmd
       if result starts with "*good*" then
         execute javascript myjs
@@ -39,7 +39,7 @@ tell application "Google Chrome"
 
   repeat with t in tabs of windows
     tell t
-      set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/c\\/[0-9]+)/*good*(&)/\"" as string
+      set cmd to "echo \"" & URL & "\" | sed -E \"s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+)/*good*(&)/\"" as string
       set result to do shell script cmd
       if result starts with "*good*" then
         execute javascript myjs
