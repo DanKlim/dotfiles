@@ -86,11 +86,9 @@ hotkey.bind(winKey, "O", function() grid.adjustwidth(  1) end)
 
 hotkey.bind(winKey, "P", grid.maximize_window)
 
-hotkey.bind(winKey, "B", grid.pushwindow_nextscreen)
+hotkey.bind(winKey, "V", grid.pushwindow_nextscreen)
 
-hotkey.bind(winKey, "RETURN", function()
-  grid.snap(window.focusedwindow())
-end)
+hotkey.bind(winKey, "RETURN", grid.snap)
 
 hotkey.bind(winKey, "N", grid.pushwindow_left)
 hotkey.bind(winKey, "M", grid.pushwindow_down)

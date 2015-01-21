@@ -47,6 +47,7 @@ function grid.set(win, f, screen)
 end
 
 function grid.snap(win)
+  local win = window.focusedwindow()
   if win:isstandard() then
     grid.set(win, grid.get(win), win:screen())
   end
