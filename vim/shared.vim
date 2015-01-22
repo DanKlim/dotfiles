@@ -269,6 +269,21 @@ set ruler
 
 " Show keys in status bar as they are typed.
 set showcmd
+
+function! Fenc()
+  if &fenc !~ "^$\\|utf-8" || &bomb
+    return "[" . &fenc . (&bomb ? "-bom" : "") . "]"
+  else
+    return ""
+  endif
+endfunction
+
+" Custom status line
+set statusline=%<%f                 " filename
+set statusline+=%m                  " modified or readonly flag
+set statusline+=%{Fenc()}           " file encoding
+set statusline+=%=                  " align right
+set statusline+=%15.(%l,%c/%L\ %P%) " cursor position/total lines
 " }}}
 
 " Don't use the mouse.
@@ -289,18 +304,3 @@ function! s:QuickfixToggle()
     let g:quickfix_is_open = 1
   endif
 endfunction
-
-function! Fenc()
-  if &fenc !~ "^$\\|utf-8" || &bomb
-    return "[" . &fenc . (&bomb ? "-bom" : "") . "]"
-  else
-    return ""
-  endif
-endfunction
-
-" Custom status line
-set statusline=%<%f                 " filename
-set statusline+=%m                  " modified or readonly flag
-set statusline+=%{Fenc()}           " file encoding
-set statusline+=%=                  " align right
-set statusline+=%15.(%l,%c/%L\ %P%) " cursor position/total lines
