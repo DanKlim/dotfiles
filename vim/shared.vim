@@ -88,6 +88,13 @@ nnoremap <d-u> <c-w>-
 nnoremap <d-i> <c-w>+
 nnoremap <d-o> <c-w>>
 
+" Move lins
+nnoremap <d-j> :m .+1<cr>==
+nnoremap <d-k> :m .-2<cr>==
+inoremap <d-j> <esc>:m .+1<cr>==gi
+inoremap <d-k> <esc>:m .-2<cr>==gi
+vnoremap <d-j> :m '>+1<cr>gv=gv
+vnoremap <d-k> :m '<-2<cr>gv=gv
 " }}}
 
 " Resize split windows when the vim window is resized
@@ -222,7 +229,6 @@ function! s:InsertLeave()
   endif
 endfunction
 
-" Folding ------------------- {{{
 augroup folding
   autocmd!
   autocmd InsertEnter * :call <SID>InsertEnter()
@@ -231,8 +237,6 @@ augroup folding
   autocmd FileType coffee,typescript setlocal foldmethod=indent nofoldenable
   autocmd BufRead html5player*.js,*.min.js setlocal foldmethod=manual
 augroup END
-" }}}
-
 " }}}
 
 " Faster communication with vim.
