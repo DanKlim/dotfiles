@@ -99,6 +99,9 @@ vnoremap <d-k> :m '<-2<cr>gv=gv
 " Save faster
 nnoremap <leader>w :w<cr>
 
+" Quit faster
+nnoremap <leader>q :q<cr>
+
 " Copy file to clipboard
 nnoremap <leader>ac :call <SID>CopyFile()<cr>
 
