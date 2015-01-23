@@ -102,6 +102,9 @@ nnoremap <leader>w :w<cr>
 " Quit faster
 nnoremap <leader>q :q<cr>
 
+" Delete current buffer faster
+nnoremap <leader>as :bd<cr>
+
 " Copy file to clipboard
 nnoremap <leader>ac :call <SID>CopyFile()<cr>
 
