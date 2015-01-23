@@ -136,14 +136,9 @@ set incsearch
 " Highlight all search matches.
 set hlsearch
 
-" Search for word under cursor and display results in window.
-"nnoremap <leader>g
-  "\ :silent execute "grep! -R " . shellescape(expand("<cword>")) . " ."<cr>
-  "\ :copen<cr>
-
 " Mappings for :cnext and :cprevious
-nnoremap <leader>e :cprevious<cr>
-nnoremap <leader>r :cnext<cr>
+nnoremap <leader>j :cprevious<cr>
+nnoremap <leader>k :cnext<cr>
 " }}}
 
 " Allow backspacing over everything in insert mode.
@@ -307,7 +302,7 @@ set statusline+=%15.(%l,%c/%L\ %P%) " cursor position/total lines
 " Don't use the mouse.
 set mouse=r
 
-nnoremap <leader>q :call <SID>QuickfixToggle()<cr>
+nnoremap <leader>o :call <SID>QuickfixToggle()<cr>
 
 let g:quickfix_is_open = 0
 
