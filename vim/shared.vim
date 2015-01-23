@@ -43,7 +43,7 @@ nnoremap K <nop>
 nnoremap <leader>d :bn<cr>
 nnoremap <leader>f :bp<cr>
 
-" Move to the last buffer with Cmd + i.
+" Move to the last buffer
 nnoremap <leader>m <c-^>
 
 " Redo to U.
@@ -123,6 +123,7 @@ vnoremap * :silent! normal! *N<cr>
 
 " Clears the search. (c)
 nnoremap <leader><space> :nohlsearch<cr>
+
 " Ignore case of searches.
 set ignorecase
 
