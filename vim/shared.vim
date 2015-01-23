@@ -95,6 +95,9 @@ inoremap <d-j> <esc>:m .+1<cr>==gi
 inoremap <d-k> <esc>:m .-2<cr>==gi
 vnoremap <d-j> :m '>+1<cr>gv=gv
 vnoremap <d-k> :m '<-2<cr>gv=gv
+
+" Save faster
+nnoremap <leader>w :w<cr>
 " }}}
 
 " Resize split windows when the vim window is resized
