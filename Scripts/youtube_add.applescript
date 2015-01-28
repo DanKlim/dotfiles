@@ -1,6 +1,7 @@
 # Add current video to my kpop playlist.
 set myjs to "
 var PLAYLIST_NAME = 'kpop';
+var MAX_TIME = 10000;
 var player =
   document.getElementById('movie_player') ||
   document.getElementsByTagName('embed')[0] ||
@@ -14,14 +15,11 @@ for (var i = 0, len = buttons.length; i < len; i++) {
   }
 }
 
-function getPlaylists() {
+function searchPlaylists() {
   // Only look through playlists that don't already have the video.
   var selector = '.playlists li:not(.contains-selected-videos) ' +
     '.playlist-name';
-  return document.querySelectorAll(selector);
-}
-
-function searchPlaylists(list) {
+  var list = document.querySelectorAll(selector);
   if (list.length) {
     for (var i = 0, len = list.length; i < len; i++) {
       var pl = list[i];
@@ -36,20 +34,36 @@ function searchPlaylists(list) {
   return false;
 }
 
-if (player) {
-  var list = getPlaylists();
-  if (list.length) {
-    searchPlaylists(list)
+var scrollTop = document.body.scrollTop;
+function waitForNoti() {
+  var $notiContainer = document.getElementById('appbar-main-guide-notification-container');
+  var start = Date.now();
+  var iid = setInterval(function() {
+    if ($notiContainer.children.length) {
+      clearInterval(iid);
+      document.body.scrollTop = scrollTop;
+    }
+    if (Date.now() - start > MAX_TIME) {
+      clearInterval(iid);
+    }
+  }, 100);
+}
 
-  } else {
+if (player) {
+  if (!searchPlaylists()) {
     // Wait a while for the playlists to load.
-    var max = 10;
-    var n = 0;
+    var start = Date.now();
     var iid = setInterval(function() {
-      if (searchPlaylists(getPlaylists()) || ++n === max) {
+      if (searchPlaylists()) {
+        clearInterval(iid);
+        waitForNoti();
+      }
+      if (Date.now() - start > MAX_TIME) {
         clearInterval(iid);
       }
-    }, 500);
+    }, 100);
+  } else {
+    waitForNoti();
   }
 }
 "
