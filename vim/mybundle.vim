@@ -115,3 +115,12 @@ let g:vim_markdown_initial_foldlevel=5
 
 " vim-go
 let g:go_doc_keywordprg_enabled = 0
+
+" compile coffeescript
+augroup coffeescript
+  autocmd!
+  autocmd FileType javascript
+    \ nnoremap <buffer> <localleader>c :CoffeeCompile<cr>
+  autocmd FileType javascript
+    \ vnoremap <buffer> <localleader>c :CoffeeCompile<cr>
+augroup END
