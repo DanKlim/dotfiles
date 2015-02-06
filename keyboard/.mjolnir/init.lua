@@ -76,6 +76,7 @@ hotkey.bind(switchKey, "5", focusApp("Mumble"))
 hotkey.bind(switchKey, "6", focusApp("Adium"))
 hotkey.bind(switchKey, "7", focusApp("Microsoft Outlook"))
 hotkey.bind(switchKey, "8", focusApp("Preview"))
+hotkey.bind(switchKey, "9", focusApp("Notes"))
 
 -- change window size / position
 local winKey = {"ctrl", "alt"}
