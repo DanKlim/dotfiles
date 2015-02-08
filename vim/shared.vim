@@ -141,10 +141,6 @@ set incsearch
 
 " Highlight all search matches.
 set hlsearch
-
-" Mappings for :cnext and :cprevious
-nnoremap <leader>j :cprevious<cr>
-nnoremap <leader>k :cnext<cr>
 " }}}
 
 " Allow backspacing over everything in insert mode.

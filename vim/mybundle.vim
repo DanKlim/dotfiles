@@ -22,6 +22,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'dahu/vim-fanfingtastic'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
+Plugin 'tpope/vim-unimpaired'
 " }}}
 
 " Environemnts ------------- {{{
