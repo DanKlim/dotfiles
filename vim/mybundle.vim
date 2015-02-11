@@ -121,8 +121,8 @@ let g:go_doc_keywordprg_enabled = 0
 " compile coffeescript
 augroup coffeescript
   autocmd!
-  autocmd FileType javascript
+  autocmd FileType coffee
     \ nnoremap <buffer> <localleader>c :CoffeeCompile<cr>
-  autocmd FileType javascript
+  autocmd FileType coffee
     \ vnoremap <buffer> <localleader>c :CoffeeCompile<cr>
 augroup END
