@@ -9,7 +9,7 @@ var player =
 var buttons = document.getElementsByClassName('yt-uix-button');
 for (var i = 0, len = buttons.length; i < len; i++) {
   var button = buttons[i];
-  if (button.getAttribute('data-trigger-for') === 'action-panel-addto') {
+  if (button.getAttribute('title') === 'Add to') {
     button.click();
     break;
   }
