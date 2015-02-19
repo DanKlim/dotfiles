@@ -27,7 +27,7 @@ Plugin 'tpope/vim-unimpaired'
 
 " Environemnts ------------- {{{
 Plugin 'moll/vim-node'
-Plugin 'fatih/vim-go'
+Plugin 'csscomb/vim-csscomb'
 " }}}
 
 " Syntax Highlighting ------ {{{
