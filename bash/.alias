@@ -44,6 +44,7 @@ function gciw() {
   gci "`whatthecommit --no-disclaimer`"
 }
 alias gca="git commit -a -m"
+alias gcia="git commit --amend"
 alias gm="git merge"
 alias gf="git fetch"
 alias gpt="git push --tags"
