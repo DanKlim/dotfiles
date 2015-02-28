@@ -66,6 +66,7 @@ hotkey.bind(switchKey, "S", focusApp("Finder"))
 hotkey.bind(switchKey, "D", focusApp("HipChat"))
 hotkey.bind(switchKey, "T", focusApp("Transmission"))
 hotkey.bind(switchKey, "G", each({
+  focusApp("iTunes"),
   focusApp("Clementine"),
   focusApp("Spotify"),
 }))
