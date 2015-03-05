@@ -11,6 +11,10 @@ ln -sf "$dir"/bash/mongo.js ~
 # I love vim
 ln -sf "$dir"/vim/.vimrc ~
 ln -sf "$dir"/vim/.gvimrc ~
+mkdir -p ~/.vim
+mkdir -p ~/.vim/bundle
+mkdir -p ~/.vim/swp
+mkdir -p ~/.vim/backup
 ln -sf "$dir"/vim/shared.vim ~/.vim
 ln -sf "$dir"/vim/mybundle.vim ~/.vim
 
@@ -18,7 +22,9 @@ ln -sf "$dir"/vim/mybundle.vim ~/.vim
 ln -sf "$dir"/.jshintrc ~
 
 # keyboard shortcuts
-ln -sf "$dir"/private.xml "$HOME/Library/Application Support/Karabiner"
+mkdir -p "~/Library/Application Support/Karabiner"
+ln -sf "$dir"/private.xml "~/Library/Application Support/Karabiner"
+mkdir -p ~/Library/Scripts
 cp -R "$dir"/Scripts/* ~/Library/Scripts
 
 # window management
