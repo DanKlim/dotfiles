@@ -46,6 +46,7 @@ function gciw() {
 alias gca="git commit -a -m"
 alias gcia="git commit --amend"
 alias gm="git merge"
+alias gmo="git merge origin/\${git_branch:1:(\${#git_branch}-2)}"
 alias gf="git fetch"
 alias gpt="git push --tags"
 alias gp="git push"
