@@ -67,10 +67,3 @@ alias gcom="git checkout master"
 
 # copy url to clipboard
 alias url="grep -ioE 'https?://[^[:space:]]+' | tail -1 | pbcopy"
-
-# copy the url that `arc diff` spits out
-function arcd() {
-  arc diff | tee ~/.arcoutput.log
-  cat ~/.arcoutput.log | url
-}
-
