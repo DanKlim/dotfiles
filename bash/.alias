@@ -40,9 +40,7 @@ alias gst="git status"
 alias gc="git commit -m"
 alias gci="git commit"
 alias wtc="whatthecommit --no-disclaimer"
-function gciw() {
-  gci "`whatthecommit --no-disclaimer`"
-}
+alias gcw="gc \"\`whatthecommit --no-disclaimer\`\""
 alias gca="git commit -a -m"
 alias gcia="git commit --amend"
 alias gm="git merge"
