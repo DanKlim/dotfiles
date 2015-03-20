@@ -65,5 +65,7 @@ alias gsl="git stash list"
 alias gsp="git stash pop"
 alias gcom="git checkout master"
 
-# copy url to clipboard
-alias url="grep -ioE 'https?://[^[:space:]]+' | tail -1 | pbcopy"
+# find a URL from output
+alias urlfind="grep -ioE 'https?://[^[:space:]]+' | tail -1"
+alias urlcopy="urlfind | pbcopy"
+alias urlopen="urlfind | xargs open"
