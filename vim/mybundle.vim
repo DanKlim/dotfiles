@@ -10,6 +10,7 @@ Plugin 'danro/rename.vim'
 Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
+Plugin 'vim-scripts/PreserveNoEOL'
 " }}}
 
 " Mappings ----------------- {{{
@@ -126,3 +127,6 @@ augroup coffeescript
   autocmd FileType coffee
     \ vnoremap <buffer> <localleader>c :CoffeeCompile<cr>
 augroup END
+
+" don't insert EOL if not already there
+let g:PreserveNoEOL = 1
