@@ -11,6 +11,7 @@ Plugin 'MarcWeber/vim-addon-mw-utils'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/PreserveNoEOL'
+Plugin 'ciaranm/detectindent'
 " }}}
 
 " Mappings ----------------- {{{
@@ -130,3 +131,9 @@ augroup END
 
 " don't insert EOL if not already there
 let g:PreserveNoEOL = 1
+
+" Detect indent
+augroup detect_indent
+  autocmd!
+  autocmd BufReadPost * :DetectIndent 
+augroup END
