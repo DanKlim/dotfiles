@@ -23,8 +23,8 @@ ln -sf "$dir"/vim/.editorconfig ~/.vim
 ln -sf "$dir"/.jshintrc ~
 
 # keyboard shortcuts
-mkdir -p "~/Library/Application Support/Karabiner"
-ln -sf "$dir"/private.xml "~/Library/Application Support/Karabiner"
+mkdir -p ~/Library/Application\ Support/Karabiner
+ln -sf "$dir"/private.xml ~/Library/Application\ Support/Karabiner
 mkdir -p ~/Library/Scripts
 cp -R "$dir"/Scripts/* ~/Library/Scripts
 
