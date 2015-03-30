@@ -30,6 +30,7 @@ Plugin 'tpope/vim-unimpaired'
 " Environemnts ------------- {{{
 Plugin 'moll/vim-node'
 Plugin 'csscomb/vim-csscomb'
+Plugin 'maksimr/vim-jsbeautify'
 " }}}
 
 " Syntax Highlighting ------ {{{
