@@ -4,19 +4,22 @@ var player =
   document.getElementById('movie_player') ||
   document.getElementsByTagName('embed')[0] ||
   document.getElementById('player1') ||
-  document.getElementsByTagName('object')[0];
+  document.getElementsByTagName('object')[0] ||
+  document.getElementsByTagName('video')[0];
 
 if (player) {
   if (player.getPlayerState && player.getPlayerState() === 1 ||
-      player.isPaused && !player.isPaused()) {
-    player.pauseVideo();
+      player.isPaused && !player.isPaused() || player.paused === false) {
+    if (player.pauseVideo) { player.pauseVideo(); }
+    else if (player.pause) { player.pause(); }
   } else {
-    player.playVideo();
+    if (player.playVideo) { player.playVideo(); }
+    else if (player.play) { player.play(); }
   }
 }
 "
 
-set regexp to "s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+)/*good*(&)/"
+set regexp to "s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+|netflix\\.com\\/WiPlayer)/*good*(&)/"
 tell application "Google Chrome"
   tell active tab of front window
     set cmd to "echo \"" & URL & "\" | sed -E \"" & regexp & "\"" as string
