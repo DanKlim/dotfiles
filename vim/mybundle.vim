@@ -31,6 +31,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'moll/vim-node'
 Plugin 'csscomb/vim-csscomb'
 Plugin 'maksimr/vim-jsbeautify'
+Plugin 'fatih/vim-go'
 " }}}
 
 " Syntax Highlighting ------ {{{
