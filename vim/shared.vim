@@ -10,6 +10,9 @@ set encoding=utf-8
 " http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
 set modelines=0
 
+" Use both Unix and DOS file formats, but favor the Unix one for new files.
+set fileformats=unix,dos
+
 " Change map leader for ease.
 let mapleader=','
 let maplocalleader='['
