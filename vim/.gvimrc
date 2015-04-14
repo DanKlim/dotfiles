@@ -12,11 +12,8 @@ set guifont=Menlo\ Regular:h14
 color frozen
 set transparency=17
 
-" Open PeepOpen with CMD-T.
-macmenu &File.New\ Tab key=<nop>
-map <D-t> <Plug>PeepOpen
-macmenu &File.Open\.\.\. key=<nop>
-map <D-o> <Plug>PeepOpen
+" Disable this so I can use the <d-l> shortcut
+macmenu &Tools.List\ Errors key=<nop>
 
 " Change tabs.
 "macm Window.Select\ Previous\ Tab key=<D-S-H>
