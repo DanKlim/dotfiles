@@ -2,10 +2,10 @@
 set myjs to "
 var player =
   document.getElementById('movie_player') ||
-  document.getElementsByTagName('embed')[0] ||
   document.getElementById('player1') ||
+  document.getElementsByTagName('video')[0] ||
   document.getElementsByTagName('object')[0] ||
-  document.getElementsByTagName('video')[0];
+  document.getElementsByTagName('embed')[0];
 
 if (player) {
   if (player.pauseVideo) { player.pauseVideo(); }
@@ -13,7 +13,7 @@ if (player) {
 }
 "
 
-set regexp to "s/https?:\\/\\/www\\.(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+|netflix\\.com\\/WiPlayer)/*good*(&)/"
+set regexp to "s/https?:\\/\\/(www\\.)?(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+|netflix\\.com\\/WiPlayer|[^\\s]+:32400\\/web\\/index\\.html)/*good*(&)/"
 tell application "Google Chrome"
   repeat with t in tabs of windows
     tell t
