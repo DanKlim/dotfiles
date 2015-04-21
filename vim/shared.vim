@@ -52,6 +52,12 @@ nnoremap <leader>m <c-^>
 " Redo to U.
 nnoremap U <c-r>
 
+" Insert one line above and move cursor.
+inoremap <d-l> <esc>O
+
+" Go to the end of the line
+inoremap <d-e> <esc>A
+
 " Add a closing bracket and new line when typing an opening bracket.
 augroup filetype_js
   autocmd!
