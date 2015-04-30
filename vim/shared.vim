@@ -47,7 +47,7 @@ nnoremap <leader>d :bn<cr>
 nnoremap <leader>f :bp<cr>
 
 " Move to the last buffer
-nnoremap <leader>m <c-^>
+nnoremap <leader>s <c-^>
 
 " Redo to U.
 nnoremap U <c-r>
