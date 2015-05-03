@@ -58,6 +58,20 @@ inoremap <d-l> <esc>O
 " Go to the end of the line
 inoremap <d-e> <esc>A
 
+" Uppercase entire last word.
+inoremap <c-p> <esc>:call <SID>Preserve("normal bveU")<cr>a
+nnoremap <c-p> :call <SID>Preserve("normal bveU")<cr>
+
+function! s:Preserve(command)
+  let _s=@/
+  let l = line(".")
+  let c = col(".")
+  execute a:command
+  let @/=_s
+  call cursor(l, c)
+endfunction
+>>>>>>> mappings to uppercase previous word
+
 " Add a closing bracket and new line when typing an opening bracket.
 augroup filetype_js
   autocmd!
