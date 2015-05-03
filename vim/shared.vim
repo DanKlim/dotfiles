@@ -77,25 +77,6 @@ function! s:Preserve(command)
   call cursor(l, c)
 endfunction
 
-" Add a closing bracket and new line when typing an opening bracket.
-augroup filetype_js
-  autocmd!
-  autocmd FileType javascript,typescript inoremap <buffer>
-    \ {<cr> <esc>:call <SID>CloseBracket('{', '}', 1)<cr>O
-  autocmd FileType javascript,typescript inoremap <buffer>
-    \ [<cr> <esc>:call <SID>CloseBracket('[', ']', 1)<cr>O
-augroup END
-
-function! s:CloseBracket(open, close, findsc)
-  let cline = getline('.')
-  if a:findsc && cline =~# '\S = ' && cline !~# '^\s*for\s\?('
-    let sc = ';'
-  else
-    let sc = ''
-  endif
-  execute "normal! a" . a:open . "\<cr>" . a:close . sc
-endfunction
-
 " <up> to show the last command used.
 " Rather than pressing ; followed by <up>.
 nnoremap <up> :<up>
@@ -201,8 +182,6 @@ set expandtab
 augroup filetype_go_shared
   autocmd!
   autocmd FileType go setlocal noexpandtab
-  autocmd FileType go inoremap <buffer>
-    \ {<cr> <esc>:call <SID>CloseBracket('{', '}', 0)<cr>O
   autocmd FileType go setlocal foldmethod=indent
 augroup END
 

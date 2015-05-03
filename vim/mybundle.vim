@@ -12,6 +12,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/PreserveNoEOL'
 Plugin 'ciaranm/detectindent'
+Plugin 'jiangmiao/auto-pairs'
 " }}}
 
 " Mappings ----------------- {{{
@@ -139,3 +140,7 @@ augroup detect_indent
   autocmd!
   autocmd BufReadPost * :DetectIndent 
 augroup END
+
+" Fly mode
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = 'µ'
