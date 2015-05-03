@@ -275,7 +275,7 @@ augroup folding
   autocmd!
   autocmd InsertEnter * :call <SID>InsertEnter()
   autocmd InsertLeave,WinLeave * :call <SID>InsertLeave()
-  autocmd BufRead *.vim setlocal foldmethod=marker
+  autocmd FileType vim setlocal foldmethod=marker
   autocmd FileType coffee,typescript setlocal foldmethod=indent nofoldenable
   autocmd BufRead html5player*.js,*.min.js setlocal foldmethod=manual
 augroup END
