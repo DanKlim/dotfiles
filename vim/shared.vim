@@ -350,3 +350,6 @@ function! s:QuickfixToggle()
     let g:quickfix_is_open = 1
   endif
 endfunction
+
+" Prevent some interruptive prompts.
+set shortmess=at
