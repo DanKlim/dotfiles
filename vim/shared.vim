@@ -28,6 +28,12 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
+" Remap ` to ' so cursor jumps to column too.
+nnoremap ' `
+nnoremap ` '
+vnoremap ' `
+vnoremap ` '
+
 " Help files settings --------------- {{{
 augroup center
   autocmd!
@@ -58,9 +64,9 @@ inoremap <d-l> <esc>O
 " Go to the end of the line
 inoremap <d-e> <esc>A
 
-" Uppercase entire last word.
-inoremap <c-p> <esc>:call <SID>Preserve("normal bveU")<cr>a
-nnoremap <c-p> :call <SID>Preserve("normal bveU")<cr>
+" Uppercase previous word.
+inoremap <c-p> <esc>:call <SID>Preserve("normal bvheU")<cr>a 
+nnoremap <c-p> :call <SID>Preserve("normal bvheU")<cr>
 
 function! s:Preserve(command)
   let _s=@/
@@ -70,7 +76,6 @@ function! s:Preserve(command)
   let @/=_s
   call cursor(l, c)
 endfunction
->>>>>>> mappings to uppercase previous word
 
 " Add a closing bracket and new line when typing an opening bracket.
 augroup filetype_js
