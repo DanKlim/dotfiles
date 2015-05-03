@@ -142,6 +142,9 @@ function! s:CopyFile()
   call setpos(".", cursor)
 endfunction
 
+" Extended % matching.
+runtime macros/matchit.vim
+
 " }}}
 
 " Resize split windows when the vim window is resized
