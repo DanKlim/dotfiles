@@ -6,9 +6,8 @@ set nocompatible
 scriptencoding utf-8
 set encoding=utf-8
 
-" Prevent a mem/cpu bug.
-" http://lists.alioth.debian.org/pipermail/pkg-vim-maintainers/2007-June/004020.html
-set modelines=0
+" Use modelines.
+set modelines=1
 
 " Use both Unix and DOS file formats, but favor the Unix one for new files.
 set fileformats=unix,dos
