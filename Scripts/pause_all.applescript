@@ -1,9 +1,12 @@
 # Pause all youtube videos in all youtube tabs.
 set myjs to "
+var isCorrectPlayer = window.location.hostname === 'www.twitch.tv' ?
+  function(player) { return player.getVideoTime; } :
+  function(player) { return player.playVideo || player.play; } ;
 function getPlayer(byId, name) {
   var player = byId ?
     document.getElementById(name) : document.getElementsByTagName(name)[0];
-  return player && (player.playVideo || player.play) ? player : null;
+  return player && isCorrectPlayer(player) ? player : null;
 }
 
 var player =
