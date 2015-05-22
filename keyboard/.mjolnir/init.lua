@@ -1,11 +1,11 @@
-local alert = require "mjolnir.alert"
-local hotkey = require "mjolnir.hotkey"
-local window = require "mjolnir.window"
-local fnutils = require "mjolnir.fnutils"
-local screen = require "mjolnir.screen"
-local appfinder = require "mjolnir.cmsj.appfinder"
+local alert       = require "mjolnir.alert"
+local hotkey      = require "mjolnir.hotkey"
+local window      = require "mjolnir.window"
+local fnutils     = require "mjolnir.fnutils"
+local screen      = require "mjolnir.screen"
+local appfinder   = require "mjolnir.cmsj.appfinder"
 local pathwatcher = require "mjolnir._asm.pathwatcher"
-local grid = require "grid"
+local grid        = require "mjolnir.bg.grid"
 
 alert.show("Hello this is mjolnir", 1.5)
 
@@ -85,16 +85,23 @@ hotkey.bind(switchKey, "9", focusApp("Notes"))
 -- change window size / position
 local winKey = {"ctrl", "alt"}
 
-hotkey.bind(winKey, "Y", function() grid.adjustwidth( -1) end)
-hotkey.bind(winKey, "U", function() grid.adjustheight(-1) end)
-hotkey.bind(winKey, "I", function() grid.adjustheight( 1) end)
-hotkey.bind(winKey, "O", function() grid.adjustwidth(  1) end)
+grid.MARGINX = 0
+grid.MARGINY = 0
+grid.GRIDHEIGHT = 4
+grid.GRIDWIDTH = 4
+
+hotkey.bind(winKey, "Y", function() grid.adjustwidth( -1, true) end)
+hotkey.bind(winKey, "U", function() grid.adjustheight(-1, true) end)
+hotkey.bind(winKey, "I", function() grid.adjustheight( 1, true) end)
+hotkey.bind(winKey, "O", function() grid.adjustwidth(  1, true) end)
 
 hotkey.bind(winKey, "P", grid.maximize_window)
 
 hotkey.bind(winKey, "V", grid.pushwindow_nextscreen)
 
-hotkey.bind(winKey, "RETURN", grid.snap)
+hotkey.bind(winKey, "RETURN", function()
+  grid.snap(window.focusedwindow())
+end)
 
 hotkey.bind(winKey, "N", grid.pushwindow_left)
 hotkey.bind(winKey, "M", grid.pushwindow_down)
