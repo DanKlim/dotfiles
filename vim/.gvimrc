@@ -28,6 +28,8 @@ map <D-7> 7gt
 map <D-8> 8gt
 map <D-9> :tablast<CR>
 
-
 " Highlight the line the cursor is on to find it easier.
 set cursorline
+
+" Fix relative paths for parents in tab.
+let &guitablabel="%!RelativePathString(expand('%:p'))"
