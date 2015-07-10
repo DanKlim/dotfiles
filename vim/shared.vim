@@ -367,4 +367,4 @@ function! s:QuickfixToggle()
 endfunction
 
 " Prevent some interruptive prompts.
-set shortmess=at
+set shortmess=atO
