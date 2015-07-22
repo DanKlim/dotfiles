@@ -125,6 +125,15 @@ endfunction
 " Extended % matching.
 runtime macros/matchit.vim
 
+function! s:DiffWithSaved()
+  let filetype=&ft
+  diffthis
+  vnew | r # | normal! 1Gdd
+  diffthis
+  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+endfunction
+com! DiffSaved call s:DiffWithSaved()
+
 " }}}
 
 " Resize split windows when the vim window is resized
