@@ -66,6 +66,7 @@ alias gsl="git stash list"
 alias gsp="git stash pop"
 alias gcom="git checkout master"
 alias gt="git tag"
+alias grm="git rm"
 
 # find a URL from output
 alias urlfind="grep -ioE 'https?://[^[:space:]]+' | tail -1"
