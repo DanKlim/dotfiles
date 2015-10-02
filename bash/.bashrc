@@ -93,3 +93,6 @@ RESET='\033[39m'
 # prompt
 source ~/.bash/git-aware-prompt/prompt.sh
 export PS1="\[$BOLD$GREY\]\W\[$RESET$RESET_BOLD$CYAN\]\$git_branch\$git_dirty\[$RESET$GREEN\] \\$\[$RESET$BOLD_RESET\] "
+
+# added by travis gem
+[ -f "$HOME"/.travis/travis.sh ] && source "$HOME"/.travis/travis.sh
