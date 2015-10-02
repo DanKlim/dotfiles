@@ -79,6 +79,8 @@ nnoremap <leader>a= :Tabularize /=<cr>
 vnoremap <leader>a= :Tabularize /=<cr>
 nnoremap <leader>a: :Tabularize /:<cr>
 vnoremap <leader>a: :Tabularize /:<cr>
+nnoremap <leader>a; :Tabularize /:<cr>
+vnoremap <leader>a; :Tabularize /:<cr>
 
 " Shows the errors window. (e)
 nnoremap <silent> <leader>e/ :Errors<cr>
