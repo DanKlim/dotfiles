@@ -96,3 +96,10 @@ export PS1="\[$BOLD$GREY\]\W\[$RESET$RESET_BOLD$CYAN\]\$git_branch\$git_dirty\[$
 
 # added by travis gem
 [ -f "$HOME"/.travis/travis.sh ] && source "$HOME"/.travis/travis.sh
+
+# git tab completion
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+  __git_complete gco _git_checkout
+  __git_complete gm _git_merge
+fi
