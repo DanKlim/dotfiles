@@ -10,7 +10,7 @@
 * http://golang.org/
 * https://github.com/bradfitz/goimports
 
-### node
+### javascript
 * http://nodejs.org/
 * http://jshint.com/
   - `.jshintrc` file included.
@@ -51,7 +51,7 @@
   - can unbind.
 * https://github.com/mjolnir-io/mjolnir
   - newest, most efficient, most maintained by a longshot.
-  - doesn't have events, but plants to.
+  - doesn't have events.
   - can unbind.
   - nice log window.
   - most customizable.
