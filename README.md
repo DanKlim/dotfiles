@@ -55,11 +55,6 @@
   - can unbind.
   - nice log window.
   - most customizable.
-
-# other
-* https://justgetflux.com/
-* https://www.rescuetime.com/
-* http://www.feedsapp.com/
  
 # install
 
