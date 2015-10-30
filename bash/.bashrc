@@ -102,4 +102,5 @@ if [ -f ~/.git-completion.bash ]; then
   . ~/.git-completion.bash
   __git_complete gco _git_checkout
   __git_complete gm _git_merge
+  __git_complete gbd _git_branch
 fi
