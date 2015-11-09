@@ -1,20 +1,22 @@
 # If in a playlist, play the next video.
 set myjs to "
-var player =
-  document.getElementById('movie_player') ||
-  document.getElementsByTagName('embed')[0] ||
-  document.getElementById('player1');
-var className1 = 'yt-uix-button-icon-playlist-bar-next';
-var className2 = 'yt-uix-button-icon-watch-appbar-play-next';
-var next =
-  document.getElementsByClassName(className1)[0] ||
-  document.getElementsByClassName(className2)[0];
-if (player) {
-  if (next) {
-    next.click();
-  } else {
-    player.nextVideo();
-  }
+var className = 'ytp-next-button';
+var next = document.getElementsByClassName(className)[0];
+if (next) {
+  next.click();
+} else {
+  var getPlayer = function(byId, name) {
+    var player = byId ?
+      document.getElementById(name) : document.getElementsByTagName(name)[0];
+    return player && (player.playVideo || player.play) ? player : null;
+  };
+  var player =
+    getPlayer(true, 'movie_player') ||
+    getPlayer(true, 'player1') ||
+    getPlayer(false, 'video') ||
+    getPlayer(false, 'object') ||
+    getPlayer(false, 'embed');
+  player.nextVideo();
 }
 "
 
