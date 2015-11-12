@@ -13,6 +13,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/PreserveNoEOL'
 Plugin 'ciaranm/detectindent'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'airblade/vim-gitgutter'
 " }}}
 
 " Mappings ----------------- {{{
@@ -61,6 +62,10 @@ Plugin 'fent/vim-frozen'
 
 " Dev ---------------------- {{{
 Plugin 'blueyed/colorhighlight.vim'
+" }}}
+
+" Misc --------------------- {{{
+Bundle 'junegunn/vim-emoji'
 " }}}
 
 " This had to be disabled for vundle.
@@ -146,3 +151,7 @@ augroup END
 " Fly mode
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = 'µ'
+
+" Update git-gutter always
+let g:gitgutter_realtime = 1
+set updatetime=500
