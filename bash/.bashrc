@@ -34,6 +34,7 @@ export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 alias vim='mvim'
 export EDITOR='vim'
 MYEDITOR='mvim'
+alias vi=/Applications/MacVim.app/Contents/MacOS/Vim
 
 # edit .bashrc and vim
 alias be='$MYEDITOR ~/.bashrc'
