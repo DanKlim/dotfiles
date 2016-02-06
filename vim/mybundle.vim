@@ -13,7 +13,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/PreserveNoEOL'
 Plugin 'ciaranm/detectindent'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'airblade/vim-gitgutter'
 " }}}
 
 " Mappings ----------------- {{{
