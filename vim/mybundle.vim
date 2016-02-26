@@ -113,17 +113,6 @@ augroup filetype_go
     \ :split <cr>:exe "GoDef"<cr>
 augroup END
 
-" Edit snippet files easier.
-augroup snippets
-  autocmd!
-  autocmd FileType javascript
-    \ nnoremap <buffer> <localleader>es
-    \ :split ~/.vim/bundle/vim-snippets/snippets/javascript.snippets<cr>
-  autocmd FileType go
-    \ nnoremap <buffer> <localleader>es
-    \ :split ~/.vim/bundle/vim-snippets/snippets/go.snippets<cr>
-augroup END
-
 let g:vim_markdown_initial_foldlevel=5
 
 " vim-go
