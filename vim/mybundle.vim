@@ -20,8 +20,6 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'godlygeek/tabular'
 Plugin 'tomtom/tlib_vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
 Plugin 'dahu/vim-fanfingtastic'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
@@ -94,11 +92,6 @@ nnoremap <silent> <leader>i :IndentGuidesToggle<cr>
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_auto_colors=1
 let g:indent_guides_start_level=2
-
-" Snippets
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-d>"
-let g:UltiSnipsJumpBackwardTrigger="<c-s>"
 
 " Make f, F, t, T case-insensitive
 let g:fanfingtastic_ignorecase = 1
