@@ -31,6 +31,7 @@ Plugin 'moll/vim-node'
 Plugin 'csscomb/vim-csscomb'
 Plugin 'maksimr/vim-jsbeautify'
 Plugin 'fatih/vim-go'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 " }}}
 
 " Syntax Highlighting ------ {{{
@@ -136,3 +137,6 @@ let g:AutoPairsShortcutBackInsert = 'µ'
 " Update git-gutter always
 let g:gitgutter_realtime = 1
 set updatetime=500
+
+" Vim markdown preview
+let vim_markdown_preview_github=1
