@@ -26,6 +26,8 @@
     "it": false,
     "before": false,
     "after": false,
+    "beforeEach": false,
+    "afterEach": false,
     "d3": false,
     "angular": false,
     "Parse": false
