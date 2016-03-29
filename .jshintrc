@@ -2,6 +2,7 @@
   "node": true,
   "browser": true,
   "jquery": true,
+  "esversion": 6,
 
   "eqeqeq": true,
   "forin": false,
