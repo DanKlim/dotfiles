@@ -28,7 +28,7 @@ if (player) {
 }
 "
 
-set regexp to "s/https?:\\/\\/(www\\.)?(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+|netflix\\.com\\/WiPlayer|[^\\s]+:32400\\/web\\/index\\.html)/*good*(&)/"
+set regexp to "s/https?:\\/\\/(www\\.)?(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+|netflix\\.com\\/watch\\/|[^\\s]+:32400\\/web\\/index\\.html)/*good*(&)/"
 tell application "Google Chrome"
   tell active tab of front window
     set cmd to "echo \"" & URL & "\" | sed -E \"" & regexp & "\"" as string
