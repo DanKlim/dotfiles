@@ -9,6 +9,7 @@ function getPlayer(byId, name) {
   return player && isCorrectPlayer(player) ? player : null;
 }
 
+var button = document.getElementsByClassName('icon-player-pause')[0];
 var player =
   getPlayer(true, 'movie_player') ||
   getPlayer(true, 'player1') ||
@@ -16,7 +17,9 @@ var player =
   getPlayer(false, 'object') ||
   getPlayer(false, 'embed');
 
-if (player) {
+if (button) {
+  button.click();
+} else  if (player) {
   if (player.pauseVideo) { player.pauseVideo(); }
   else if (player.pause) { player.pause(); }
 }
