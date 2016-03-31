@@ -9,7 +9,9 @@ function getPlayer(byId, name) {
   return player && isCorrectPlayer(player) ? player : null;
 }
 
-var button = document.getElementsByClassName('player-play-pause')[0];
+var button =
+  document.getElementsByClassName('player-play-pause')[0] ||
+  document.getElementsByClassName('js-control-playpause-button')[0];
 var player =
   getPlayer(true, 'movie_player') ||
   getPlayer(true, 'player1') ||

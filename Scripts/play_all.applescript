@@ -9,7 +9,9 @@ function getPlayer(byId, name) {
   return player && isCorrectPlayer(player) ? player : null;
 }
 
-var button = document.getElementsByClassName('icon-player-play')[0];
+var button =
+  document.getElementsByClassName('icon-player-play')[0] ||
+  document.getElementsByClassName('js-play-button')[0];
 var player =
   getPlayer(true, 'movie_player') ||
   getPlayer(true, 'player1') ||
@@ -18,7 +20,9 @@ var player =
   getPlayer(false, 'embed');
 
 if (button) {
-  button.click();
+  if (getComputedStyle(button).display !== 'none') {
+    button.click();
+  }
 } else if (player) {
   if (player.playVideo) { player.playVideo(); }
   else if (player.play) { player.play(); }
