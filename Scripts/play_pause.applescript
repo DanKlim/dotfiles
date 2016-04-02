@@ -1,34 +1,37 @@
 # Play or pause a video.
 set myjs to "
-var isCorrectPlayer = window.location.hostname === 'www.twitch.tv' ?
-  function(player) { return player.getVideoTime; } :
-  function(player) { return player.playVideo || player.play; } ;
-function getPlayer(byId, name) {
-  var player = byId ?
-    document.getElementById(name) : document.getElementsByTagName(name)[0];
-  return player && isCorrectPlayer(player) ? player : null;
-}
-
 var button =
   document.getElementsByClassName('player-play-pause')[0] ||
   document.getElementsByClassName('js-control-playpause-button')[0];
-var player =
-  getPlayer(true, 'movie_player') ||
-  getPlayer(true, 'player1') ||
-  getPlayer(false, 'video') ||
-  getPlayer(false, 'object') ||
-  getPlayer(false, 'embed');
 
 if (button) {
   button.click();
-} else if (player) {
-  if (player.getPlayerState && player.getPlayerState() === 1 ||
-      player.isPaused && !player.isPaused() || player.paused === false) {
-    if (player.pauseVideo) { player.pauseVideo(); }
-    else if (player.pause) { player.pause(); }
-  } else {
-    if (player.playVideo) { player.playVideo(); }
-    else if (player.play) { player.play(); }
+} else {
+  var isCorrectPlayer = window.location.hostname === 'www.twitch.tv' ?
+    function(player) { return player.getVideoTime; } :
+    function(player) { return player.playVideo || player.play; } ;
+  var getPlayer = function(byId, name) {
+    var player = byId ?
+      document.getElementById(name) : document.getElementsByTagName(name)[0];
+    return player && isCorrectPlayer(player) ? player : null;
+  };
+
+  var player =
+    getPlayer(true, 'movie_player') ||
+    getPlayer(true, 'player1') ||
+    getPlayer(false, 'video') ||
+    getPlayer(false, 'object') ||
+    getPlayer(false, 'embed');
+
+  if (player) {
+    if (player.getPlayerState && player.getPlayerState() === 1 ||
+        player.isPaused && !player.isPaused() || player.paused === false) {
+      if (player.pauseVideo) { player.pauseVideo(); }
+      else if (player.pause) { player.pause(); }
+    } else {
+      if (player.playVideo) { player.playVideo(); }
+      else if (player.play) { player.play(); }
+    }
   }
 }
 "

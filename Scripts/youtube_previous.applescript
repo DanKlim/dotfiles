@@ -18,9 +18,12 @@ if (prev && prev.style.display !== 'none') {
     getPlayer(false, 'video') ||
     getPlayer(false, 'object') ||
     getPlayer(false, 'embed');
-  player.seekTo(0, true);
-  if (player.getPlayerState() !== 1) {
-    player.playVideo();
+
+  if (player) {
+    player.seekTo(0, true);
+    if (player.getPlayerState() !== 1) {
+      player.playVideo();
+    }
   }
 }
 "

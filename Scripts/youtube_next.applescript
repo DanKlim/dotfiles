@@ -16,7 +16,10 @@ if (next) {
     getPlayer(false, 'video') ||
     getPlayer(false, 'object') ||
     getPlayer(false, 'embed');
-  player.nextVideo();
+
+  if (player) {
+    player.nextVideo();
+  }
 }
 "
 
