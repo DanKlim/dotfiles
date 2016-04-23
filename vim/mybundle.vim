@@ -55,6 +55,7 @@ Plugin 'croaker/mustang-vim'
 Plugin 'tomasr/molokai'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'jonathanfilip/vim-lucius'
+Plugin 'chriskempson/base16-vim'
 Plugin 'fent/vim-frozen'
 " }}}
 

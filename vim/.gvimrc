@@ -9,8 +9,8 @@ set guioptions-=L
 set guifont=Menlo\ Regular:h14
 
 " Cool color scheme.
-color frozen
-set transparency=17
+color base16-atelierlakeside
+set transparency=15
 
 " Disable this so I can use the <d-l> shortcut
 macmenu &Tools.List\ Errors key=<nop>
