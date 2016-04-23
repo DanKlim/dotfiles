@@ -205,10 +205,11 @@ augroup END
 " Highlight cursor.
 highlight CursorLine ctermbg=8 cterm=NONE
 
+
 augroup highligh
   autocmd!
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter * set cursorline
+  autocmd WinLeave * setlocal nocursorline
+  autocmd WinEnter,VimEnter,BufWinEnter * setlocal cursorline
 augroup END
 
 " Only highlight up to a certain point.
