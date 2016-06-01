@@ -228,7 +228,7 @@ set autoread
 " Folding ------------------ {{{
 set foldmethod=syntax
 set foldnestmax=5
-set foldlevelstart=2
+set foldlevelstart=5
 let javaScript_fold=1
 
 " Different folding for some files
