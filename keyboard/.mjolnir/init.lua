@@ -64,6 +64,7 @@ hotkey.bind(switchKey, "E", focusApp("Terminal"))
 hotkey.bind(switchKey, "R", focusApp("MacVim"))
 hotkey.bind(switchKey, "S", focusApp("Finder"))
 hotkey.bind(switchKey, "D", focusApp("Discord"))
+hotkey.bind(switchKey, "J", focusApp("Slack"))
 hotkey.bind(switchKey, "T", focusApp("Transmission Remote GUI"))
 hotkey.bind(switchKey, "G", each({
   focusApp("iTunes"),
