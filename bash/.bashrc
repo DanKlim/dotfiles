@@ -13,6 +13,7 @@ export PKG_CONFIG_PATH=/usr/X11/lib/pkgconfig
 # This loads NVM
 [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh
 
+
 # perl
 export PERL_LOCAL_LIB_ROOT="$HOME/perl5:$PERL_LOCAL_LIB_ROOT";
 export PERL_MB_OPT="--install_base "$HOME/perl5"";
@@ -105,3 +106,7 @@ if [ -f ~/.git-completion.bash ]; then
   __git_complete gm _git_merge
   __git_complete gbd _git_branch
 fi
+
+# arcanist
+source "/Users/roly/.arc_loc"
+PATH="$PATH:$ARC_LOC/arcanist/bin"
