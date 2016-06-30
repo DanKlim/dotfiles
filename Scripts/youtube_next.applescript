@@ -1,7 +1,8 @@
 # If in a playlist, play the next video.
 set myjs to "
-var className = 'ytp-next-button';
-var next = document.getElementsByClassName(className)[0];
+var next =
+  document.querySelector('.veefeed-next-button.veefeed-show') ||
+  document.getElementsByClassName('ytp-next-button')[0];
 if (next) {
   next.click();
 } else {
