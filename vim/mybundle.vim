@@ -24,6 +24,7 @@ Plugin 'dahu/vim-fanfingtastic'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-unimpaired'
+Plugin 'lfilho/cosco.vim'
 " }}}
 
 " Environemnts ------------- {{{
@@ -63,7 +64,7 @@ Plugin 'blueyed/colorhighlight.vim'
 " }}}
 
 " Misc --------------------- {{{
-Bundle 'junegunn/vim-emoji'
+Plugin 'junegunn/vim-emoji'
 " }}}
 
 " This had to be disabled for vundle.
@@ -140,3 +141,10 @@ set updatetime=500
 
 " Vim markdown preview
 let vim_markdown_preview_github=1
+
+" Cosco
+augroup cosco
+  autocmd!
+  autocmd FileType javascript,css nnoremap <silent> ;; :call cosco#commaOrSemiColon()<CR>
+  autocmd FileType javascript,css inoremap <silent> ;; <c-o>:call cosco#commaOrSemiColon()<CR>
+augroup END
