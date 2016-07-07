@@ -9,7 +9,7 @@ set guioptions-=L
 set guifont=Menlo\ Regular:h14
 
 " Cool color scheme.
-color base16-atelierlakeside
+color base16-atelier-lakeside
 set transparency=15
 
 " Disable this so I can use the <d-l> shortcut
