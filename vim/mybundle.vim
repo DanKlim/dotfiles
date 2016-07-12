@@ -25,6 +25,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'lfilho/cosco.vim'
+Plugin 'jeetsukumaran/vim-indentwise'
 " }}}
 
 " Environemnts ------------- {{{
