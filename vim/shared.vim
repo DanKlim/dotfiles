@@ -300,66 +300,6 @@ augroup END
 set showtabline=1
 " }}}
 
-" Status line ------------------------ {{{
-" Show line and column number in status bar.
-set ruler
-
-" Show keys in status bar as they are typed.
-set showcmd
-
-function! RelativePathString(file)
-  let filelist=split(a:file,'/')
-  if len(filelist) == 0
-    return "[No name]"
-  endif
-
-  let dir=getcwd()
-  let dirlist=split(dir,'/')
-
-  let finalString=""
-
-  let i = 0
-  for str in dirlist
-    if str !=# filelist[i]
-      break
-    else
-      let i += 1
-    endif
-  endfor
-
-  let j=0
-  let k=len(dirlist)-i
-  while j < k
-    let finalString .= "../"
-    let j += 1
-  endwhile
-
-  let j=len(filelist)-1
-  while i < j
-    let finalString .= filelist[i] . "/"
-    let i += 1
-  endwhile
-  let finalString .= filelist[i]
-
-  return finalString
-endfunction
-
-function! Fenc()
-  if &fenc !~ "^$\\|utf-8" || &bomb
-    return "[" . &fenc . (&bomb ? "-bom" : "") . "]"
-  else
-    return ""
-  endif
-endfunction
-
-" Custom status line
-set statusline=%{RelativePathString(expand('%:p'))} " filename
-set statusline+=%m                                  " modified or readonly flag
-set statusline+=%{Fenc()}                           " file encoding
-set statusline+=%=                                  " align right
-set statusline+=%15.(%l,%c/%L\ %P%)                 " cursor position/total lines
-" }}}
-
 " Don't use the mouse.
 set mouse=r
 

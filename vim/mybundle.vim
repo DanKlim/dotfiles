@@ -13,6 +13,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-scripts/PreserveNoEOL'
 Plugin 'ciaranm/detectindent'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+set laststatus=2
+let g:bufferline_echo = 0
+let g:airline_theme="base16"
+set noshowmode
 " }}}
 
 " Mappings ----------------- {{{
@@ -129,7 +135,7 @@ let g:PreserveNoEOL = 1
 " Detect indent
 augroup detect_indent
   autocmd!
-  autocmd BufReadPost * :DetectIndent 
+  autocmd BufReadPost * :DetectIndent
 augroup END
 
 " Fly mode
