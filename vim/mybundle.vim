@@ -31,7 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:bufferline_echo = 0
 if has("gui_running") 
-  let g:airline_theme="base16"
+  let g:airline_theme="luna"
 endif
 let g:airline_mode_map = {
   \ '__' : '-',
