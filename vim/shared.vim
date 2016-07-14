@@ -47,20 +47,13 @@ augroup END
 nnoremap Q <nop>
 nnoremap K <nop>
 
-" Move through buffers.
-nnoremap <leader>d :bn<cr>
-nnoremap <leader>f :bp<cr>
-
-" Move to the last buffer
-nnoremap <leader>s <c-^>
-
 " Redo to U.
 nnoremap U <c-r>
 
-" Insert one line above and move cursor.
-inoremap <d-l> <esc>O
+" Insert one line above and move cursor to it.
+inoremap <c-o> <esc>O
 
-" Go to the end of the line
+" Go to the end of the line.
 inoremap <d-e> <esc>A
 
 " Uppercase previous word.
@@ -81,8 +74,8 @@ endfunction
 nnoremap <up> :<up>
 
 " Split Windows.
-nnoremap <leader>v <c-w>s<C-w>j
-nnoremap <leader>b :vs<cr>
+nnoremap <leader>z <c-w>s<C-w>j
+nnoremap <leader>x :vs<cr>
 
 " Navigate windows with Shift + hjkl.
 nnoremap H <c-w>h
@@ -124,19 +117,6 @@ function! s:CopyFile()
   :normal ggVG"+y<cr>
   call setpos(".", cursor)
 endfunction
-
-" Extended % matching.
-runtime macros/matchit.vim
-
-function! s:DiffWithSaved()
-  let filetype=&ft
-  diffthis
-  vnew | r # | normal! 1Gdd
-  diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
-endfunction
-com! DiffSaved call s:DiffWithSaved()
-
 " }}}
 
 " Resize split windows when the vim window is resized

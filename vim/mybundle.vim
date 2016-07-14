@@ -1,91 +1,65 @@
 " Let Vundle manage Vundle.
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim/
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
 " Usage -------------------- {{{
-Plugin 'scrooloose/syntastic'
-Plugin 'danro/rename.vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'tpope/vim-fugitive'
-Plugin 'vim-scripts/PreserveNoEOL'
-Plugin 'ciaranm/detectindent'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-set laststatus=2
-let g:bufferline_echo = 0
-let g:airline_theme="base16"
-set noshowmode
-" }}}
-
-" Mappings ----------------- {{{
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'godlygeek/tabular'
-Plugin 'tomtom/tlib_vim'
-Plugin 'dahu/vim-fanfingtastic'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'lfilho/cosco.vim'
-Plugin 'jeetsukumaran/vim-indentwise'
-" }}}
-
-" Environemnts ------------- {{{
-Plugin 'moll/vim-node'
-Plugin 'maksimr/vim-jsbeautify'
-Plugin 'fatih/vim-go'
-Plugin 'JamshedVesuna/vim-markdown-preview'
-" }}}
-
-" Syntax Highlighting ------ {{{
-Plugin 'plasticboy/vim-markdown'
-Plugin 'pangloss/vim-javascript'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'elzr/vim-json'
-Plugin 'lukaszb/vim-web-indent'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'vim-scripts/applescript.vim'
-Plugin 'vim-scripts/AnsiEsc.vim'
-Plugin 'othree/xml.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'groenewege/vim-less'
-Plugin 'mustache/vim-mustache-handlebars'
-" }}}
-
-" Color schemes ------------ {{{
-Plugin 'goatslacker/mango.vim'
-Plugin 'croaker/mustang-vim'
-Plugin 'tomasr/molokai'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'jonathanfilip/vim-lucius'
-Plugin 'chriskempson/base16-vim'
-Plugin 'fent/vim-frozen'
-" }}}
-
-" Dev ---------------------- {{{
-Plugin 'blueyed/colorhighlight.vim'
-" }}}
-
-" Misc --------------------- {{{
-Plugin 'junegunn/vim-emoji'
-" }}}
-
-" This had to be disabled for vundle.
-call vundle#end()
-filetype plugin indent on
-
-" Syntastic.
+Plug 'scrooloose/syntastic'
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_jump=0
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'java'] }
+nnoremap <silent> <leader>e/ :Errors<cr>
 
-" Tabularize Mapping.
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ciaranm/detectindent'
+augroup detect_indent
+  autocmd!
+  autocmd BufReadPost * :DetectIndent
+augroup END
+
+Plug 'tpope/vim-fugitive'
+
+Plug 'vim-scripts/PreserveNoEOL'
+let g:PreserveNoEOL = 1
+
+Plug 'jiangmiao/auto-pairs'
+let g:AutoPairsFlyMode = 0
+let g:AutoPairsShortcutBackInsert = 'µ'
+
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+let g:bufferline_echo = 0
+if has("gui_running") 
+  let g:airline_theme="base16"
+endif
+let g:airline_mode_map = {
+  \ '__' : '-',
+  \ 'n'  : 'N',
+  \ 'i'  : 'I',
+  \ 'R'  : 'R',
+  \ 'c'  : 'C',
+  \ 'v'  : 'V',
+  \ 'V'  : 'V',
+  \ 's'  : 'S',
+  \ 'S'  : 'S',
+  \ }
+set laststatus=2
+set noshowmode
+" }}}
+
+" Mappings ----------------- {{{
+Plug 'tpope/vim-repeat'
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'Lokaltog/vim-easymotion'
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+map <leader>f <Plug>(easymotion-bd-f)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+
+Plug 'godlygeek/tabular'
 nnoremap <leader>a= :Tabularize /=<cr>
 vnoremap <leader>a= :Tabularize /=<cr>
 nnoremap <leader>a: :Tabularize /:<cr>
@@ -93,34 +67,61 @@ vnoremap <leader>a: :Tabularize /:<cr>
 nnoremap <leader>a; :Tabularize /:<cr>
 vnoremap <leader>a; :Tabularize /:<cr>
 
-" Shows the errors window. (e)
-nnoremap <silent> <leader>e/ :Errors<cr>
-
-" Enable indent guides on boot and allow colorschemes to style them.
-nnoremap <silent> <leader>i :IndentGuidesToggle<cr>
-let g:indent_guides_enable_on_vim_startup=1
-let g:indent_guides_auto_colors=1
-let g:indent_guides_start_level=2
-
-" Make f, F, t, T case-insensitive
+Plug 'dahu/vim-fanfingtastic'
 let g:fanfingtastic_ignorecase = 1
 
-nmap <leader>h :call ColorSyntaxHighlightToggle()<cr>
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-unimpaired'
+Plug 'lfilho/cosco.vim'
+augroup cosco
+  autocmd!
+  autocmd FileType javascript,css nnoremap <silent> ;; :call cosco#commaOrSemiColon()<CR>
+  autocmd FileType javascript,css inoremap <silent> ;; <c-o>:call cosco#commaOrSemiColon()<CR>
+augroup END
 
-let g:EasyMotion_leader_key = ',m'
+Plug 'jeetsukumaran/vim-indentwise'
+" }}}
 
+" Environemnts ------------- {{{
+Plug 'moll/vim-node'
+Plug 'maksimr/vim-jsbeautify'
+
+Plug 'fatih/vim-go'
+let g:go_doc_keywordprg_enabled = 0
 augroup filetype_go
   autocmd!
   autocmd filetype go nnoremap <buffer> <localleader>d
     \ :split <cr>:exe "GoDef"<cr>
 augroup END
 
+Plug 'JamshedVesuna/vim-markdown-preview'
+let vim_markdown_preview_github=1
+" }}}
+
+" Syntax Highlighting ------ {{{
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_initial_foldlevel=5
 
-" vim-go
-let g:go_doc_keywordprg_enabled = 0
+Plug 'pangloss/vim-javascript'
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_conceal_function       = "ƒ"
+let g:javascript_conceal_null           = "ø"
+let g:javascript_conceal_this           = "@"
+let g:javascript_conceal_return         = "⇚"
+let g:javascript_conceal_undefined      = "¿"
+let g:javascript_conceal_NaN            = "ℕ"
+let g:javascript_conceal_prototype      = "¶"
+let g:javascript_conceal_static         = "•"
+let g:javascript_conceal_super          = "Ω"
+let g:javascript_conceal_arrow_function = "⇒"
 
-" compile coffeescript
+Plug 'jelera/vim-javascript-syntax'
+Plug 'elzr/vim-json'
+
+"Plug 'lukaszb/vim-web-indent'
+
+Plug 'kchmck/vim-coffee-script'
 augroup coffeescript
   autocmd!
   autocmd FileType coffee
@@ -129,29 +130,34 @@ augroup coffeescript
     \ vnoremap <buffer> <localleader>c :CoffeeCompile<cr>
 augroup END
 
-" don't insert EOL if not already there
-let g:PreserveNoEOL = 1
+Plug 'vim-scripts/applescript.vim'
+Plug 'othree/xml.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'groenewege/vim-less'
+Plug 'mustache/vim-mustache-handlebars'
+" }}}
 
-" Detect indent
-augroup detect_indent
-  autocmd!
-  autocmd BufReadPost * :DetectIndent
-augroup END
+" Color schemes ------------ {{{
+Plug 'goatslacker/mango.vim'
+Plug 'croaker/mustang-vim'
+Plug 'tomasr/molokai'
+Plug 'altercation/vim-colors-solarized'
+Plug 'jonathanfilip/vim-lucius'
+Plug 'chriskempson/base16-vim'
+Plug 'fent/vim-frozen'
+Plug 'junegunn/seoul256.vim'
+" }}}
 
-" Fly mode
-let g:AutoPairsFlyMode = 0
-let g:AutoPairsShortcutBackInsert = 'µ'
+" Dev ---------------------- {{{
+Plug 'chrisbra/Colorizer'
+nmap <leader>h :ColorToggle<cr>
+" }}}
 
-" Update git-gutter always
-let g:gitgutter_realtime = 1
-set updatetime=500
+" Misc --------------------- {{{
+Plug 'vim-scripts/AnsiEsc.vim'
+Plug 'junegunn/vim-emoji'
+" }}}
 
-" Vim markdown preview
-let vim_markdown_preview_github=1
-
-" Cosco
-augroup cosco
-  autocmd!
-  autocmd FileType javascript,css nnoremap <silent> ;; :call cosco#commaOrSemiColon()<CR>
-  autocmd FileType javascript,css inoremap <silent> ;; <c-o>:call cosco#commaOrSemiColon()<CR>
-augroup END
+" This had to be disabled for vundle.
+call plug#end()
+filetype plugin indent on
