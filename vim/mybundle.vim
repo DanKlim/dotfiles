@@ -30,6 +30,7 @@ let g:AutoPairsShortcutBackInsert = 'µ'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:bufferline_echo = 0
+let g:airline_powerline_fonts = 1
 if has("gui_running") 
   let g:airline_theme="luna"
 endif
@@ -44,6 +45,22 @@ let g:airline_mode_map = {
   \ 's'  : 'S',
   \ 'S'  : 'S',
   \ }
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+" Unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 set laststatus=2
 set noshowmode
 " }}}
@@ -118,8 +135,7 @@ let g:javascript_conceal_arrow_function = "⇒"
 
 Plug 'jelera/vim-javascript-syntax'
 Plug 'elzr/vim-json'
-
-"Plug 'lukaszb/vim-web-indent'
+Plug 'lukaszb/vim-web-indent'
 
 Plug 'kchmck/vim-coffee-script'
 augroup coffeescript
