@@ -6,7 +6,6 @@ set guioptions-=r
 
 " Remove lefthand scrollbar.
 set guioptions-=L
-set guifont=Menlo\ Regular:h14
 
 " Cool color scheme.
 color base16-atelier-lakeside

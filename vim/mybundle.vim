@@ -45,20 +45,7 @@ let g:airline_mode_map = {
   \ 's'  : 'S',
   \ 'S'  : 'S',
   \ }
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-" Unicode symbols
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '◀'
-"let g:airline_symbols.linenr = '␊'
-"let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-"let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
+set guifont=Liberation_Mono_for_Powerline:h14
 set laststatus=2
 set noshowmode
 " }}}
