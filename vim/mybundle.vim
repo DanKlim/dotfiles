@@ -96,6 +96,14 @@ augroup cosco
 augroup END
 
 Plug 'jeetsukumaran/vim-indentwise'
+map [2 <Plug>(IndentWisePreviousLesserIndent)
+map [3 <Plug>(IndentWisePreviousEqualIndent)
+map [4 <Plug>(IndentWisePreviousGreaterIndent)
+map ]2 <Plug>(IndentWiseNextLesserIndent)
+map ]3 <Plug>(IndentWiseNextEqualIndent)
+map ]4 <Plug>(IndentWiseNextGreaterIndent)
+map [5 <Plug>(IndentWiseBlockScopeBoundaryBegin)
+map ]5 <Plug>(IndentWiseBlockScopeBoundaryEnd)
 " }}}
 
 " Environemnts ------------- {{{
