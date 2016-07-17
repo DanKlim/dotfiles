@@ -13,8 +13,6 @@ alias .....='cd ../../../../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
-alias c='clear'
-alias e='exit'
 
 # vi in the command line
 set -o vi
