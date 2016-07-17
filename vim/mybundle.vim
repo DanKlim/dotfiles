@@ -46,6 +46,21 @@ let g:airline_mode_map = {
   \ 'S'  : 'S',
   \ }
 set guifont=Liberation_Mono_for_Powerline:h14
+if !has("gui_running")
+  if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+  endif
+  let g:airline_left_sep = '▶'
+  let g:airline_right_sep = '◀'
+  "let g:airline_symbols.linenr = '␊'
+  ""let g:airline_symbols.linenr = '␤'
+  let g:airline_symbols.linenr = '¶'
+  let g:airline_symbols.branch = '⎇'
+  "let g:airline_symbols.paste = 'ρ'
+  ""let g:airline_symbols.paste = 'Þ'
+  let g:airline_symbols.paste = '∥'
+  let g:airline_symbols.whitespace = 'Ξ'
+endif
 set laststatus=2
 set noshowmode
 " }}}
