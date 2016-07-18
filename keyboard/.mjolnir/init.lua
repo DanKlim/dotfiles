@@ -60,7 +60,7 @@ end
 
 local switchKey = {"alt"}
 hotkey.bind(switchKey, "W", focusApp("Google Chrome"))
-hotkey.bind(switchKey, "E", focusApp("Terminal"))
+hotkey.bind(switchKey, "E", focusApp("Cathode"))
 hotkey.bind(switchKey, "R", focusApp("MacVim"))
 hotkey.bind(switchKey, "S", focusApp("Finder"))
 hotkey.bind(switchKey, "D", focusApp("Discord"))
