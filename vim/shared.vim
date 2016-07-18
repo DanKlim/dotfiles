@@ -54,7 +54,7 @@ nnoremap U <c-r>
 inoremap <c-o> <esc>O
 
 " Go to the end of the line.
-inoremap <d-e> <esc>A
+inoremap <c-e> <esc>A
 
 " Uppercase previous word.
 inoremap <silent> <c-p> <esc>:call <SID>Preserve("normal bviwU")<cr>a
@@ -83,19 +83,13 @@ nnoremap J <c-w>j
 nnoremap K <c-w>k
 nnoremap L <c-w>l
 
-" Resize windows with Cmd + yuio
-nnoremap <d-y> <c-w><
-nnoremap <d-u> <c-w>-
-nnoremap <d-i> <c-w>+
-nnoremap <d-o> <c-w>>
-
 " Move lines
-nnoremap <d-j> :m .+1<cr>==
-nnoremap <d-k> :m .-2<cr>==
-inoremap <d-j> <esc>:m .+1<cr>==gi
-inoremap <d-k> <esc>:m .-2<cr>==gi
-vnoremap <d-j> :m '>+1<cr>gv=gv
-vnoremap <d-k> :m '<-2<cr>gv=gv
+nnoremap <leader>j :m .+1<cr>==
+nnoremap <leader>k :m .-2<cr>==
+inoremap <leader>j <esc>:m .+1<cr>==gi
+inoremap <leader>k <esc>:m .-2<cr>==gi
+vnoremap <leader>j :m '>+1<cr>gv=gv
+vnoremap <leader>k :m '<-2<cr>gv=gv
 
 " Save faster
 nnoremap <leader>w :w<cr>

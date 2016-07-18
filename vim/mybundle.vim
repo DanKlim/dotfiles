@@ -31,7 +31,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:bufferline_echo = 0
 let g:airline_powerline_fonts = 1
-if has("gui_running") 
+if has("gui_running")
   let g:airline_theme="luna"
 endif
 let g:airline_mode_map = {
@@ -55,7 +55,7 @@ if !has("gui_running")
   "let g:airline_symbols.linenr = '␊'
   ""let g:airline_symbols.linenr = '␤'
   let g:airline_symbols.linenr = '¶'
-  let g:airline_symbols.branch = '⎇'
+  let g:airline_symbols.branch = ''
   "let g:airline_symbols.paste = 'ρ'
   ""let g:airline_symbols.paste = 'Þ'
   let g:airline_symbols.paste = '∥'
@@ -73,8 +73,7 @@ Plug 'Lokaltog/vim-easymotion'
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
 map <leader>f <Plug>(easymotion-bd-f)
-map <leader>j <Plug>(easymotion-j)
-map <leader>k <Plug>(easymotion-k)
+map <leader>l <Plug>(easymotion-bd-jk)
 
 Plug 'godlygeek/tabular'
 nnoremap <leader>a= :Tabularize /=<cr>
