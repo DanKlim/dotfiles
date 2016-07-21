@@ -13,7 +13,8 @@ nnoremap <silent> <leader>e/ :Errors<cr>
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ciaranm/detectindent'
-augroup detect_indent
+:let g:detectindent_preferred_indent = 2
+augroup DetectIndent
   autocmd!
   autocmd BufReadPost * :DetectIndent
 augroup END
