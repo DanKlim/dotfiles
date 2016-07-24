@@ -14,10 +14,6 @@ nnoremap <silent> <leader>e/ :Errors<cr>
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ciaranm/detectindent'
 :let g:detectindent_preferred_indent = 2
-augroup DetectIndent
-  autocmd!
-  autocmd BufReadPost * :DetectIndent
-augroup END
 
 Plug 'tpope/vim-fugitive'
 
@@ -116,7 +112,7 @@ Plug 'fatih/vim-go'
 let g:go_doc_keywordprg_enabled = 0
 augroup filetype_go
   autocmd!
-  autocmd filetype go nnoremap <buffer> <localleader>d
+  autocmd FileType go nnoremap <buffer> <localleader>d
     \ :split <cr>:exe "GoDef"<cr>
 augroup END
 
@@ -175,3 +171,9 @@ Plug 'junegunn/vim-emoji'
 " This had to be disabled for vundle.
 call plug#end()
 filetype plugin indent on
+
+" This augroup for detect indent must be placed after Plug.
+augroup detect_indent
+  autocmd!
+  autocmd BufReadPost * :DetectIndent
+augroup END
