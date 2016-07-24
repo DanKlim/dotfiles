@@ -35,4 +35,7 @@ ln -sf "$dir"/keyboard/.phoenix ~
 ln -sf "$dir"/keyboard/.zephyros.js ~
 ln -sf "$dir"/keyboard/.mjolnir ~
 
+# tmux
+ln -sf "$dir"/.tmux.conf ~
+
 echo done
