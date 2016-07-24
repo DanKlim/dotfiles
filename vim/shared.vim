@@ -97,8 +97,11 @@ nnoremap <leader>w :w<cr>
 " Quit faster
 nnoremap <leader>q :q<cr>
 
-" Delete current buffer faster
+" Delete current buffer
 nnoremap <leader>as :bd<cr>
+
+" Switch to last buffer
+nnoremap <leader>b :e#<cr>
 
 " Copy selection to clipboard
 vnoremap <leader>c "+y
