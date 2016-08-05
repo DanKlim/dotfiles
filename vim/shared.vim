@@ -57,8 +57,8 @@ inoremap <c-o> <esc>O
 inoremap <c-e> <esc>A
 
 " Uppercase previous word.
-inoremap <silent> <c-p> <esc>:call <SID>Preserve("normal bviwU")<cr>a
-nnoremap <silent> <c-p> :call <SID>Preserve("normal bviwU")<cr>
+inoremap <silent> <c-p> <esc>:call <SID>Preserve("normal bebviwU")<cr>a
+nnoremap <silent> <c-p> :call <SID>Preserve("normal bebviwU")<cr>
 
 function! s:Preserve(command)
   let _s=@/
