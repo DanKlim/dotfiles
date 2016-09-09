@@ -37,7 +37,7 @@ Plug 'vim-airline/vim-airline-themes'
 let g:bufferline_echo = 0
 let g:airline_powerline_fonts = 1
 if has("gui_running")
-  let g:airline_theme="luna"
+  let g:airline_theme="oceanicnext"
 endif
 let g:airline_mode_map = {
   \ '__' : '-',
@@ -164,6 +164,7 @@ Plug 'jonathanfilip/vim-lucius'
 Plug 'chriskempson/base16-vim'
 Plug 'fent/vim-frozen'
 Plug 'junegunn/seoul256.vim'
+Plug 'mhartington/oceanic-next'
 " }}}
 
 " Dev ---------------------- {{{

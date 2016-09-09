@@ -15,9 +15,9 @@ set backupdir=~/.vim/backup
 
 " Set color scheme.
 set t_Co=256
+syntax enable
+color OceanicNext
 set background=dark
-syntax on
-color mango
 
 " Source settings files ------------------ {{{
 if !exists("*Resource")
