@@ -71,3 +71,5 @@ alias grm="git rm"
 alias urlfind="grep -ioE 'https?://[^[:space:]]+' | tail -1"
 alias urlcopy="urlfind | pbcopy"
 alias urlopen="urlfind | xargs open"
+
+alias tb="nc termbin.com 9999"
