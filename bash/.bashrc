@@ -32,10 +32,10 @@ export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 # load aliases
 [[ -f $HOME/.alias ]] && source ~/.alias
 
-alias vim='mvim'
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+alias vim='nvim'
+export EDITOR=nvim
 alias vi=/Applications/MacVim.app/Contents/MacOS/Vim
-MYEDITOR='mvim'
+MYEDITOR='nvim'
 
 # edit .bashrc and vim
 alias be='$MYEDITOR ~/.bashrc'
