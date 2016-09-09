@@ -16,8 +16,10 @@ mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/swp
 mkdir -p ~/.vim/backup
 ln -sf "$dir"/vim/shared.vim ~/.vim
-ln -sf "$dir"/vim/mybundle.vim ~/.vim
+ln -sf "$dir"/vim/plugins.vim ~/.vim
 ln -sf "$dir"/vim/.editorconfig ~/.vim
+ln -sf ~/.vim ~/.config/nvim
+ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
 # jshint
 ln -sf "$dir"/.jshintrc ~

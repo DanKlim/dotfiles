@@ -1,8 +1,8 @@
 " First load settings that will be used in all environments.
 source ~/.vim/shared.vim
 
-" Load bundles.
-source ~/.vim/mybundle.vim
+" Load plugins.
+source ~/.vim/plugins.vim
 
 " Do not keep a backup file.
 if has("vms")
@@ -34,5 +34,5 @@ endif
 " Edit settings files easier.
 nnoremap <leader>er :split ~/.vim/.vimrc<cr>
 nnoremap <leader>ev :split ~/.vim/shared.vim<cr>
-nnoremap <leader>eb :split ~/.vim/mybundle.vim<cr>
+nnoremap <leader>eb :split ~/.vim/plugins.vim<cr>
 " }}}
