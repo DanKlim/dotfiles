@@ -12,6 +12,9 @@ set modelines=1
 " Use both Unix and DOS file formats, but favor the Unix one for new files.
 set fileformats=unix,dos
 
+" Case insensitive file completion.
+set wildignorecase
+
 " Change map leader for ease.
 let mapleader=','
 let maplocalleader='['
