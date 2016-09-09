@@ -3,12 +3,20 @@ filetype off
 call plug#begin('~/.vim/plugged')
 
 " Usage -------------------- {{{
-Plug 'scrooloose/syntastic'
-let g:syntastic_enable_signs=1
-let g:syntastic_auto_jump=0
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
-let g:syntastic_mode_map = { 'passive_filetypes': ['html', 'java'] }
+Plug 'neomake/neomake'
+let g:neomake_error_sign = {
+  \ 'text': '>>',
+  \ 'texthl': 'ErrorMsg',
+  \ }
+hi MyWarningMsg ctermbg=3 ctermfg=0
+let g:neomake_warning_sign = {
+  \ 'text': '>>',
+  \ 'texthl': 'MyWarningMsg',
+  \ }
+augroup neomake_group
+  autocmd!
+  autocmd! BufWritePost *.js,*.coffee,*.css,*.scss,*.py :Neomake
+augroup END
 nnoremap <silent> <leader>e/ :Errors<cr>
 
 Plug 'nathanaelkane/vim-indent-guides'
