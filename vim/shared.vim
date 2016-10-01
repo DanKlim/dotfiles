@@ -117,6 +117,8 @@ function! s:CopyFile()
   :normal ggVG"+y<cr>
   call setpos(".", cursor)
 endfunction
+
+nnoremap <down> :normal! J<cr>
 " }}}
 
 " Resize split windows when the vim window is resized
@@ -288,8 +290,7 @@ set mouse=r
 
 nnoremap <leader>o :call <SID>QuickfixToggle()<cr>
 
-let g:quickfix_is_open = 0
-
+let g:quickfix_is_open = 0 
 function! s:QuickfixToggle()
   if g:quickfix_is_open
     cclose
