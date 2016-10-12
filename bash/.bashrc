@@ -32,20 +32,20 @@ export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 # load aliases
 [[ -f $HOME/.alias ]] && source ~/.alias
 
-MYEDITOR='vim'
+export EDITOR='vim'
 
 # edit .bashrc and vim
-alias be='$MYEDITOR ~/.bashrc'
-alias bea='$MYEDITOR ~/.alias'
-alias bep='$MYEDITOR ~/.profile'
-alias bedb='$MYEDITOR ~/.db'
+alias be='$EDITOR ~/.bashrc'
+alias bea='$EDITOR ~/.alias'
+alias bep='$EDITOR ~/.profile'
+alias bedb='$EDITOR ~/.db'
 alias br='. ~/.bashrc'
-alias ve='$MYEDITOR ~/.vimrc'
-alias veb='$MYEDITOR ~/.vim/mybundle.vim'
-alias ves='$MYEDITOR ~/.vim/shared.vim'
-alias jse='$MYEDITOR ~/.jshintrc'
+alias ve='$EDITOR ~/.vimrc'
+alias veb='$EDITOR ~/.vim/mybundle.vim'
+alias ves='$EDITOR ~/.vim/shared.vim'
+alias jse='$EDITOR ~/.jshintrc'
 alias scd='cd ~/.vim/bundle/vim-snippets/snippets'
-alias ec2-e='$MYEDITOR ~/.ec2sshrc'
+alias ec2-e='$EDITOR ~/.ec2sshrc'
 
 # kill processes that match pattern
 function killme() {
