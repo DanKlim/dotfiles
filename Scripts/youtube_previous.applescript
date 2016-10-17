@@ -4,27 +4,30 @@
 set myjs to "
 var className = 'ytp-prev-button';
 var prev = document.getElementsByClassName(className)[0];
-if (prev && prev.style.display !== 'none') {
-  prev.click();
-} else {
-  var getPlayer = function(byId, name) {
-    var player = byId ?
-      document.getElementById(name) : document.getElementsByTagName(name)[0];
-    return player && (player.playVideo || player.play) ? player : null;
-  };
-  var player =
-    getPlayer(true, 'movie_player') ||
-    getPlayer(true, 'player1') ||
-    getPlayer(false, 'video') ||
-    getPlayer(false, 'object') ||
-    getPlayer(false, 'embed');
+prev = prev && prev.style.display !== 'none' ? prev : null;
+var getPlayer = function(byId, name) {
+  var player = byId ?
+    document.getElementById(name) : document.getElementsByTagName(name)[0];
+  return player && (player.playVideo || player.play) ? player : null;
+};
+var player =
+  getPlayer(true, 'movie_player') ||
+  getPlayer(true, 'player1') ||
+  getPlayer(false, 'video') ||
+  getPlayer(false, 'object') ||
+  getPlayer(false, 'embed');
 
-  if (player) {
-    player.seekTo(0, true);
-    if (player.getPlayerState() !== 1) {
-      player.playVideo();
+if (player) {
+  if (player.currentTime < 10 && prev) {
+    prev.click();
+  } else {
+    player.currentTime = 0;
+    if (player.paused) {
+      player.play();
     }
   }
+} else if (prev) {
+  prev.click();
 }
 "
 
