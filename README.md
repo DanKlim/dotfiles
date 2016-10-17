@@ -15,10 +15,6 @@
 * http://jshint.com/
   - `.jshintrc` file included.
 
-### vim
-* https://github.com/gmarik/Vundle.vim
-  - plugin manager.
-
 # shortcuts
 * http://www.getcloudapp.com/
   - automatically uploads screenshots.
@@ -50,11 +46,18 @@
   - doesn't have events.
   - can unbind.
 * https://github.com/mjolnir-io/mjolnir
-  - newest, most efficient, most maintained by a longshot.
+  - efficient, minimal, maintained.
   - doesn't have events.
   - can unbind.
   - nice log window.
   - most customizable.
+* https://github.com/Hammerspoon/hammerspoon/
+  - fork of mjolnir.
+  - most recently active and maintained.
+  - Supports Applescript.
+  - Better directional focusing.
+  - Grid layout module included.
+  - more modules included, easier to get started with.
  
 # install
 

@@ -36,6 +36,7 @@ ln -sf "$dir"/keyboard/.slate.js ~
 ln -sf "$dir"/keyboard/.phoenix ~
 ln -sf "$dir"/keyboard/.zephyros.js ~
 ln -sf "$dir"/keyboard/.mjolnir ~
+ln -sf "$dir"/keyboard/.hammerspoon ~
 
 # tmux
 ln -sf "$dir"/.tmux.conf ~
