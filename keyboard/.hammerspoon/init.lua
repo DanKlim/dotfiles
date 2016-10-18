@@ -6,6 +6,7 @@ local function focusApp(name)
   return function()
     app = hs.application.get(name)
     app:activate()
+    app.unhide()
   end
 end
 
