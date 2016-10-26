@@ -110,6 +110,8 @@ map ]3 <Plug>(IndentWiseNextEqualIndent)
 map ]4 <Plug>(IndentWiseNextGreaterIndent)
 map [5 <Plug>(IndentWiseBlockScopeBoundaryBegin)
 map ]5 <Plug>(IndentWiseBlockScopeBoundaryEnd)
+
+Plug 'vim-scripts/ZoomWin'
 " }}}
 
 " Environemnts ------------- {{{
