@@ -5,8 +5,7 @@ watcher = hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", hs.reload):s
 local function focusApp(name)
   return function()
     app = hs.application.get(name)
-    app:activate()
-    app:unhide()
+    if not app:unhide() or app:activate()then end
   end
 end
 
