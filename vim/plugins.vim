@@ -17,7 +17,6 @@ augroup neomake_group
   autocmd!
   autocmd! BufWritePost *.js,*.coffee,*.css,*.scss,*.py :Neomake
 augroup END
-nnoremap <silent> <leader>e/ :Errors<cr>
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ciaranm/detectindent'

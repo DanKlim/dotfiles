@@ -16,7 +16,7 @@ set backupdir=~/.vim/backup
 " Set color scheme.
 set t_Co=256
 syntax enable
-color OceanicNext
+color mango
 set background=dark
 
 " Source settings files ------------------ {{{
