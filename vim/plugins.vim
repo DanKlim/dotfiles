@@ -111,6 +111,10 @@ map [5 <Plug>(IndentWiseBlockScopeBoundaryBegin)
 map ]5 <Plug>(IndentWiseBlockScopeBoundaryEnd)
 
 Plug 'vim-scripts/ZoomWin'
+
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-colorscheme-switcher'
+let g:colorscheme_switcher_keep_background = 1
 " }}}
 
 " Environemnts ------------- {{{
