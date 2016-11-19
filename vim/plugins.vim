@@ -31,40 +31,34 @@ Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutBackInsert = 'µ'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-let g:bufferline_echo = 0
-let g:airline_powerline_fonts = 1
-if has("gui_running")
-  let g:airline_theme="oceanicnext"
-endif
-let g:airline_mode_map = {
-  \ '__' : '-',
-  \ 'n'  : 'N',
-  \ 'i'  : 'I',
-  \ 'R'  : 'R',
-  \ 'c'  : 'C',
-  \ 'v'  : 'V',
-  \ 'V'  : 'V',
-  \ 's'  : 'S',
-  \ 'S'  : 'S',
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+  \ 'colorscheme': 'wombat',
+  \ 'mode_map': {
+  \   'n': 'N',
+  \   'i': 'I',
+  \   'R': 'R',
+  \   'v': 'V',
+  \   'V': 'V',
+  \   "\<C-v>": 'V',
+  \   'c': 'C',
+  \   's': 'S',
+  \   'S': 'S',
+  \   "\<C-s>": 'S',
+  \   't': 'T',
+  \ },
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ],
+  \             [ 'readonly', 'filename', 'modified' ] ],
+  \   'right': [ [ 'lineinfo' ], [ 'percent' ] ],
+  \ },
+  \ 'component_function': {
+  \   'fugitive': 'LightlineFugitive',
+  \ },
   \ }
-set guifont=Liberation_Mono_for_Powerline:h14
-if !has("gui_running")
-  if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-  endif
-  let g:airline_left_sep = '▶'
-  let g:airline_right_sep = '◀'
-  "let g:airline_symbols.linenr = '␊'
-  ""let g:airline_symbols.linenr = '␤'
-  let g:airline_symbols.linenr = '¶'
-  let g:airline_symbols.branch = ''
-  "let g:airline_symbols.paste = 'ρ'
-  ""let g:airline_symbols.paste = 'Þ'
-  let g:airline_symbols.paste = '∥'
-  let g:airline_symbols.whitespace = 'Ξ'
-endif
+function! LightlineFugitive()
+  return exists('*fugitive#head') ? fugitive#head() : ''
+endfunction
 set laststatus=2
 set noshowmode
 " }}}
