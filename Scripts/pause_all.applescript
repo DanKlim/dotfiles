@@ -32,7 +32,7 @@ if (button) {
 }
 "
 
-set regexp to "s/https?:\\/\\/(www\\.)?(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+|netflix\\.com\\/watch\\/|[^\\s]+:32400\\/web\\/index\\.html)/*good*(&)/"
+set regexp to "s/https?:\\/\\/(www\\.)?(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+|netflix\\.com\\/watch\\/|[^ ]+:32400\\/web\\/index\\.html)/*good*(&)/"
 tell application "Google Chrome"
   repeat with t in tabs of windows
     tell t
