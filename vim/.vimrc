@@ -16,8 +16,8 @@ set backupdir=~/.vim/backup
 " Set color scheme.
 set t_Co=256
 syntax enable
-color molokai
-set background=dark
+color seoul256
+hi Normal ctermbg=none
 
 " Source settings files ------------------ {{{
 if !exists("*Resource")
