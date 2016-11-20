@@ -5,10 +5,10 @@ ln -sf "$dir"/bash/.bash_profile ~
 ln -sf "$dir"/bash/.bashrc ~
 ln -sf "$dir"/bash/.alias ~
 
-# Only needed if you'll use mongo shell.
+# For mongo shell.
 ln -sf "$dir"/bash/mongo.js ~
 
-# I love vim
+# vim vim vim
 ln -sf "$dir"/vim/.vimrc ~
 ln -sf "$dir"/vim/.gvimrc ~
 mkdir -p ~/.vim
@@ -18,15 +18,11 @@ mkdir -p ~/.vim/backup
 ln -sf "$dir"/vim/shared.vim ~/.vim
 ln -sf "$dir"/vim/plugins.vim ~/.vim
 ln -sf "$dir"/vim/.editorconfig ~/.vim
-ln -sf ~/.vim ~/.config/nvim
-ln -sf ~/.vimrc ~/.config/nvim/init.vim
 
 # jshint
 ln -sf "$dir"/.jshintrc ~
 
 # keyboard shortcuts
-mkdir -p ~/Library/Application\ Support/Karabiner
-ln -sf "$dir"/private.xml ~/Library/Application\ Support/Karabiner
 mkdir -p ~/Library/Scripts
 cp -R "$dir"/Scripts/* ~/Library/Scripts
 
