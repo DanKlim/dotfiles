@@ -27,9 +27,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/PreserveNoEOL'
 let g:PreserveNoEOL = 1
 
-Plug 'jiangmiao/auto-pairs'
-let g:AutoPairsFlyMode = 0
-let g:AutoPairsShortcutBackInsert = 'µ'
+Plug 'cohama/lexima.vim'
 
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
@@ -85,7 +83,6 @@ Plug 'dahu/vim-fanfingtastic'
 let g:fanfingtastic_ignorecase = 1
 
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-unimpaired'
 Plug 'lfilho/cosco.vim'
 augroup cosco
