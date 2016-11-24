@@ -15,7 +15,7 @@ let g:neomake_warning_sign = {
   \ }
 augroup neomake_group
   autocmd!
-  autocmd! BufWritePost *.js,*.coffee,*.css,*.scss,*.py :Neomake
+  autocmd! BufWritePost *.js,*.coffee,*.css,*.scss,*.py,*.ts :Neomake
 augroup END
 
 Plug 'nathanaelkane/vim-indent-guides'
@@ -90,8 +90,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'lfilho/cosco.vim'
 augroup cosco
   autocmd!
-  autocmd FileType javascript,css nnoremap <silent> ;; :call cosco#commaOrSemiColon()<cr>
-  autocmd FileType javascript,css inoremap <silent> ;; <c-o>:call cosco#commaOrSemiColon()<cr>
+  autocmd FileType javascript,typescript,css nnoremap <silent> ;; :call cosco#commaOrSemiColon()<cr>
+  autocmd FileType javascript,typescript,ss inoremap <silent> ;; <c-o>:call cosco#commaOrSemiColon()<cr>
 augroup END
 
 Plug 'jeetsukumaran/vim-indentwise'
