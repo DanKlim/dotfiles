@@ -106,4 +106,6 @@ fi
 
 # arcanist
 source "/Users/roly/.arc_loc"
-PATH="$PATH:$ARC_LOC/arcanist/bin"
+export PATH="$PATH:$ARC_LOC/arcanist/bin"
+
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
