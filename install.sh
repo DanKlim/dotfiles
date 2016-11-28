@@ -26,6 +26,9 @@ ln -sf "$dir"/.jshintrc ~
 mkdir -p ~/Library/Scripts
 cp -R "$dir"/Scripts/* ~/Library/Scripts
 
+# key remap
+ln -sf "$dir"/keyboard/karabiner-elements/karabiner.json ~/.karabiner.d/configuration
+
 # window management
 ln -sf "$dir"/keyboard ~
 ln -sf "$dir"/keyboard/.slate.js ~
