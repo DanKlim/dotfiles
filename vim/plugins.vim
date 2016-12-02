@@ -29,7 +29,7 @@ let g:PreserveNoEOL = 1
 
 Plug 'jiangmiao/auto-pairs'
 let g:AutoPairsFlyMode = 0
-let g:AutoPairsShortcutBackInsert = 'µ'
+let g:AutoPairsShortcutBackInsert = '<C-b>'
 
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
