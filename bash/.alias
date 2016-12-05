@@ -73,3 +73,7 @@ alias urlcopy="urlfind | pbcopy"
 alias urlopen="urlfind | xargs open"
 
 alias tb="nc termbin.com 9999"
+
+# npm
+alias npmpub="gp && gpt && npm publish"
+alias npmbump="npm version patch && npmpub"
