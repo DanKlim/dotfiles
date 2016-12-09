@@ -19,8 +19,9 @@ ln -sf "$dir"/vim/shared.vim ~/.vim
 ln -sf "$dir"/vim/plugins.vim ~/.vim
 ln -sf "$dir"/vim/.editorconfig ~/.vim
 
-# jshint
+# javascript
 ln -sf "$dir"/.jshintrc ~
+ln -sf "$dir"/.eslintrc* ~
 
 # keyboard shortcuts
 mkdir -p ~/Library/Scripts

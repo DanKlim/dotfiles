@@ -5,18 +5,19 @@ call plug#begin('~/.vim/plugged')
 " Usage -------------------- {{{
 Plug 'neomake/neomake'
 let g:neomake_error_sign = {
-  \ 'text': '>>',
+  \ 'text': 'E',
   \ 'texthl': 'ErrorMsg',
   \ }
-hi MyWarningMsg ctermbg=3 ctermfg=0
 let g:neomake_warning_sign = {
-  \ 'text': '>>',
-  \ 'texthl': 'MyWarningMsg',
+  \ 'text': 'W',
+  \ 'texthl': 'WarningMsg',
   \ }
+let g:neomake_javascript_enabled_makers = ['eslint']
 augroup neomake_group
   autocmd!
   autocmd! BufWritePost *.js,*.coffee,*.css,*.scss,*.py,*.ts :Neomake
 augroup END
+Plug 'jaawerth/neomake-local-eslint-first'
 
 Plug 'Chiel92/vim-autoformat'
 noremap <leader>c :Autoformat<cr>
