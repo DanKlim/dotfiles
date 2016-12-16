@@ -43,6 +43,12 @@ augroup center
   autocmd BufEnter * let &scrolloff = &filetype == 'help' ? 0 : 99
   autocmd FileType help nnoremap <buffer> j j<c-e>
   autocmd FileType help nnoremap <buffer> k <c-y>k
+  autocmd FileType help nnoremap <buffer> <cr> <c-]>
+  autocmd FileType help nnoremap <buffer> <bs> <c-t>
+  autocmd FileType help nnoremap <buffer> o /'\l\{2,\}'<cr>
+  autocmd FileType help nnoremap <buffer> O ?'\l\{2,\}'<cr>
+  autocmd FileType help nnoremap <buffer> s /\|\zs\S\+\ze\|<cr>
+  autocmd FileType help nnoremap <buffer> S ?\|\zs\S\+\ze\|<cr>
 augroup END
 " }}}
 
