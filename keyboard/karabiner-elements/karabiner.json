@@ -22,7 +22,7 @@
                 "caps_lock": "left_control",
                 "tab": "right_option"
             },
-            "standalone_modifiers": {
+            "standalone_keys": {
                 "left_control": "escape",
                 "right_alt": "tab"
             }
