@@ -13,6 +13,7 @@ alias .....='cd ../../../../..'
 alias .3='cd ../../..'
 alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
+alias clear="printf '\33c\e[3J'"
 
 # vi in the command line
 set -o vi
@@ -38,7 +39,6 @@ alias gbd="git branch -D"
 alias gst="git status"
 alias gc="git commit -m"
 alias gci="git commit"
-alias wtc="whatthecommit --no-disclaimer"
 alias gcw="gc \"\`whatthecommit --no-disclaimer\`\""
 alias gca="git commit -a -m"
 alias gcia="git commit --amend"
