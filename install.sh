@@ -41,4 +41,7 @@ ln -sf "$dir"/keyboard/.hammerspoon ~
 # tmux
 ln -sf "$dir"/.tmux.conf ~
 
+# terminal
+ln -sf "$dir"/.alacritty.yml ~
+
 echo done
