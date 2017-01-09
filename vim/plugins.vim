@@ -129,6 +129,8 @@ augroup END
 
 Plug 'JamshedVesuna/vim-markdown-preview'
 let vim_markdown_preview_github=1
+
+Plug 'tmux-plugins/vim-tmux-focus-events'
 " }}}
 
 " Syntax Highlighting ------ {{{
