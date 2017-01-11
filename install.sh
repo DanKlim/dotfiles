@@ -28,7 +28,7 @@ mkdir -p ~/Library/Scripts
 cp -R "$dir"/Scripts/* ~/Library/Scripts
 
 # key remap
-ln -sf "$dir"/keyboard/karabiner-elements/karabiner.json ~/.karabiner.d/configuration
+ln -sf "$dir"/keyboard/karabiner-elements/karabiner.json ~/.config/.karabiner
 
 # window management
 ln -sf "$dir"/keyboard ~
