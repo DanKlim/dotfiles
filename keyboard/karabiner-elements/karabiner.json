@@ -23,6 +23,7 @@
                 "tab": "right_option"
             },
             "standalone_keys": {
+                "left_control": "escape",
                 "caps_lock": "escape",
                 "tab": "tab"
             }
