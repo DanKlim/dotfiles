@@ -95,8 +95,6 @@ nnoremap L <c-w>l
 " Move lines
 nnoremap <leader>j :m .+1<cr>==
 nnoremap <leader>k :m .-2<cr>==
-inoremap <leader>j <esc>:m .+1<cr>==gi
-inoremap <leader>k <esc>:m .-2<cr>==gi
 vnoremap <leader>j :m '>+1<cr>gv=gv
 vnoremap <leader>k :m '<-2<cr>gv=gv
 

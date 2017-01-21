@@ -94,8 +94,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'lfilho/cosco.vim'
 augroup cosco
   autocmd!
-  autocmd FileType javascript,typescript,css,scss nnoremap <silent> ;; :call cosco#commaOrSemiColon()<cr>
-  autocmd FileType javascript,typescript,css,scss inoremap <silent> ;; <c-o>:call cosco#commaOrSemiColon()<cr>
+  autocmd FileType javascript,typescript,css,scss,json nnoremap <silent> ;; :call cosco#commaOrSemiColon()<cr>
+  autocmd FileType javascript,typescript,css,scss,json inoremap <silent> ;; <c-o>:call cosco#commaOrSemiColon()<cr>
 augroup END
 
 Plug 'jeetsukumaran/vim-indentwise'
