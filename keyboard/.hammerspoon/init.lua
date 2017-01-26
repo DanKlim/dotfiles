@@ -32,7 +32,7 @@ hs.hotkey.bind(switchKey, "9", focusApp("Notes"))
 local winKey = {"ctrl", "alt"}
 
 hs.grid.setMargins(hs.geometry.size(0, 0))
-hs.grid.setGrid(hs.geometry.size(4, 4))
+hs.grid.setGrid(hs.geometry.size(8, 8))
 
 hs.hotkey.bind(winKey, "Y", function()
   grid = hs.grid.getGrid()
