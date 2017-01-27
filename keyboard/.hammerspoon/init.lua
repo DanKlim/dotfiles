@@ -90,7 +90,3 @@ hs.hotkey.bind({"ctrl"}, "J", hs.fnutils.partial(hs.eventtap.keyStroke, {}, "dow
 hs.hotkey.bind({"ctrl"}, "K", hs.fnutils.partial(hs.eventtap.keyStroke, {}, "up"))
 hs.hotkey.bind({"ctrl"}, "L", hs.fnutils.partial(hs.eventtap.keyStroke, {"cmd", "shift"}, "]"))
 hs.hotkey.bind({"ctrl"}, "space", hs.fnutils.partial(hs.eventtap.keyStroke, {}, "return"))
-hs.hotkey.bind({"alt"}, "space", function()
-  hs.eventtap.keyStroke({}, "tab")
-  hs.eventtap.keyStroke({}, "space")
-end)
