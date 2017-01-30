@@ -23,7 +23,7 @@ Plug 'Chiel92/vim-autoformat'
 noremap <leader>c :Autoformat<cr>
 
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'ciaranm/detectindent'
+Plug 'tpope/vim-sleuth'
 :let g:detectindent_preferred_indent = 2
 
 Plug 'tpope/vim-fugitive'
