@@ -1,8 +1,18 @@
 # Play or pause a video.
 set myjs to "
+function getButton(className, querySelector) {
+  var btn = querySelector ?
+    document.querySelector(className) :
+    document.getElementsByClassName(className)[0];
+  return btn && getComputedStyle(btn).display !== 'none' ? btn : null;
+}
+
 var button =
-  document.getElementsByClassName('player-play-pause')[0] ||
-  document.getElementsByClassName('js-control-playpause-button')[0];
+  getButton('player-play-pause') ||
+  getButton('js-control-playpause-button') ||
+  getButton('.mini-controls .pause-btn', true) ||
+  getButton('.mini-controls .play-btn', true) ||
+  null;
 
 if (button) {
   button.click();

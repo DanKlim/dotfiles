@@ -1,13 +1,20 @@
 # Pause all youtube videos in all youtube tabs.
 set myjs to "
+function getButton(className, querySelector) {
+  var btn = querySelector ?
+    document.querySelector(className) :
+    document.getElementsByClassName(className)[0];
+  return btn && getComputedStyle(btn).display !== 'none' ? btn : null;
+}
+
 var button =
-  document.getElementsByClassName('icon-player-play')[0] ||
-  document.getElementsByClassName('js-play-button')[0];
+  getButton('player-play-pause') ||
+  getButton('js-control-playpause-button') ||
+  getButton('.mini-controls .play-btn', true) ||
+  null;
 
 if (button) {
-  if (getComputedStyle(button).display !== 'none') {
-    button.click();
-  }
+  button.click();
 } else {
   var isCorrectPlayer = window.location.hostname === 'www.twitch.tv' ?
     function(player) { return player.getVideoTime; } :
