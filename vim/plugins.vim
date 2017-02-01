@@ -24,7 +24,6 @@ noremap <leader>c :Autoformat<cr>
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-sleuth'
-:let g:detectindent_preferred_indent = 2
 
 Plug 'tpope/vim-fugitive'
 
@@ -185,9 +184,3 @@ Plug 'junegunn/vim-emoji'
 " This had to be disabled for vundle.
 call plug#end()
 filetype plugin indent on
-
-" This augroup for detect indent must be placed after Plug.
-augroup detect_indent
-  autocmd!
-  autocmd BufReadPost * :DetectIndent
-augroup END
