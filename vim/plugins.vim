@@ -112,6 +112,9 @@ Plug 'vim-scripts/ZoomWin'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-colorscheme-switcher'
 let g:colorscheme_switcher_keep_background = 1
+
+Plug 'mileszs/ack.vim'
+let g:ackprg = 'ag --vimgrep'
 " }}}
 
 " Environemnts ------------- {{{
