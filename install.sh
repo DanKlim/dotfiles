@@ -22,6 +22,7 @@ ln -sf "$dir"/vim/.editorconfig ~/.vim
 # javascript
 ln -sf "$dir"/.jshintrc ~
 ln -sf "$dir"/.eslintrc* ~
+ln -sf "$dir"/coffelint.json ~
 
 # keyboard shortcuts
 mkdir -p ~/Library/Scripts
