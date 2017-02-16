@@ -20,7 +20,7 @@ augroup END
 Plug 'jaawerth/neomake-local-eslint-first'
 
 Plug 'Chiel92/vim-autoformat'
-noremap <leader>c :Autoformat<cr>
+noremap <leader>af :Autoformat<cr>
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-sleuth'
