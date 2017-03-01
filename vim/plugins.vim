@@ -37,19 +37,6 @@ let g:AutoPairsShortcutBackInsert = '<C-b>'
 Plug 'itchyny/lightline.vim'
 let g:lightline = {
   \ 'colorscheme': 'wombat',
-  \ 'mode_map': {
-  \   'n': 'N',
-  \   'i': 'I',
-  \   'R': 'R',
-  \   'v': 'V',
-  \   'V': 'V',
-  \   "\<C-v>": 'V',
-  \   'c': 'C',
-  \   's': 'S',
-  \   'S': 'S',
-  \   "\<C-s>": 'S',
-  \   't': 'T',
-  \ },
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ], [ 'fugitive' ],
   \             [ 'readonly', 'filename', 'modified' ] ],
