@@ -15,6 +15,19 @@
         "no-console": [ "error", { "allow": ["warn", "error"] } ],
         "linebreak-style": [ "error", "unix" ],
         "quotes": [ "error", "single" ],
-        "semi": [ "error", "always" ]
+        "semi": [ "error", "always" ],
+        "valid-jsdoc": [ "off", {
+            "preferType": {
+                "boolean": "Boolean",
+                "number": "Number",
+                "ojbect": "Object",
+                "string": "String",
+                "array": "Array",
+                "function": "Function"
+            },
+            "requireReturn": false,
+            "requireParamDescription": false,
+            "requireReturnDescription": false
+        }]
     }
 }
