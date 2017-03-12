@@ -151,14 +151,9 @@ Plug 'mustache/vim-mustache-handlebars'
 
 " Color schemes ------------ {{{
 Plug 'goatslacker/mango.vim'
-Plug 'croaker/mustang-vim'
-Plug 'tomasr/molokai'
-Plug 'altercation/vim-colors-solarized'
-Plug 'jonathanfilip/vim-lucius'
 Plug 'chriskempson/base16-vim'
 Plug 'fent/vim-frozen'
 Plug 'junegunn/seoul256.vim'
-Plug 'mhartington/oceanic-next'
 " }}}
 
 " Dev ---------------------- {{{
