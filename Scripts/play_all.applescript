@@ -39,7 +39,7 @@ if (button) {
 }
 "
 
-set regexp to "s/https?:\\/\\/(www\\.)?(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+|netflix\\.com\\/watch\\/|[^ ]+:32400\\/web\\/index\\.html)/*good*(&)/"
+set regexp to "s/https?:\\/\\/(www\\.)?(youtube\\.com\\/(watch|embed)|twitch\\.tv\\/[a-zA-Z0-9_]+\\/[cv]\\/[0-9]+|netflix\\.com\\/watch\\/|[^ ]+:32400\\/web\\/index\\.html|app\\.plex\\.tv\\/web\\/app)/*good*(&)/"
 tell application "Google Chrome"
   repeat with win in windows
     if win is visible
