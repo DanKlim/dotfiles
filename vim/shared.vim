@@ -92,12 +92,6 @@ nnoremap J <c-w>j
 nnoremap K <c-w>k
 nnoremap L <c-w>l
 
-" Move lines
-nnoremap <leader>j :m .+1<cr>==
-nnoremap <leader>k :m .-2<cr>==
-vnoremap <leader>j :m '>+1<cr>gv=gv
-vnoremap <leader>k :m '<-2<cr>gv=gv
-
 " Save faster
 nnoremap <leader>w :w<cr>
 
