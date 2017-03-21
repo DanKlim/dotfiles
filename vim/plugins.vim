@@ -19,8 +19,10 @@ augroup neomake_group
 augroup END
 Plug 'jaawerth/neomake-local-eslint-first'
 
-Plug 'Chiel92/vim-autoformat'
-noremap <leader>af :Autoformat<cr>
+Plug 'sbdchd/neoformat'
+autocmd BufWritePre *.js Neoformat
+autocmd FileType javascript set formatprg=prettier\ --stdin\ --single-quote\ --trailing-comma\ es5
+let g:neoformat_try_formatprg = 1
 
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-sleuth'
