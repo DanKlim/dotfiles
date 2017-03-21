@@ -147,6 +147,7 @@ Plug 'othree/xml.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'groenewege/vim-less'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'ericpruitt/tmux.vim'
 " }}}
 
 " Color schemes ------------ {{{
