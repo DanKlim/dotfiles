@@ -20,7 +20,6 @@ augroup END
 Plug 'jaawerth/neomake-local-eslint-first'
 
 Plug 'sbdchd/neoformat'
-autocmd BufWritePre *.js Neoformat
 autocmd FileType javascript set formatprg=prettier\ --stdin\ --single-quote\ --trailing-comma\ es5
 let g:neoformat_try_formatprg = 1
 
