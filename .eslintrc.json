@@ -28,6 +28,7 @@
             "requireReturn": false,
             "requireParamDescription": false,
             "requireReturnDescription": false
-        }]
+        }],
+        "no-control-regex": ["off"]
     }
 }
