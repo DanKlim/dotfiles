@@ -52,6 +52,8 @@ function! LightlineFugitive()
 endfunction
 set laststatus=2
 set noshowmode
+
+Plug 'wojtekmach/vim-rename'
 " }}}
 
 " Mappings ----------------- {{{
