@@ -121,6 +121,7 @@ augroup END
 
 Plug 'JamshedVesuna/vim-markdown-preview'
 let vim_markdown_preview_github=1
+let vim_markdown_preview_browser='Google Chrome'
 
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " }}}
