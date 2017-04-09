@@ -1,4 +1,9 @@
 {
+    "global": {
+        "check_for_updates_on_startup": false,
+        "show_in_menu_bar": false,
+        "show_profile_name_in_menu_bar": false
+    },
     "profiles": [
         {
             "devices": [],
@@ -17,15 +22,21 @@
                 "f9": "vk_consumer_next"
             },
             "name": "Default profile",
+            "one_to_many_mappings": {},
             "selected": true,
             "simple_modifications": {
                 "caps_lock": "left_control",
                 "tab": "right_option"
             },
             "standalone_keys": {
-                "left_control": "escape",
                 "caps_lock": "escape",
+                "left_control": "escape",
                 "tab": "tab"
+            },
+            "virtual_hid_keyboard": {
+                "caps_lock_delay_milliseconds": 0,
+                "keyboard_type": "ansi",
+                "standalone_keys_delay_milliseconds": 200
             }
         }
     ]
