@@ -109,3 +109,5 @@ source "/Users/roly/.arc_loc"
 export PATH="$PATH:$ARC_LOC/arcanist/bin"
 
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/latest/bin
+
+export PYTHONDONTWRITEBYTECODE=1
