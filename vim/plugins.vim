@@ -105,8 +105,6 @@ let g:colorscheme_switcher_keep_background = 1
 
 Plug 'mileszs/ack.vim'
 let g:ackprg = 'ag --vimgrep'
-
-Plug 'AndrewRadev/splitjoin.vim'
 " }}}
 
 " Environemnts ------------- {{{
