@@ -77,3 +77,7 @@ alias tb="nc termbin.com 9999"
 # npm
 alias npmpub="gp && gpt && npm publish"
 alias npmbump="npm version patch && npmpub"
+
+# workflow
+alias pm="python manage.py"
+alias ven="source ./venv/bin/activate"
