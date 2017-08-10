@@ -66,6 +66,9 @@ alias gsp="git stash pop"
 alias gcom="git checkout master"
 alias gt="git tag"
 alias grm="git rm"
+alias grb="git rebase"
+alias grbc="git rebase --continue"
+alias grba="git rebase --abort"
 
 # find a URL from output
 alias urlfind="grep -ioE 'https?://[^[:space:]]+' | tail -1"
