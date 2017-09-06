@@ -1,12 +1,87 @@
 {
     "global": {
-        "check_for_updates_on_startup": false,
-        "show_in_menu_bar": false,
+        "check_for_updates_on_startup": true,
+        "show_in_menu_bar": true,
         "show_profile_name_in_menu_bar": false
     },
     "profiles": [
         {
-            "devices": [],
+            "complex_modifications": {
+                "parameters": {
+                    "basic.to_if_alone_timeout_milliseconds": 1000
+                },
+                "rules": [
+                    {
+                        "description": "Post escape if left_control is pressed alone.",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "left_control",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_control"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Post right option if tab is held.",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "right_option"
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "tab"
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "devices": [
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": {},
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 4611,
+                        "vendor_id": 65261
+                    },
+                    "ignore": false,
+                    "simple_modifications": {
+                        "left_command": "left_option",
+                        "left_option": "left_command"
+                    }
+                }
+            ],
             "fn_function_keys": {
                 "f1": "vk_consumer_brightness_down",
                 "f10": "mute",
@@ -26,12 +101,7 @@
             "selected": true,
             "simple_modifications": {
                 "caps_lock": "left_control",
-                "tab": "right_option"
-            },
-            "standalone_keys": {
-                "caps_lock": "escape",
-                "left_control": "escape",
-                "tab": "tab"
+                "escape": "caps_lock"
             },
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 0,
