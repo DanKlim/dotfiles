@@ -62,8 +62,15 @@ nnoremap U <c-r>
 " Insert one line above and move cursor to it.
 inoremap <c-o> <esc>O
 
-" Go to the end of the line.
-inoremap <c-e> <esc>A
+" Mimic Emacs line editing in insert mode only.
+inoremap <c-a> <home>
+inoremap <c-b> <left>
+inoremap <c-e> <end>
+inoremap <c-f> <right>
+inoremap <c-k> <esc>lDa
+inoremap <c-u> <esc>d0xi
+inoremap <c-y> <esc>Pa
+inoremap <c-x><c-s> <esc>:w<cr>a
 
 " Uppercase previous word.
 inoremap <silent> <c-p> <esc>:call <SID>Preserve("normal bebviwU")<cr>a
