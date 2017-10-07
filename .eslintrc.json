@@ -14,7 +14,10 @@
         "indent": [ "error", 2, { "SwitchCase": 1 } ],
         "no-console": [ "off", { "allow": ["warn", "error"] } ],
         "linebreak-style": [ "error", "unix" ],
-        "quotes": [ "error", "single" ],
+        "quotes": [ "error", "single", {
+            "avoidEscape": true,
+            "allowTemplateLiterals": true
+        }],
         "semi": [ "error", "always" ],
         "valid-jsdoc": [ "off", {
             "preferType": {
