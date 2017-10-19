@@ -134,7 +134,6 @@ Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_jsdoc = 1
 
 Plug 'jelera/vim-javascript-syntax'
-Plug 'elzr/vim-json'
 Plug 'lukaszb/vim-web-indent'
 
 Plug 'kchmck/vim-coffee-script'
@@ -149,9 +148,7 @@ augroup END
 Plug 'vim-scripts/applescript.vim'
 Plug 'othree/xml.vim'
 Plug 'leafgarland/typescript-vim'
-Plug 'groenewege/vim-less'
 Plug 'mustache/vim-mustache-handlebars'
-Plug 'ericpruitt/tmux.vim'
 " }}}
 
 " Color schemes ------------ {{{
