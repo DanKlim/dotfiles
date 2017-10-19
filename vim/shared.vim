@@ -159,6 +159,9 @@ set backspace=indent,eol,start
 " Indent a new line the same way as the previous.
 set autoindent
 
+" Wrap lines without removing indent.
+set breakindent
+
 " Jump to brace/paranthese/brackets.
 set showmatch
 
