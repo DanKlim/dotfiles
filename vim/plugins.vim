@@ -129,6 +129,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " Syntax Highlighting ------ {{{
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_initial_foldlevel=5
+let g:vim_markdown_fenced_languages=['js=javascript']
 
 Plug 'pangloss/vim-javascript'
 let g:javascript_plugin_jsdoc = 1
